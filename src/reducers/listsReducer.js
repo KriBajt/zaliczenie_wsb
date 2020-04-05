@@ -12,6 +12,25 @@ const initialState = [
                 text: "we used a mix b.."
             }
         ]
+    },
+    {
+        title: "This Episode",
+        id: 0,
+        cards: [
+            {
+                id: 0,
+                text: "we created a static list and static card"
+            },
+            {
+                id: 1,
+                text: "we used a mix b.."
+
+            },
+            {
+                id: 1,
+                text: "we used a mix b.."
+            }
+        ]
     }
 ]
 

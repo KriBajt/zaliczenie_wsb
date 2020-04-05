@@ -8,16 +8,22 @@ import Typography from '@material-ui/core/Typography';
 const TrelloCard = ({ text }) => {
     return (
         <>
-            <Card>
-                <Typography
-                    gutterBottom>
-                    {text}
-                </Typography>
-
+            <Card style={styles.cardContainer}>
+                <CardContent>
+                    <Typography
+                        gutterBottom>
+                        {text}
+                    </Typography>
+                </CardContent>
             </Card>
         </>
     )
 }
 
+const styles = {
+    cardContainer: {
+        marginBottom: 8
+    }
+}
 
 export default TrelloCard;
