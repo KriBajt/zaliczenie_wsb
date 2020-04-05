@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import TrelloCard from "./TrelloCard";
+import { CardActions } from '@material-ui/core';
 
-
-const TrelloList = ({ title }) => {
+const TrelloList = ({ title, cards }) => {
     return (
         <>
             <div style={styles.container}>
                 <h4>{title}</h4>
-                <TrelloCard />
+                {cards.map(card => <TrelloCard text={card.text} />)}
             </div>
         </>
     );

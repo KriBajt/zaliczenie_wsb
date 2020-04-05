@@ -5,14 +5,14 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const TrelloCard = () => {
+const TrelloCard = ({ text }) => {
     return (
         <>
             <Card>
                 <Typography
                     gutterBottom>
-                    Word of the Day
-        </Typography>
+                    {text}
+                </Typography>
 
             </Card>
         </>
