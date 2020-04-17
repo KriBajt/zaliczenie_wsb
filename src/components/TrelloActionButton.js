@@ -59,14 +59,14 @@ class TrelloActionButton extends React.Component {
     renderAddButton = () => {
         const { list } = this.props;
 
-        const buttonText = list ? "Add another list" : " Add another card";
+        const buttonText = list ? "Dodaj nową listę" : " Dodaj nową kartę";
         const buttonTextOpacity = list ? 1 : 0.5;
-        const buttonTextColor = list ? "white" : "inherit";
-        const buttonTextBackground = list ? "rgba(0,0,0,.15)" : "inherit";
-
+        const buttonTextColor = list ? "white" : "black";
+        const buttonTextBackground = list ? "rgba(0,0,0,.25)" : "inherit";
 
         return (
             <div
+                className="btnFirst"
                 onClick={this.openForm}
                 style={{
                     ...styles.openFormButtonGroup,
@@ -87,9 +87,9 @@ class TrelloActionButton extends React.Component {
     renderForm = () => {
         const { list } = this.props;
 
-        const placeholder = list ? "Enter list title..." : "Entera title for this card...";
+        const placeholder = list ? "Wpisz tytuł listy..." : "Wpisz tytuł dla tej karty...";
 
-        const buttonTitle = list ? "Add List" : "Add Card";
+        const buttonTitle = list ? "Dodaj nową listę" : "Dodaj kartę";
 
         return <div>
             <Card style={{
@@ -137,13 +137,15 @@ const styles = {
         borderRadius: 3,
         height: 36,
         width: 272,
-        paddingLeft: 10
+        paddingLeft: 10,
+        marginTop: 30
+
     },
 
     formButtonGroup: {
         marginTop: 8,
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
     }
 }
 export default connect()(TrelloActionButton);

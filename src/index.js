@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App class="dupa" />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

@@ -4,10 +4,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Draggable } from 'react-beautiful-dnd';
 
-const TrelloCard = ({ text }) => {
+const TrelloCard = ({ text, id, index }) => {
     return (
-        <>
+        <Draggable draggableId={String(id)} index={index}>
             <Card style={styles.cardContainer}>
                 <CardContent>
                     <Typography
@@ -16,7 +17,7 @@ const TrelloCard = ({ text }) => {
                     </Typography>
                 </CardContent>
             </Card>
-        </>
+        </Draggable >
     )
 }
 

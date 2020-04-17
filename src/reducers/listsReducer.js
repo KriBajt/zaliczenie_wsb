@@ -5,16 +5,16 @@ let cardID = 4;
 
 const initialState = [
     {
-        title: "Last Episode",
+        title: "Tytuł 1",
         id: 0,
         cards: [
             {
                 id: 0,
-                text: "we created a static list and static card"
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, facilis nesciunt tempora, recusandae possimus voluptatibus sed laudantium culpa, incidunt maiores saepe accusantium commodi! Reiciendis error repudiandae labore voluptatum, vitae sunt!'
             },
             {
                 id: 1,
-                text: "we used a mix b.."
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, facilis nesciunt tempora, recusandae possimus voluptatibus sed laudantium culpa, incidunt maiores saepe accusantium commodi! Reiciendis error repudiandae labore voluptatum, vitae sunt!."
             }
         ]
     },
@@ -24,20 +24,20 @@ const initialState = [
         cards: [
             {
                 id: 0,
-                text: "we created a static list and static card"
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, facilis nesciunt tempora, recusandae possimus voluptatibus sed laudantium culpa, incidunt maiores saepe accusantium commod"
             },
             {
                 id: 1,
-                text: "we used a mix b.."
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, facilis nesciunt tempora, recusandae possimus voluptatibus sed laudantium culpa, incidunt maiores saepe accusantium commodi! "
 
             },
             {
                 id: 2,
-                text: "we used a mix b.."
+                text: "Testy fsdfsfsf"
             },
             {
                 id: 3,
-                text: "we used a mix b.."
+                text: "fsfsfsfsdf"
             }
         ]
     }
