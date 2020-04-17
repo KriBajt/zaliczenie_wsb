@@ -9,14 +9,19 @@ import { Draggable } from 'react-beautiful-dnd';
 const TrelloCard = ({ text, id, index }) => {
     return (
         <Draggable draggableId={String(id)} index={index}>
-            <Card style={styles.cardContainer}>
-                <CardContent>
-                    <Typography
-                        gutterBottom>
-                        {text}
-                    </Typography>
-                </CardContent>
-            </Card>
+            {provided => (
+                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                    <Card style={styles.cardContainer}>
+                        <CardContent>
+                            <Typography
+                                gutterBottom>
+                                {text}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </div>
+            )}
+
         </Draggable >
     )
 }

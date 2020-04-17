@@ -7,6 +7,23 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.btnFirst {
+  padding-left: 15px !important;
+}
+
+.btnFirst p {
+  margin-bottom: 2px !important;
+  display: flex;
+  justify-content: center;
+
+}
+
 .btnFirst:hover {
-  background-color: #c31432;
+  background-color: green !important;
+
+}
+
+.cardBody {
+  margin-top: 1rem;
+  margin-left: 1rem;
 }

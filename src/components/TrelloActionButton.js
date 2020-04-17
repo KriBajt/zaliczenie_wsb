@@ -134,16 +134,15 @@ const styles = {
         display: "flex",
         alignItems: "center",
         cursor: "pointer",
-        borderRadius: 3,
-        height: 36,
-        width: 272,
-        paddingLeft: 10,
-        marginTop: 30
+        borderRadius: 50,
+        height: 50,
+        width: 284,
+        marginTop: 30,
 
     },
 
     formButtonGroup: {
-        marginTop: 8,
+        // marginTop: 8,
         display: "flex",
         alignItems: "center",
     }
