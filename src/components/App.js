@@ -11,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import styled from "styled-components";
 
-
 const ListContainer = styled.div`
         display: flex;
         flex-direction: row;
@@ -66,7 +65,7 @@ class App extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 <DragDropContext onDragEnd={this.onDragEnd}>
-                    <div>
+                    <div class="contentTrelloBox">
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
                                 <ListContainer {...provided.droppableProps} ref={provided.innerRef} >

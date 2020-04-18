@@ -7,6 +7,7 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+
 .btnFirst {
   padding-left: 15px !important;
 }
@@ -30,4 +31,260 @@ body {
 
 .cardBodyContent:hover {
   background-color: transparent;
+}
+
+/* style do strony rejestracji */
+.authBox {
+  width: 700px;
+  overflow: hidden;
+  margin: 200px auto;
+  height: 100vh;
+
+
+}
+
+.leftBox {
+  width: 300px;
+  height: 480px;
+  float: left;
+  position: relative;
+  display: block;
+
+}
+
+.bgGreen {
+  width: 100%;
+  height: 100%;
+  /* background-color: rgb(19, 170, 82); */
+  border-top-left-radius: 90px;
+}
+
+.imageAuth {
+  background-image: url("assets/images/background.jpg");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 90px;
+  /* opacity: .5; */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.imageAuth {
+
+  font-size: 28px;
+  position: absolute;
+  color: #ffff;
+}
+
+.imageText {
+  font-size: 28px;
+  position: absolute;
+  color: #ffff;
+}
+
+.imageText.bold {
+  font-weight: bold;
+
+}
+
+.imageText.style1 {
+  top: 200px;
+  left: 20px;
+}
+
+.imageText.style2 {
+  top: 250px;
+  left: 20px;
+
+}
+
+.rightBox {
+  width: 400px;
+  height: 480px;
+  float: right;
+  border: 1px solid #59c385;
+  background-color: #ffff;
+  border-bottom-right-radius: 90px;
+}
+
+.box {
+  width: 310px;
+  height: 415px;
+  margin: 32px auto;
+}
+
+
+.titleAuth {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #116149;
+
+}
+
+.inputSBox {
+  width: 300px;
+  height: 42px;
+  border-bottom: 2px solid #d8d8d8;
+  margin-bottom: 10px;
+}
+
+.inputS {
+  width: 100%;
+  height: 98%;
+  font-size: 14px;
+  color: #37353f;
+  text-indent: 10px;
+  border: 0;
+  outline: none;
+
+}
+
+.contentBox {
+  overflow: hidden;
+  height: 42px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.checkboxBox {
+  overflow: hidden;
+  float: left;
+
+}
+
+.checkbox {
+  float: left;
+
+}
+
+.checkboxLabel {
+  float: left;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #37353f;
+}
+
+.text1 {
+  float: right;
+  font-size: 14px;
+  color: #006cbc;
+  cursor: pointer;
+
+}
+
+.btnAuth {
+  width: 300px;
+  height: 47px;
+  color: #ffff;
+  background-color: rgb(18, 161, 78);
+  text-align: center;
+  line-height: 47px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.borderBox {
+  width: 300px;
+  height: 47px;
+  position: relative;
+  margin: 20px 0;
+
+}
+
+
+.line {
+  border-bottom: 2px solid #d8d8d8;
+  position: absolute;
+  top: 22px;
+  width: 100%;
+}
+
+.text2 {
+  font-size: 14px;
+  color: #818487;
+
+}
+
+.text2.or {
+  position: absolute;
+  top: 14px;
+  left: 140px;
+  width: 25px;
+  height: 16px;
+  background-color: #ffff;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+
+}
+
+.socialMediaBox {
+  overflow: hidden;
+  width: 184px;
+  height: 47px;
+  margin: 0 auto;
+
+}
+
+.icAuth {
+  width: 41px;
+  height: 45px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+  margin-right: 30px;
+  cursor: pointer;
+
+}
+
+.icAuth:last-child {
+  margin-right: 0;
+}
+
+.icAuth.google {
+  background-image: url("assets/images/fb.png");
+}
+
+.icAuth.facebook {
+  background-image: url("assets/images/fb.png");
+}
+
+.icAuth.twitter {
+  background-image: url("assets/images/fb.png");
+}
+
+
+.contentTrelloBox {
+  background-color: rgb(155, 155, 155, .4);
+  height: 100vh;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .authBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .leftBox {
+    display: none;
+  }
+
+  .rightBox {
+    width: 80%;
+    border-radius: 8px;
+  }
 }

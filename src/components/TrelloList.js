@@ -21,7 +21,7 @@ const TrelloList = ({ title, cards, listID, index }) => {
 
             {provided => (
                 <ListContainer
-                    className="cardBody col-2"
+                    className="cardBody col-12 col-md-3 col-xl-2"
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     {...provided.dragHandleProps}
@@ -32,7 +32,6 @@ const TrelloList = ({ title, cards, listID, index }) => {
                                 <h4>{title}</h4>
                                 {cards.map((card, index) => (
                                     <TrelloCard
-                                        className="col-10"
                                         key={card.id}
                                         index={index}
                                         text={card.text}
