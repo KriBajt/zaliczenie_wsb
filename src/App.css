@@ -13,8 +13,8 @@ body {
 
 .btnFirst p {
   margin-bottom: 2px !important;
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
 
 }
 

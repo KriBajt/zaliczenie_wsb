@@ -38,8 +38,9 @@ const TrelloList = ({ title, cards, listID, index }) => {
                                         text={card.text}
                                         id={card.id} />
                                 ))}
-                                <TrelloActionButton listID={listID} />
                                 {provided.placeholder}
+
+                                <TrelloActionButton listID={listID} />
                             </div>
                         )
                         }

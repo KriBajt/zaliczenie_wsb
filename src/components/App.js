@@ -19,25 +19,24 @@ const ListContainer = styled.div`
 
 class App extends Component {
 
-    onDragEnd = (result) => {
+    onDragEnd = result => {
         const { destination, source, draggableId, type } = result;
-
 
         if (!destination) {
             return;
         }
 
-        this.props.dispatch(sort(
-            source.droppableId,
-            destination.droppableId,
-            source.index,
-            destination.index,
-            draggableId,
-            type
-
-        ))
-
-    }
+        this.props.dispatch(
+            sort(
+                source.droppableId,
+                destination.droppableId,
+                source.index,
+                destination.index,
+                draggableId,
+                type
+            )
+        );
+    };
 
     render() {
         const { lists } = this.props;
@@ -80,6 +79,7 @@ class App extends Component {
                                             index={index}
                                         />
                                     ))}
+                                    {provided.placeholder}
                                     <TrelloActionButton list />
                                 </ListContainer>
                             )}
@@ -92,13 +92,6 @@ class App extends Component {
     }
 }
 
-const styles = {
-    listsContainer: {
-        display: "flex",
-        flex: "row",
-
-    }
-}
 const mapStateToProps = state => ({
     lists: state.lists
 });
