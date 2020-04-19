@@ -5,23 +5,13 @@ import TrelloActionButton from "./TrelloActionButton";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 
-const ListContainer = styled.div`
-    background-color: rgb(193, 193, 193, .5);
-    color: #ffff;
-    border-radius: 5px;
-    width: 300px;
-    padding: 8px;
-    height: 100%;
-    margin-right: 8px;
-`
 
 const TrelloList = ({ title, cards, listID, index }) => {
     return (
+        // <div className={'container'}>
         <Draggable draggableId={String(listID)} index={index}>
-
             {provided => (
-                <ListContainer
-                    className="cardBody col-3 col-md-3 col-xl-2"
+                <div className={'ListContainer '}
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     {...provided.dragHandleProps}
@@ -44,9 +34,10 @@ const TrelloList = ({ title, cards, listID, index }) => {
                         )
                         }
                     </Droppable >
-                </ListContainer>
+                </div>
             )}
         </Draggable>
+        // </div>
 
     );
 };

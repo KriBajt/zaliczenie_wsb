@@ -5,17 +5,11 @@ import TrelloActionButton from "./TrelloActionButton";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
-import styled from "styled-components";
 import { GiNinjaHead } from 'react-icons/gi';
 import Menu from './Menu/Menu';
 
 
-const ListContainer = styled.div`
-        display: flex;
-        flex-direction: row;
-`
-
-class App extends Component {
+class MainBoard extends Component {
 
     onDragEnd = result => {
         const { destination, source, draggableId, type } = result;
@@ -41,12 +35,11 @@ class App extends Component {
         return (
             <>
                 <DragDropContext onDragEnd={this.onDragEnd}>
-
-                    <div class="contentTrelloBox col-12">
-                        <Menu className={' mt-2'} />
+                    <div className="contentTrelloBox">
+                        <Menu />
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
-                                <ListContainer {...provided.droppableProps} ref={provided.innerRef} >
+                                <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
                                     {lists.map((list, index) => (
                                         <TrelloList
                                             listID={list.id}
@@ -58,11 +51,10 @@ class App extends Component {
                                     ))}
                                     {provided.placeholder}
                                     <TrelloActionButton list />
-                                </ListContainer>
+                                </div>
                             )}
                         </Droppable>
                     </div>
-
                 </DragDropContext>
             </>
         )
@@ -73,4 +65,4 @@ const mapStateToProps = state => ({
     lists: state.lists
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(MainBoard);

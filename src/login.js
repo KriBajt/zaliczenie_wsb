@@ -3,6 +3,8 @@ import './App.css';
 import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { GiNinjaHead } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
+import MainBoard from './components/MainBoard';
 
 export default class login extends Component {
     render() {
@@ -32,7 +34,10 @@ export default class login extends Component {
                             </div>
                             <div className={'text1'}>Zapomniałeś hasło?</div>
                         </div>
-                        <div className={'btnAuth'}>Zaloguj</div>
+                        <Link to={'/MainBoard'}>
+                            <div className={'btnAuth'}>Zaloguj</div>
+                        </Link>
+
                         <div className={'borderBox'}>
                             <div className={'line'} />
                             <div className={'text2 or'}> LUB </div>

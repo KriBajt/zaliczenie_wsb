@@ -4,13 +4,13 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
-
+import './Menu.css';
 
 export default class Menu extends Component {
     render() {
         return (
             <div >
-                <Navbar className="customNaw col-10 mt-3 " collapseOnSelect expand="lg" variant="dark">
+                <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
                     <Navbar.Brand href="#home" className={'style1'}>NinjaTask<GiNinjaHead /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -26,7 +26,7 @@ export default class Menu extends Component {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 Wyloguj
                     </Nav.Link>

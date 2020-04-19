@@ -97,8 +97,6 @@ class TrelloActionButton extends React.Component {
                 minHeight: 80,
                 minWidth: 272,
                 padding: "6px 8px 2px"
-
-
             }}>
                 <Textarea
                     placeholder={placeholder}

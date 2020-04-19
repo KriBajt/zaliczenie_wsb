@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
 
 
-
 body {
   background: #c31432;
   /* fallback for old browsers */
@@ -16,23 +15,79 @@ body {
 
 }
 
+/* start stylów kontenera home */
 
-.cardBody {
-  margin-top: 1rem;
-  margin-left: 1rem;
+.ListContainer {
+  background-color: rgb(193, 193, 193, .5);
+  color: #ffff;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px;
+  height: 100%;
+  width: 300px;
+  margin-bottom: 20rem;
+}
+
+contentTrelloBox {
+  background-color: rgb(155, 155, 155, .4);
+  height: 100vh;
+}
+
+
+@media(min-width:768px) {
+  .ListContainer {
+    border-radius: 5px;
+    height: 100%;
+    margin-right: 8px;
+
+  }
+}
+
+/* end stylów kontenera home */
+
+/* start styli do list */
+
+.cardListBox {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+
+}
+
+@media(min-width:768px) {
+  .cardListBox {
+    flex-direction: row;
+  }
+}
+
+
+/* end styli do list */
+
+/* start style do kart  */
+.cardBodyContent p {
+  font-size: 13px;
 }
 
 .cardBodyContent:hover {
   background-color: transparent;
 }
 
+@media(min-width:1200px) {
+  .cardListBox {
+    flex-direction: row;
+  }
+}
+
+
+
+/* end style do kart  */
+
+
 /* style do strony rejestracji */
 .authBox {
   width: 700px;
   overflow: hidden;
   margin: 200px auto;
-  height: 100vh;
-
 
 
 }
@@ -309,16 +364,6 @@ body {
 }
 
 
-.contentTrelloBox {
-  background-color: rgb(155, 155, 155, .4);
-  height: 100vh;
-}
-
-.customNaw {
-  background: rgba(204, 163, 163, .5);
-  border-radius: 10px;
-  margin: 20px auto;
-}
 
 
 @media screen and (max-width: 768px) {
@@ -326,7 +371,6 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 100vh;
   }
 
   .leftBox {
