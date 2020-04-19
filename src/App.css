@@ -12,30 +12,9 @@ body {
   --firstColor: #045982;
   --secondColor: #006cbc;
   --thirdColor: #116149;
-}
-
-/*  Start stylów dla Przyciski - buttony */
-
-.btnFirst {
-  padding-left: 15px !important;
-  width: 30px;
-}
-
-.btnFirst p {
-  margin-bottom: 2px !important;
-  display: flex;
-  justify-content: center;
+  font-family: 'Roboto', sans-serif !important;
 
 }
-
-.btnFirst:hover {
-  background-color: var(--thirdColor) !important;
-
-}
-
-
-
-/*  Koniec stylów dla Przyciski - buttony */
 
 
 .cardBody {

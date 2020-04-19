@@ -21,7 +21,7 @@ const TrelloList = ({ title, cards, listID, index }) => {
 
             {provided => (
                 <ListContainer
-                    className="cardBody col-12 col-md-3 col-xl-2"
+                    className="cardBody col-3 col-md-3 col-xl-2"
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     {...provided.dragHandleProps}
@@ -45,7 +45,6 @@ const TrelloList = ({ title, cards, listID, index }) => {
                         }
                     </Droppable >
                 </ListContainer>
-
             )}
         </Draggable>
 

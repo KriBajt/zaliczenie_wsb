@@ -8,7 +8,7 @@ export default class register extends Component {
     render() {
         return (
             <div className={'authBox'}>
-                <div className={'leftBoxregister'}>
+                <div className={'leftBox leftBoxregister'}>
                     < div className={'bgGreen'} />
                     <div className={'imageAuth'} />
                     <div className={'imageText bold style1'}>NinjaTask<GiNinjaHead /></div>

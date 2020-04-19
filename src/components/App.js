@@ -42,8 +42,8 @@ class App extends Component {
             <>
                 <DragDropContext onDragEnd={this.onDragEnd}>
 
-                    <div class="contentTrelloBox">
-                        <Menu className={'mt-2'} />
+                    <div class="contentTrelloBox col-12">
+                        <Menu className={' mt-2'} />
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
                                 <ListContainer {...provided.droppableProps} ref={provided.innerRef} >
