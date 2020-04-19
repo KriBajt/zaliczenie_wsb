@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import store from "./store";
 import App from "./components/App";
+import Login from "./login";
 import Register from "./register";
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,10 +15,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Register />
+      <Login />
       <App />
     </Router>
   </Provider>,
-
   document.getElementById('root')
 );
 
