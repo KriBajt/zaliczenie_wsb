@@ -2,16 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './App.css';
-
+import './components/Button/Button.css';
 import store from "./store";
-import App from "./components/App";
+import MainBoard from "./components/MainBoard";
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './login';
+import Register from './register';
+import Dane from './dane';
+import CardDetail from './components/Card/CardDetail';
+import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
-  </Provider>,
+    <Router>
+      <App />
+    </Router>
+  </Provider >,
   document.getElementById('root')
 );
 
