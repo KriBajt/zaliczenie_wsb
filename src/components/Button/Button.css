@@ -10,13 +10,43 @@
     justify-content: center;
 }
 
+.btnAddNewCard {
+    background-color: var(--thirdColor);
+}
+
+.btnDetails {
+    text-align: right;
+    display: flex;
+    justify-content: end !important;
+    text-align: right !important;
+    font-size: 30px !important;
+    cursor: pointer !important;
+
+}
+
+.btnDetails a:hover {
+    color: aquamarine !important;
+}
+
+
+
+
+/* .openFormButtonGroup {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50;
+    height: 50;
+    width: 284;
+    margin-top: 0 !important;
+} */
+
 @media(max-width:1200px) {
 
     .btnFirst {
         width: 50px !important;
         margin: 0px;
         padding: 13px !important;
-
     }
 
     .btnFirst:hover {

@@ -3,6 +3,8 @@ import './App.css';
 import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { GiNinjaHead } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
+
 
 export default class register extends Component {
     render() {
@@ -31,7 +33,9 @@ export default class register extends Component {
                             <input type={'password'} className={"inputS"} placeholder={'Wprowadź ponownie hasło'} />
                         </div>
 
-                        <div className={'btnAuth mt-5'}>Zerejestruj się</div>
+                        <Link to={'/MainBoard'}>
+                            <div className={'btnAuth'}>Zarejestruj się</div>
+                        </Link>
                         <div className={'borderBox'}>
                             <div className={'line'} />
                             <div className={'text2 or'}> LUB </div>

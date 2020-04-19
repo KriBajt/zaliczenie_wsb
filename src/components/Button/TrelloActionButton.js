@@ -4,7 +4,7 @@ import Textarea from 'react-textarea-autosize';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
-import { addList, addCard } from "../actions";
+import { addList, addCard } from "../../actions";
 import './Button.css';
 
 class TrelloActionButton extends React.Component {
@@ -63,11 +63,11 @@ class TrelloActionButton extends React.Component {
         const buttonText = list ? "Dodaj nową listę" : " Dodaj nową kartę";
         const buttonTextOpacity = list ? 1 : 0.5;
         const buttonTextColor = list ? "white" : "black";
-        const buttonTextBackground = list ? "rgba(0,0,0,.25)" : "inherit";
+        const buttonTextBackground = list ? "rgba(0,0,0,.25)" : "rgba(0,0,0,.25)";
 
         return (
             <div
-                className="btnFirst"
+                className="btnFirst "
                 onClick={this.openForm}
                 style={{
                     ...styles.openFormButtonGroup,
@@ -83,13 +83,10 @@ class TrelloActionButton extends React.Component {
         )
     }
 
-
-
     renderForm = () => {
         const { list } = this.props;
 
         const placeholder = list ? "Wpisz tytuł listy..." : "Wpisz tytuł dla tej karty...";
-
         const buttonTitle = list ? "Dodaj nową listę" : "Dodaj kartę";
 
         return <div>
@@ -138,7 +135,7 @@ const styles = {
         borderRadius: 50,
         height: 50,
         width: 284,
-        marginTop: 30,
+        marginTop: 10,
 
     },
 

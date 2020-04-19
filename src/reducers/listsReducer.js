@@ -43,9 +43,8 @@ const initialState = [
     }
 ]
 
-
-
 const listsReducer = (state = initialState, action) => {
+
     switch (action.type) {
 
         case CONSTANTS.ADD_LIST:

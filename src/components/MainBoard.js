@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import TrelloList from "./TrelloList";
 import { connect } from "react-redux";
-import TrelloActionButton from "./TrelloActionButton";
+import TrelloActionButton from "./Button/TrelloActionButton";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
 import Menu from './Menu/Menu';
+import Footer from './Footer/Footer';
+import Dane from './../dane';
+
 
 
 class MainBoard extends Component {
@@ -34,9 +37,9 @@ class MainBoard extends Component {
         const { lists } = this.props;
         return (
             <>
+                <Menu />
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <div className="contentTrelloBox">
-                        <Menu />
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
                                 <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
@@ -55,7 +58,10 @@ class MainBoard extends Component {
                             )}
                         </Droppable>
                     </div>
+
                 </DragDropContext>
+                <Footer />
+
             </>
         )
     }
