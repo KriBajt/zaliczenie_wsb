@@ -2,22 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './App.css';
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import './components/Button/Button.css';
 import store from "./store";
-import App from "./components/App";
-import Register from "./register";
+import MainBoard from "./components/MainBoard";
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './login';
+import Register from './register';
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Register />
-      <App />
-    </Router>
-  </Provider>,
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/" component={MainBoard} />
 
+        <Register />
+
+        <Login />
+      </Switch>
+    </Router>
+  </Provider >,
   document.getElementById('root')
 );
 

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
+
+
 body {
   background: #c31432;
   /* fallback for old browsers */
@@ -5,40 +8,86 @@ body {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #240b36, #c31432);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  --firstColor: #045982;
+  --secondColor: #006cbc;
+  --thirdColor: #116149;
+  font-family: 'Roboto', sans-serif !important;
+
+}
+
+/* start stylów kontenera home */
+
+.ListContainer {
+  background-color: rgb(193, 193, 193, .5);
+  color: #ffff;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px;
+  height: 100%;
+  width: 300px;
+  margin-bottom: 20rem;
+}
+
+contentTrelloBox {
+  background-color: rgb(155, 155, 155, .4);
+  height: 100vh;
 }
 
 
-.btnFirst {
-  padding-left: 15px !important;
+@media(min-width:768px) {
+  .ListContainer {
+    border-radius: 5px;
+    height: 100%;
+    margin-right: 8px;
+
+  }
 }
 
-.btnFirst p {
-  margin-bottom: 2px !important;
+/* end stylów kontenera home */
+
+/* start styli do list */
+
+.cardListBox {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  margin-left: 20px;
 
 }
 
-.btnFirst:hover {
-  background-color: green !important;
-
+@media(min-width:768px) {
+  .cardListBox {
+    flex-direction: row;
+  }
 }
 
-.cardBody {
-  margin-top: 1rem;
-  margin-left: 1rem;
+
+/* end styli do list */
+
+/* start style do kart  */
+.cardBodyContent p {
+  font-size: 13px;
 }
 
 .cardBodyContent:hover {
   background-color: transparent;
 }
 
+@media(min-width:1200px) {
+  .cardListBox {
+    flex-direction: row;
+  }
+}
+
+
+
+/* end style do kart  */
+
+
 /* style do strony rejestracji */
 .authBox {
   width: 700px;
   overflow: hidden;
   margin: 200px auto;
-  height: 100vh;
 
 
 }
@@ -49,7 +98,20 @@ body {
   float: left;
   position: relative;
   display: block;
+  -webkit-box-shadow: 24px 1px 29px 3px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 24px 1px 29px 3px rgba(0, 0, 0, 0.27);
+  box-shadow: 24px 1px 29px 3px rgba(0, 0, 0, 0.27);
+}
 
+.leftBoxregister {
+  width: 300px;
+  height: 580px;
+  float: left;
+  position: relative;
+  display: block;
+  -webkit-box-shadow: 24px 1px 29px 3px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 24px 1px 29px 3px rgba(0, 0, 0, 0.27);
+  box-shadow: 24px 1px 29px 3px rgba(0, 0, 0, 0.27);
 }
 
 .bgGreen {
@@ -71,43 +133,62 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-
+  color: #ffff;
 }
 
 .imageAuth {
-
   font-size: 28px;
   position: absolute;
   color: #ffff;
 }
 
 .imageText {
-  font-size: 28px;
   position: absolute;
+  font-size: 28px;
   color: #ffff;
+  padding: 5px;
+
+
 }
 
 .imageText.bold {
   font-weight: bold;
 
+
 }
 
 .imageText.style1 {
   top: 200px;
-  left: 20px;
+  left: 60px;
+  font-family: 'Carter One', cursive;
+}
+
+.style1 {
+  font-family: 'Carter One', cursive;
 }
 
 .imageText.style2 {
-  top: 250px;
-  left: 20px;
+  top: 240px;
+  left: 60px;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+
 
 }
 
-.rightBox {
+.rightBoxLogin {
   width: 400px;
   height: 480px;
   float: right;
-  border: 1px solid #59c385;
+  background-color: #ffff;
+  border-bottom-right-radius: 90px;
+}
+
+.rightBoxRegister {
+  width: 400px;
+  height: 580px;
+  float: right;
   background-color: #ffff;
   border-bottom-right-radius: 90px;
 }
@@ -128,6 +209,13 @@ body {
 
 }
 
+.titleAuth2 {
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
 .inputSBox {
   width: 300px;
   height: 42px;
@@ -139,17 +227,16 @@ body {
   width: 100%;
   height: 98%;
   font-size: 14px;
-  color: #37353f;
+  color: var(--firstColor);
   text-indent: 10px;
   border: 0;
   outline: none;
-
 }
 
 .contentBox {
   overflow: hidden;
   height: 42px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
 
@@ -182,18 +269,24 @@ body {
 }
 
 .btnAuth {
-  width: 300px;
+  width: 100%;
   height: 47px;
   color: #ffff;
-  background-color: rgb(18, 161, 78);
+  background-color: var(--firstColor);
   text-align: center;
   line-height: 47px;
   border-radius: 4px;
   cursor: pointer;
 }
 
+.btnAuth:hover {
+  background-color: var(--thirdColor);
+
+
+
+}
+
 .borderBox {
-  width: 300px;
   height: 47px;
   position: relative;
   margin: 20px 0;
@@ -217,13 +310,11 @@ body {
 .text2.or {
   position: absolute;
   top: 14px;
-  left: 140px;
-  width: 25px;
-  height: 16px;
+  left: 120px;
   background-color: #ffff;
   text-align: center;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
 
 }
 
@@ -232,8 +323,10 @@ body {
   width: 184px;
   height: 47px;
   margin: 0 auto;
-
+  padding-right: 0;
 }
+
+
 
 .icAuth {
   width: 41px;
@@ -244,7 +337,14 @@ body {
   float: left;
   margin-right: 30px;
   cursor: pointer;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
 
+}
+
+.icAuth:hover {
+  color: #045982;
 }
 
 .icAuth:last-child {
@@ -264,11 +364,6 @@ body {
 }
 
 
-.contentTrelloBox {
-  background-color: rgb(155, 155, 155, .4);
-  height: 100vh;
-}
-
 
 
 @media screen and (max-width: 768px) {
@@ -276,7 +371,6 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 100vh;
   }
 
   .leftBox {

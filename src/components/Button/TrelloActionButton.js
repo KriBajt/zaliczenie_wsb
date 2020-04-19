@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import { addList, addCard } from "../actions";
+import './Button.css';
 
 class TrelloActionButton extends React.Component {
 
@@ -97,6 +98,8 @@ class TrelloActionButton extends React.Component {
                 minHeight: 80,
                 minWidth: 272,
                 padding: "6px 8px 2px"
+
+
             }}>
                 <Textarea
                     placeholder={placeholder}
