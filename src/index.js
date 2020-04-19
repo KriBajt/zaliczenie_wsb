@@ -10,19 +10,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './login';
 import Register from './register';
+import Dane from './dane';
+import CardDetail from './components/Card/CardDetail';
+import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/" component={MainBoard} />
-
-        <Register />
-
-        <Login />
-      </Switch>
+      <App />
     </Router>
   </Provider >,
   document.getElementById('root')

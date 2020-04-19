@@ -11,11 +11,11 @@ export default class Menu extends Component {
         return (
             <div >
                 <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
-                    <Navbar.Brand href="#home" className={'style1'}>NinjaTask<GiNinjaHead /></Navbar.Brand>
+                    <Navbar.Brand href="/" className={'style1'}>NinjaTask<GiNinjaHead /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
+                            <Nav.Link href="/dane">Dane</Nav.Link>
                             <Nav.Link href="#pricing">Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -27,7 +27,7 @@ export default class Menu extends Component {
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            <Nav.Link eventKey={2} href="/login">
                                 Wyloguj
                     </Nav.Link>
                         </Nav>

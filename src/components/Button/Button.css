@@ -10,6 +10,20 @@
     justify-content: center;
 }
 
+.btnAddNewCard {
+    background-color: var(--thirdColor);
+}
+
+.openFormButtonGroup {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50;
+    height: 50;
+    width: 284;
+    margin-top: 30;
+}
+
 @media(max-width:1200px) {
 
     .btnFirst {
