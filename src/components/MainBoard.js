@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
 import Menu from './Menu/Menu';
+import Footer from './Footer/Footer';
 import Dane from './../dane';
 
 
@@ -57,7 +58,10 @@ class MainBoard extends Component {
                             )}
                         </Droppable>
                     </div>
+
                 </DragDropContext>
+                <Footer />
+
             </>
         )
     }

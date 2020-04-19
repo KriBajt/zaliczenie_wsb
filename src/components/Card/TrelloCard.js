@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 
 const CardContainer = styled.div`
@@ -25,6 +27,9 @@ const TrelloCard = ({ text, id, index }) => {
                                 gutterBottom>
                                 {text}
                             </Typography>
+                            <div className={'btnDetails d-flex justify-content-end'}>
+                                <Link to={`/dane/`}><IoMdInformationCircleOutline /></Link>
+                            </div>
                         </CardContent>
                     </Card>
                 </CardContainer>

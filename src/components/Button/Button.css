@@ -14,6 +14,22 @@
     background-color: var(--thirdColor);
 }
 
+.btnDetails {
+    text-align: right;
+    display: flex;
+    justify-content: end !important;
+    text-align: right !important;
+    font-size: 30px !important;
+    cursor: pointer !important;
+
+}
+
+.btnDetails a:hover {
+    color: aquamarine !important;
+}
+
+
+
 
 /* .openFormButtonGroup {
     display: flex;
