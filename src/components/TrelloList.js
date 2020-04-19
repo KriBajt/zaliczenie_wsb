@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TrelloCard from "./TrelloCard";
+import TrelloCard from "./Card/TrelloCard";
 import { CardActions } from '@material-ui/core';
 import TrelloActionButton from "./Button/TrelloActionButton";
 import { Droppable, Draggable } from "react-beautiful-dnd";

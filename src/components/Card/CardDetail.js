@@ -7,8 +7,6 @@ function Item() {
 
     const [items, setItems] = useState({});
 
-
-
     return (
 
         <div>

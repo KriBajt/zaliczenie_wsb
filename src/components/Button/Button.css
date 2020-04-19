@@ -14,15 +14,16 @@
     background-color: var(--thirdColor);
 }
 
-.openFormButtonGroup {
+
+/* .openFormButtonGroup {
     display: flex;
     align-items: center;
     cursor: pointer;
     border-radius: 50;
     height: 50;
     width: 284;
-    margin-top: 30;
-}
+    margin-top: 0 !important;
+} */
 
 @media(max-width:1200px) {
 
@@ -30,7 +31,6 @@
         width: 50px !important;
         margin: 0px;
         padding: 13px !important;
-
     }
 
     .btnFirst:hover {

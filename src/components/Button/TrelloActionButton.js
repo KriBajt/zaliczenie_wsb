@@ -67,7 +67,7 @@ class TrelloActionButton extends React.Component {
 
         return (
             <div
-                className="btnFirst"
+                className="btnFirst "
                 onClick={this.openForm}
                 style={{
                     ...styles.openFormButtonGroup,
@@ -82,8 +82,6 @@ class TrelloActionButton extends React.Component {
             </div >
         )
     }
-
-
 
     renderForm = () => {
         const { list } = this.props;
@@ -137,7 +135,7 @@ const styles = {
         borderRadius: 50,
         height: 50,
         width: 284,
-        marginTop: 30,
+        marginTop: 10,
 
     },
 
