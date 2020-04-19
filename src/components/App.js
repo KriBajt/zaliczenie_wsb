@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import styled from "styled-components";
 
+
 const ListContainer = styled.div`
         display: flex;
         flex-direction: row;
@@ -41,7 +42,7 @@ class App extends Component {
         const { lists } = this.props;
         return (
             <>
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar className="customNaw col-12 " collapseOnSelect expand="lg" variant="dark">
                     <Navbar.Brand href="#home">Aplikacja zaliczeniowa WSB</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
