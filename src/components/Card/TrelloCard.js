@@ -28,7 +28,7 @@ const TrelloCard = ({ text, id, index }) => {
                                 {text}
                             </Typography>
                             <div className={'btnDetails d-flex justify-content-end'}>
-                                <Link to={`/dane/`}><IoMdInformationCircleOutline /></Link>
+                                <Link to={`/card-details/`}><IoMdInformationCircleOutline /></Link>
                             </div>
                         </CardContent>
                     </Card>

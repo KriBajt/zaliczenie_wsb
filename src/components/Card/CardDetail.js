@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import './../../App.css';
+import React, { Component } from 'react'
 
-function Item() {
-    useEffect(() => {
-    }, []);
+export default class CardDetail extends Component {
+    render() {
+        return (
+            <div>
 
-    const [items, setItems] = useState({});
-
-    return (
-
-        <div>
-            <h1>Item</h1>
-        </div>
-
-    );
+            </div>
+        )
+    }
 }
-export default Item;

@@ -10,8 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './login';
 import Register from './register';
-import Dane from './dane';
-import CardDetail from './components/Card/CardDetail';
 import App from './App';
 
 ReactDOM.render(
