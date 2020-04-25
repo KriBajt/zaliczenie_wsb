@@ -19,8 +19,15 @@
     display: flex;
     justify-content: end !important;
     text-align: right !important;
-    font-size: 30px !important;
     cursor: pointer !important;
+
+}
+
+.btnDetails a {
+    color: rgb(219, 219, 219);
+    font-weight: 400;
+    font-size: 25px;
+
 
 }
 

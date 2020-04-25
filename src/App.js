@@ -22,6 +22,7 @@ export default class App extends Component {
                     <Route path="/register" component={Register} />
                     <Route path="/dane" exact component={Dane} />
                     <Route path="/dane/:id" component={CardDetail} />
+                    <Route path="/card-details/" component={CardDetail} />
 
                     {/* MainBoard musi być na koncu, inczej sie jebie */}
                     <Route path="/" component={MainBoard} />
