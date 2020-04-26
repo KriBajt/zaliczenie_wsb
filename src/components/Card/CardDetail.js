@@ -4,6 +4,7 @@ import { Button, ButtonToolbar } from 'react-bootstrap';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CardDetail.css';
+import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
 export default class CardDetail extends Component {
     constructor(props) {
@@ -27,67 +28,90 @@ export default class CardDetail extends Component {
                     </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="container">
+                        <div className="container modalBodyCustom">
                             <Form>
-                                <div className="row">
-                                    <div className="cardDetailNav">
-                                        <p>Dodaj eplik </p>
-                                        <span> | </span>
-                                        <p> Nazwa projektu</p>
+                                <div className="row justify-content-between">
+                                    <div className="col-12 col-md-8 ">
+                                        <div className="cardDetailNav">
+                                            <p>Dodaj eplik </p>
+                                            <span> | </span>
+                                            <p> Nazwa projektu</p>
+                                        </div>
+                                        <div className="cardDetailContent">
+                                            <h4>Przykładowy temat zadania do wykonania...</h4>
+                                            <h6 className="mt-5">Krótki opis</h6>
+                                            <Form.Group id="cardDetailShortDescription">
+                                                <Form.Control as="textarea" rows="2" />
+                                            </Form.Group>
+                                            <h6 className="mt-5">Pełny Opis</h6>
+                                            <Form.Group id="cardDetailDescription">
+                                                <CKEditor
+                                                    editor={ClassicEditor}
+                                                    data="<p>Dodaj opis...</p>"
+                                                    onInit={editor => {
+                                                        // You can store the "editor" and use when it is needed.
+                                                        console.log('Editor is ready to use!', editor);
+                                                    }}
+                                                    onChange={(event, editor) => {
+                                                        const data = editor.getData();
+                                                        console.log({ event, editor, data });
+                                                    }}
+                                                    onBlur={(event, editor) => {
+                                                        console.log('Blur.', editor);
+                                                    }}
+                                                    onFocus={(event, editor) => {
+                                                        console.log('Focus.', editor);
+                                                    }}
+                                                />
+                                            </Form.Group>
+                                        </div>
+
+                                        <Button variant="primary" type="submit" className="ml-0">
+                                            <IoIosSave />
+                                        </Button>
+                                    </div>
+                                    <div className=" col-12 col-md-2 ml-0 pl-0 cardDetailAction">
+                                        <div >
+                                            <p>Status zadania</p>
+                                            <hr />
+                                            <p>Termin</p>
+                                            <hr />
+                                            <p>Osoba przypisana</p>
+                                            <hr />
+                                            <p>Prioritet</p>
+                                            <hr />
+
+                                        </div>
                                     </div>
                                 </div>
-                                <h4>Przykładowy temat zadania do wykonania...</h4>
-
-                                <h6 className="mt-5">Opis</h6>
-                                <div className="cardDetailContent">
-                                    <div className="col-12 col-md-8 ml-0 pl-0">
-                                        <Form.Group id="cardDetailDescription">
-                                            <CKEditor
-                                                editor={ClassicEditor}
-                                                data="<p>Dodaj opis...</p>"
-                                                onInit={editor => {
-                                                    // You can store the "editor" and use when it is needed.
-                                                    console.log('Editor is ready to use!', editor);
-                                                }}
-                                                onChange={(event, editor) => {
-                                                    const data = editor.getData();
-                                                    console.log({ event, editor, data });
-                                                }}
-                                                onBlur={(event, editor) => {
-                                                    console.log('Blur.', editor);
-                                                }}
-                                                onFocus={(event, editor) => {
-                                                    console.log('Focus.', editor);
-                                                }}
-                                            />
-                                        </Form.Group>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <p>dfsdfs</p>
-
-                                    </div>
-
-                                </div>
-
-
-                                <Form.Row>
-                                    <Form.Group as={Col} controlId="formGridZip">
-                                        <Form.Label>Zip</Form.Label>
-                                        <Form.Control />
-                                    </Form.Group>
-                                </Form.Row>
-
-
-
-                                <Button variant="primary" type="submit">
-                                    Kick it!
-                                 </Button>
                             </Form>
 
                         </div>
+                        <div className="cardDetailCommentContent">
+                            <h6>Komentarze</h6>
+                            <div className="cardDetailCommentContentItems">
+                                <div class="row">
+                                    <div className="col-2"><p>Ikona</p></div>
+                                    <div className="col-8 cardDetailCommentContentItem"> <p>Komentarz nr 1.....</p></div>
+                                    <hr />
+                                </div>
+                                <div class="row">
+                                    <div className="col-2"><p>Ikona</p></div>
+
+                                    <div className="col-8 cardDetailCommentContentItem"> <p> Komentarz nr 2.....</p></div>
+                                    <hr />
+                                </div>
+                                <div class="row">
+                                    <div className="col-2"> <p>Ikona</p></div>
+                                    <div className="col-8 cardDetailCommentContentItem"> <p> Komentarz nr 3.....</p></div>
+                                    <hr />
+                                </div>
+                            </div>
+                        </div>
+
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="danger" onClick={this.props.onHide}>Kick Out!</Button>
+                        <Button className="btnDanger" onClick={this.props.onHide}><IoIosCloseCircle /></Button>
                     </Modal.Footer>
                 </Modal>
             </>
