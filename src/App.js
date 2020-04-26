@@ -30,7 +30,6 @@ export default class App extends Component {
                     <Login />
                 </Switch>
             </Router>
-
         )
     }
 }
