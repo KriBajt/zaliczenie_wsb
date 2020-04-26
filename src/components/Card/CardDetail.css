@@ -1,0 +1,17 @@
+.cardDetailNav {
+    display: flex;
+}
+
+.cardDetailNav p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cardDetailNav p:first-child {
+    padding-left: 0px;
+}
+
+.cardDetailNav h4 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
