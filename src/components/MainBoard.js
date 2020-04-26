@@ -9,7 +9,8 @@ import { GiNinjaHead } from 'react-icons/gi';
 import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import Dane from './../dane';
-
+import BtnCardDetails from './BtnCardDetails'
+import CardDetail from './CardDetail'
 
 
 class MainBoard extends Component {
@@ -57,7 +58,10 @@ class MainBoard extends Component {
                                 </div>
                             )}
                         </Droppable>
+                        <CardDetail />
+
                     </div>
+
 
                 </DragDropContext>
                 <Footer />
