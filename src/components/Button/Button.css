@@ -19,17 +19,50 @@
     display: flex;
     justify-content: end !important;
     text-align: right !important;
-    font-size: 30px !important;
     cursor: pointer !important;
 
 }
 
-.btnDetails a:hover {
+.btnDetails svg {
+    color: rgb(219, 219, 219);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.btnDetails svg:hover {
     color: aquamarine !important;
 }
 
+.btn-primary {
+    background-color: rgb(255, 255, 255) !important;
+
+    border: none !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    width: 50px !important;
+    font-size: 30px !important;
+    padding-top: 0 !important;
+    padding-left: 10px !important;
+    color: black !important;
+
+}
+
+.btn-primary:hover {
+    background-color: rgb(8, 167, 61) !important;
+    color: white !important;
+}
+
+.btnDanger {
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+}
+
+.btnDanger:hover {
+    background-color: rgb(240, 8, 8) !important;
+    color: white !important;
 
 
+}
 
 /* .openFormButtonGroup {
     display: flex;

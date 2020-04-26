@@ -25,6 +25,7 @@ body {
   padding: 8px;
   width: 97%;
   margin-bottom: 2rem;
+  z-index: 0;
 
 }
 
@@ -54,6 +55,8 @@ contentTrelloBox {
   flex-direction: column;
   margin-left: 20px;
   margin-bottom: 2rem;
+  z-index: 0;
+
 
 }
 
@@ -388,4 +391,11 @@ contentTrelloBox {
     width: 80%;
     border-radius: 8px;
   }
+}
+
+.modal-content {
+  /* background: linear-gradient(to right, #acacac, #c9c9c9) !important; */
+  background-color: rgb(241, 241, 241) !important;
+  border: 0px !important;
+  /* color: white; */
 }

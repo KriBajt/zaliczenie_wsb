@@ -1,36 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+
+export default class dane extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+        };
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:1028/api/taskboards/3/cards")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result
+                    });
+                },
+                // Uwaga: to ważne, żeby obsłużyć błędy tutaj, a
+                // nie w bloku catch(), aby nie przetwarzać błędów
+                // mających swoje źródło w komponencie.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+
+                }
+
+            )
+
+    }
+
+    render() {
+        const { error, isLoaded, items } = this.state;
+        if (error) {
+            return <div>Błąd: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Ładowanie...</div>;
+        } else {
+            return (
+                <ul>
+                    {items.map(item => (
+                        <li key={item.name}>
+                            {item.name} {item.title}
+                        </li>
+                    ))}
 
 
-function Dane() {
-    useEffect(() => {
-        fetchItems();
-    }, []);
-
-    const [items, setItems] = useState([]);
-
-    const fetchItems = async () => {
-        const data = await fetch(
-            // 'http://www.omdbapi.com/?s=movies&apikey=2fc24d55'
-            'https://fortnite-api.theapinetwork.com/store/get'
-        );
-        // console.log(data);
-        const items = await data.json();
-        console.log(items.data);
-        setItems(items.data);
-
-    };
-    return (
-
-        <div>
-            {items.map(data => (
-                <p key={data.item.itemId}>
-                    <Link to={`/dane/${data.itemId}`}> {data.item.name}</Link>
-                </p>
-            ))}
-        </div>
-
-    );
+                </ul>
+            );
+        }
+    }
 }
-export default Dane;
