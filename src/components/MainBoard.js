@@ -9,8 +9,9 @@ import { GiNinjaHead } from 'react-icons/gi';
 import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import Dane from './../dane';
-import BtnCardDetails from './BtnCardDetails'
-import CardDetail from './CardDetail'
+import BtnCardDetails from './Button/BtnCardDetails'
+import CardDetail from './Card/CardDetail'
+
 
 
 class MainBoard extends Component {

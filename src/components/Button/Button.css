@@ -23,15 +23,13 @@
 
 }
 
-.btnDetails a {
+.btnDetails svg {
     color: rgb(219, 219, 219);
     font-weight: 400;
     font-size: 25px;
-
-
 }
 
-.btnDetails a:hover {
+.btnDetails svg:hover {
     color: aquamarine !important;
 }
 

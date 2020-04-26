@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Button, ButtonToolbar } from 'react-bootstrap';
-import CardDetail from './CardDetail'
+import CardDetail from '../Card/CardDetail'
 import { IoMdInformationCircleOutline } from 'react-icons/io';
-
+import './Button.css';
 
 export default class BtnCardDetails extends Component {
     constructor(props) {
@@ -23,6 +23,7 @@ export default class BtnCardDetails extends Component {
                     <CardDetail
                         show={this.state.addModalShow}
                         onHide={addModalClose} />
+
                 </ButtonToolbar>
 
             </div>

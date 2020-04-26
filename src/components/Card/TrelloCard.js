@@ -8,7 +8,7 @@ import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import BtnCardDetails from './../BtnCardDetails';
+import BtnCardDetails from '../Button/BtnCardDetails';
 
 const CardContainer = styled.div`
     margin-bottom:8px;
