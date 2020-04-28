@@ -11,7 +11,7 @@ import Footer from './Footer/Footer';
 import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Card/CardDetail'
-
+import PostCard from './Card/PostCard';
 
 
 class MainBoard extends Component {
@@ -63,10 +63,10 @@ class MainBoard extends Component {
 
                     </div>
 
+                    <PostCard />
 
                 </DragDropContext>
                 <Footer />
-
             </>
         )
     }
