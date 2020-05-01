@@ -32,10 +32,13 @@ export default class CardDetail extends Component {
         axios.post('http://localhost:1028/api/taskboards/3/cards/', this.state)
             .then(response => {
                 console.log(response)
-                console.log('fdsfsdf')
+                console.log('ok')
+
             })
             .catch(error => {
                 console.log(error)
+                console.log('dupa')
+
             })
     }
 

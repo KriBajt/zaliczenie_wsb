@@ -13,6 +13,13 @@ import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Card/CardDetail'
 import PostCard from './Card/PostCard';
 
+import { Route, Switch } from 'react-router-dom';
+import BoardContainer from './Boards/BoardContainer';
+import ShowActiveBoard from './Boards/ActiveBoard/ShowActiveBoard';
+import NotFound from './NotFound';
+
+// import HTML5Backend from 'react-dnd-html5-backend'
+
 
 class MainBoard extends Component {
 
@@ -40,7 +47,7 @@ class MainBoard extends Component {
         return (
             <>
                 <Menu />
-                <DragDropContext onDragEnd={this.onDragEnd}>
+                {/* <DragDropContext onDragEnd={this.onDragEnd}>
                     <div className="contentTrelloBox">
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
@@ -60,12 +67,18 @@ class MainBoard extends Component {
                             )}
                         </Droppable>
                         <CardDetail />
-
                     </div>
+                </DragDropContext> */}
 
-                    <PostCard />
+                <div className="App">
+                    <Switch>
+                        <Route exact path="/" component={BoardContainer} />
+                        <Route path="/b/:id" component={ShowActiveBoard} />
+                        <Route component={NotFound} />
+                    </Switch>
 
-                </DragDropContext>
+                </div>
+
                 <Footer />
             </>
         )
@@ -77,3 +90,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(MainBoard);
+
+

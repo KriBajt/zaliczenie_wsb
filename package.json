@@ -11,11 +11,18 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "create-babelrc": "^1.0.0",
+    "lodash": "^4.17.15",
     "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-app-rewire-decorators-legacy": "^0.1.0",
     "react-axios": "^2.0.3",
     "react-beautiful-dnd": "^13.0.0",
     "react-bootstrap": "^1.0.0",
+    "react-dnd": "^10.0.2",
+    "react-dnd-html5-backend": "^10.0.2",
     "react-dom": "^16.13.1",
     "react-icons": "^3.9.0",
     "react-modal": "^3.11.2",
@@ -25,6 +32,9 @@
     "react-textarea-autosize": "^7.1.2",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-form": "^8.3.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
@@ -47,5 +57,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3"
   }
 }
