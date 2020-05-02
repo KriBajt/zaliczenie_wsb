@@ -38,6 +38,7 @@ class CreateCardContainer extends Component {
                             type="text"
                             component={BoardTitleInput}
                             name={`cardName_${listId}`}
+
                         />
                     </label>
                 </form>
@@ -53,7 +54,7 @@ const validate = (values, props) => {
     let cardName = `cardName_${listId}`
 
     if (!values[cardName]) {
-        errors[cardName] = 'Wprowadź nazwę';
+        errors[cardName] = 'Wprowadź nazwę listy';
     }
 
     return errors;

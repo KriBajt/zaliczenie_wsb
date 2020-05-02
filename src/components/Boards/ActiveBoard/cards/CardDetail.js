@@ -3,7 +3,7 @@ import { Modal, Row, Col, Form } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './CardDetail.css';
+import './../../../Button/Button.css';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 import axios from 'axios';
 

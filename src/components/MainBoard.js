@@ -10,7 +10,7 @@ import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
-import CardDetail from './Card/CardDetail'
+import CardDetail from './../components/Boards/ActiveBoard/cards/CardDetail'
 import PostCard from './Card/PostCard';
 
 import { Route, Switch } from 'react-router-dom';

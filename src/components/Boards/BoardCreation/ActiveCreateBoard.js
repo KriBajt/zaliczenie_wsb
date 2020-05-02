@@ -31,10 +31,12 @@ const CloseBoardIcon = styled.img`
     height: 34px;
     padding: 5px;
     transition: all 200ms ease-in-out;
+    transform: scale(1.25) rotate(4.5deg);
 
     &:hover {
         transition: all 200ms ease-in-out;
-        transform: scale(1.25) rotate(4.5deg);
+        transform: scale(.95) rotate(4.5deg);
+        stroke="#fff"
     }
 `
 
@@ -77,7 +79,7 @@ class ActiveCreateBoard extends Component {
                     />
                 </TopWrapper>
                 <BodyWrapper>
-                    <BoardNamingTitle>Nazwa tablicy</BoardNamingTitle>
+                    <BoardNamingTitle></BoardNamingTitle>
                     <BoardTitleForm
                         onSubmit={this.submit}
                         cancelAction={cancelCreatingBoard}

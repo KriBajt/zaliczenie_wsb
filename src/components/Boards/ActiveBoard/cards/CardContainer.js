@@ -39,6 +39,7 @@ class CreateCardContainer extends Component {
                             type="text"
                             component={BoardTitleInput}
                             name={`cardName_${listId}`}
+                            placeholder="Wprowadź nazwę zadania"
                         />
                     </label>
                 </form>
@@ -52,7 +53,7 @@ function validate(values) {
     const errors = {};
 
     if (!values.cardName) {
-        errors.cardName = 'oops!';
+        errors.cardName = 'coś nie tak!';
     }
 
     return errors;

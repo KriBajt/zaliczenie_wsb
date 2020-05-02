@@ -30,6 +30,7 @@ class ListItemsContainer extends Component {
             <div>
                 <ListItemsWrapper>
                     {this.renderListItems()}
+
                 </ListItemsWrapper>
             </div>
 

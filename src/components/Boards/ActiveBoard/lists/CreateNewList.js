@@ -1,36 +1,52 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fadeIn } from './../../../../utils/Animations';
+import Icon from "@material-ui/core/Icon";
 
 export const Wrapper = styled.div`
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 20px;
     display: flex;
-    margin: 20px;
-    background-color: #0a2c74;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-    height: 100px;
-    padding: 10px 40px;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    animation: ${fadeIn} 300ms linear;
-    border-radius: 5px;
+    border-radius: 30px ;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+    font-weight: 400;
+    font-size:16px;
+    margin:20px;
 
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.04);
-        transition: all 150ms ease-in-out;
-        box-shadow: 0 6px 6px rgba(0,0,0,0.16), 0 6px 6px rgba(0,0,0,0.23);
-    }
+
+&:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: 200ms ease-in-out;
+    transform: scale(1.01);
+
+}
 `
 
-const Text = styled.h4`
+const Text = styled.h3`
     color: white;
-    font-weight: 900;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    margin-bottom:0px;
+
+
+    &:hover{
+        color:#20c997;
+    }
+
+
 `
 
 const CreateNewList = ({ addList }) => (
     <Wrapper onClick={addList}>
-        <Text>Add a list...</Text>
+        <Text><Icon>add</Icon><span className="spanAddNewList">Dodaj nową listę</span></Text>
     </Wrapper>
 )
 

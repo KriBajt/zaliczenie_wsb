@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     &:hover {
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         transition: 200ms ease-in-out;
-        transform: scale(1.10);
+        transform: scale(1.02);
     }
 
 `
@@ -35,7 +35,6 @@ const Text = styled.h3`
     display:flex;
     align-items:center;
     margin-bottom:0px;
-
 
     &:hover{
         color:#20c997;

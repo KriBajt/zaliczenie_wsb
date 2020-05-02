@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import handleDrop from './../../../../actions/handleDrop'
 import { fadeIn } from './../../../../utils/Animations';
 
+
 const ListItemWrapper = styled.div`
     display: inline-block;
     vertical-align: top;
@@ -14,7 +15,7 @@ const ListItemWrapper = styled.div`
 
 
     background-color: rgba(255,255,255,0.45);
-    border-radius:30px;
+    border-radius:10px;
     padding: 5px 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: all 150ms ease-in-out;
@@ -62,10 +63,11 @@ class ListItem extends Component {
         return (
             <div>
                 <ListItemWrapper>
-                    <ListItemHeader>{name}</ListItemHeader>
+                    <ListItemHeader >{name}</ListItemHeader>
                     <hr />
                     <CreateCardContainer listId={id} />
                 </ListItemWrapper>
+
             </div>
         )
     }

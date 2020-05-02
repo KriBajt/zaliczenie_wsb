@@ -32,7 +32,7 @@ const ButtonWrapper = styled.div`
 const SubmitButton = styled.button`
     width: 100%;
     height: 43px;
-    border-radius:30px;
+    border-radius:10px;
     margin: 15px 18px 5px 0;
     text-transform: uppercase;
     cursor: pointer;
@@ -44,7 +44,7 @@ const SubmitButton = styled.button`
         transition: all 250ms ease-in-out;
         color: #20c997;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        background-color: #dbdbdb;
+        background-color: #fff;
     }
 `
 
@@ -60,6 +60,7 @@ let BoardTitleForm = (props) => {
                     name="boardTitle"
                     component={BoardTitleInput}
                     type="text"
+                    placeholder="Wprowadź nazwę tablicy"
                 />
             </form>
             <ButtonWrapper>

@@ -10,11 +10,12 @@ import BoardTitleInput from './../../BoardCreation/BoardTitleInput';
 
 
 const ListEditingModeWrapper = styled.div`
-    padding: 20px 12px;
-    height: 75px;
-    margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.45);
-    border-radius:30px 0 30px 30px;
+    margin: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    height: 80px;
+    background-color: rgba(50, 0, 0, 0.55);
+    border-radius:10px ;
     display: flex;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 `
@@ -26,10 +27,11 @@ class ListEditingMode extends Component {
             <ListEditingModeWrapper>
                 <form onSubmit={handleSubmit}>
                     <Field
+                        className="listInputField"
                         name="listItem"
                         component={BoardTitleInput}
                         type="text"
-                        placeholder="Dodaj nawzwę listy"
+                        placeholder="Wprowadź tytuł listy"
                     />
                 </form>
                 <DisableListEditMode disableList={disableListEditMode} />

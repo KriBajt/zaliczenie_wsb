@@ -93,8 +93,6 @@ contentTrelloBox {
   }
 }
 
-
-
 /* end style do kart  */
 
 
@@ -251,7 +249,7 @@ contentTrelloBox {
 .inputTitleBoard {
   border-radius: 8px;
   height: 40px;
-  width: 260px;
+  width: 310px;
 }
 
 .errorMessage {
@@ -261,15 +259,30 @@ contentTrelloBox {
 
 }
 
+
+
 .iconAdd span {
   font-size: 20px !important;
   padding-right: 10px;
+}
+
+input {
+  text-indent: 10px;
+  border: none;
+}
+
+input:focus {
+  outline: 0;
 }
 
 .showActiveBoard {
   display: flex;
   flex-wrap: wrap;
 
+}
+
+.listInputField {
+  width: 320px !important;
 }
 
 .iconAdd h3 {

@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { ItemTypes } from './../../../../utils/Constants';
 import { fadeIn } from './../../../../utils/Animations'
 import archiveCard from './../../../../actions/archiveCard';
+import BtnCardDetails from '../../../Button/BtnCardDetails'
 
 const CardWrapper = styled.div`
     margin: 10px 0;
@@ -86,8 +87,11 @@ class Card extends Component {
         return (
             <div>
                 <CardWrapper style={cardStyles}>
-                    <CardTitle>{title}</CardTitle>
-                    <ArchiveTask onClick={() => this.togglePost(cardId, listId)}>✓</ArchiveTask>
+                    <CardTitle className="col-8">{title}</CardTitle>
+                    <ArchiveTask className="col-3" onClick={() => this.togglePost(cardId, listId)}>✓</ArchiveTask>
+                    <BtnCardDetails className="col-3" />
+
+
                 </CardWrapper>
             </div>
 

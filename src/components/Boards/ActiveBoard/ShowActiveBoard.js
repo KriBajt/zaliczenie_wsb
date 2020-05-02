@@ -37,12 +37,12 @@ class ShowActiveBoard extends Component {
         const { activeBoard, enableListEditMode } = this.props;
         if (activeBoard.isFetching) {
             return (
-                <div>loading...</div>
+                <div>Trwa ładowanie strony...</div>
             )
         }
 
         return (
-            <div className="showActiveBoard">
+            <div className="container col-10">
                 <ActiveBoardTitle>
                     {this.getTitle()}
                 </ActiveBoardTitle>
@@ -53,7 +53,6 @@ class ShowActiveBoard extends Component {
                         : <CreateNewList addList={enableListEditMode} />
                     }
                 </ListWrapper>
-
             </div>
         )
     }
