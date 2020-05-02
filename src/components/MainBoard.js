@@ -10,8 +10,15 @@ import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
-import CardDetail from './Card/CardDetail'
+import CardDetail from './../components/Boards/ActiveBoard/cards/CardDetail'
+import PostCard from './Card/PostCard';
 
+import { Route, Switch } from 'react-router-dom';
+import BoardContainer from './Boards/BoardContainer';
+import ShowActiveBoard from './Boards/ActiveBoard/ShowActiveBoard';
+import NotFound from './NotFound';
+
+// import HTML5Backend from 'react-dnd-html5-backend'
 
 
 class MainBoard extends Component {
@@ -64,7 +71,6 @@ class MainBoard extends Component {
                     </div>
                 </DragDropContext>
                 <Footer />
-
             </>
         )
     }
@@ -75,3 +81,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(MainBoard);
+
+
