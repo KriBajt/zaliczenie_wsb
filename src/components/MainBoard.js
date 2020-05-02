@@ -10,8 +10,15 @@ import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
-import CardDetail from './Card/CardDetail'
+import CardDetail from './../components/Boards/ActiveBoard/cards/CardDetail'
 import PostCard from './Card/PostCard';
+
+import { Route, Switch } from 'react-router-dom';
+import BoardContainer from './Boards/BoardContainer';
+import ShowActiveBoard from './Boards/ActiveBoard/ShowActiveBoard';
+import NotFound from './NotFound';
+
+// import HTML5Backend from 'react-dnd-html5-backend'
 
 
 class MainBoard extends Component {
@@ -44,28 +51,42 @@ class MainBoard extends Component {
                     <div className="contentTrelloBox">
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
-                                <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
-                                    {lists.map((list, index) => (
-                                        <TrelloList
-                                            listID={list.id}
-                                            key={list.id}
-                                            title={list.title}
-                                            cards={list.cards}
-                                            index={index}
-                                        />
-                                    ))}
-                                    {provided.placeholder}
-                                    <TrelloActionButton list />
+                                // <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
+                                //     {lists.map((list, index) => (
+                                //         <TrelloList
+                                //             listID={list.id}
+                                //             key={list.id}
+                                //             title={list.title}
+                                //             cards={list.cards}
+                                //             index={index}
+                                //         />
+                                //     ))}
+                                //     {provided.placeholder}
+                                //     <TrelloActionButton list />
+                                // </div>
+                                <div className="App">
+                                    <Switch>
+                                        <Route exact path="/" component={BoardContainer} />
+                                        <Route path="/b/:id" component={ShowActiveBoard} />
+                                        <Route component={NotFound} />
+                                    </Switch>
+
                                 </div>
                             )}
                         </Droppable>
                         <CardDetail />
-
                     </div>
-
-                    <PostCard />
-
                 </DragDropContext>
+                {/*
+                <div className="App">
+                    <Switch>
+                        <Route exact path="/" component={BoardContainer} />
+                        <Route path="/b/:id" component={ShowActiveBoard} />
+                        <Route component={NotFound} />
+                    </Switch>
+
+                </div> */}
+
                 <Footer />
             </>
         )
@@ -77,3 +98,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(MainBoard);
+
+

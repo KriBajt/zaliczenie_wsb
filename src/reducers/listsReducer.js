@@ -43,8 +43,17 @@ const initialState = [
     }
 ]
 
-const listsReducer = (state = initialState, action) => {
+const listsReducer = (state = [], action) => {
 
+
+
+    // function getItems() {
+    //     fetch('http://localhost:1028/api/taskboards/3/cards/')
+    //         .then(results => results.json())
+    //         .then(results => this.setState({ 'items': results }));
+    //     console.log('dfsfsfsfd');
+    // }
+    // getItems()
     switch (action.type) {
 
         case CONSTANTS.ADD_LIST:
