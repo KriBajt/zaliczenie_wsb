@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, ButtonToolbar } from 'react-bootstrap';
-import CardDetail from '../../components/Boards/ActiveBoard/cards/CardDetail';
+import CardDetail from '../Card/CardDetail'
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import './Button.css';
 

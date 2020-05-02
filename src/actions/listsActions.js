@@ -1,4 +1,4 @@
-import { CONSTANTS } from ".";
+import { CONSTANTS } from "../actions";
 
 export const addList = title => {
     return {

@@ -75,18 +75,6 @@
 } */
 
 @media(max-width:1200px) {
-    .spanAddNewList {
-        display: none;
-    }
-}
-
-@media(max-width:768px) {
-    .spanAddNewList {
-        display: none;
-    }
-}
-
-@media(max-width:1200px) {
 
     .btnFirst {
         width: 50px !important;

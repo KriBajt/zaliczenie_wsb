@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './login';
 import Register from './register';
 import Dane from './dane';
-import CardDetail from './components/Boards/ActiveBoard/cards/CardDetail';
+import CardDetail from './components/Card/CardDetail';
 import Menu from './components/Menu/Menu'
 
 
