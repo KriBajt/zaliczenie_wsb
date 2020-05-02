@@ -1,0 +1,97 @@
+/*  Start stylów dla Przyciski - buttony */
+.btnFirst {
+    padding-left: 15px !important;
+    width: 30px;
+}
+
+.btnFirst p {
+    margin-bottom: 2px !important;
+    display: flex;
+    justify-content: center;
+}
+
+.btnAddNewCard {
+    background-color: var(--thirdColor);
+}
+
+.btnDetails {
+    text-align: right;
+    display: flex;
+    justify-content: end !important;
+    text-align: right !important;
+    cursor: pointer !important;
+
+}
+
+.btnDetails svg {
+    color: rgb(219, 219, 219);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.btnDetails svg:hover {
+    color: aquamarine !important;
+}
+
+.btn-primary {
+    background-color: rgb(255, 255, 255) !important;
+
+    border: none !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    width: 50px !important;
+    font-size: 30px !important;
+    padding-top: 0 !important;
+    padding-left: 10px !important;
+    color: black !important;
+
+}
+
+.btn-primary:hover {
+    background-color: rgb(8, 167, 61) !important;
+    color: white !important;
+}
+
+.btnDanger {
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+}
+
+.btnDanger:hover {
+    background-color: rgb(240, 8, 8) !important;
+    color: white !important;
+
+
+}
+
+/* .openFormButtonGroup {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50;
+    height: 50;
+    width: 284;
+    margin-top: 0 !important;
+} */
+
+@media(max-width:1200px) {
+
+    .btnFirst {
+        width: 50px !important;
+        margin: 0px;
+        padding: 13px !important;
+    }
+
+    .btnFirst:hover {
+        background-color: var(--thirdColor) !important;
+    }
+
+    .btnFirst p {
+        display: none;
+    }
+
+
+}
+
+
+/*  Koniec stylów dla Przyciski - buttony */

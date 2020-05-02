@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
+
+
+.cardDetailNav {
+    display: flex;
+    background-color: #ffff;
+
+
+}
+
+.cardDetailNav p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cardDetailNav p:first-child {
+    padding-left: 0px;
+}
+
+.cardDetailAction {
+    background-color: #ffff;
+
+}
+
+.cardDetailNav h4 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cardDetailCommentContent {
+    background-color: #ffff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 3rem;
+
+}
+
+.modalBodyCustom {
+    background-color: #ffff;
+    border-radius: 8px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.modal-content {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.cardDetailDescription {
+    color: black;
+}
