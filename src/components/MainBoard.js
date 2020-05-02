@@ -45,6 +45,7 @@ class MainBoard extends Component {
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
                                 <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
+
                                     {lists.map((list, index) => (
                                         <TrelloList
                                             listID={list.id}
@@ -60,10 +61,7 @@ class MainBoard extends Component {
                             )}
                         </Droppable>
                         <CardDetail />
-
                     </div>
-
-
                 </DragDropContext>
                 <Footer />
 

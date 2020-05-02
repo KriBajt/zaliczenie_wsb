@@ -27,11 +27,8 @@ export default class dane extends Component {
                         isLoaded: true,
                         error
                     });
-
                 }
-
             )
-
     }
 
     render() {
@@ -44,9 +41,9 @@ export default class dane extends Component {
             return (
                 <ul>
                     {items.map(item => (
-                        <li key={item.name}>
-                            {item.name} {item.title}
-                        </li>
+                        <p key={item.name}>
+                            {item.title}
+                        </p>
                     ))}
 
 
