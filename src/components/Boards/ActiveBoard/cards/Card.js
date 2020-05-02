@@ -8,6 +8,7 @@ import { ItemTypes } from './../../../../utils/Constants';
 import { fadeIn } from './../../../../utils/Animations'
 import archiveCard from './../../../../actions/archiveCard';
 import BtnCardDetails from '../../../Button/BtnCardDetails'
+import { Droppable } from 'react-beautiful-dnd';
 
 const CardWrapper = styled.div`
     margin: 10px 0;
@@ -44,32 +45,19 @@ const cardSource = {
 }
 
 
-function collect(connect, monitor) {
-    return {
-        // connectDragSource: connect.dragSource(),
-        // connectDragPreview: connect.dragPreview(),
-        isDragging: monitor.isDragging(),
-    }
-}
 
-// @DragSource(ItemTypes.CARD, cardSource, collect)
+
 class Card extends Component {
 
-    static propTypes = {
-        // connectDragSource: PropTypes.func.isRequired,
-        // connectDragPreview: PropTypes.func.isRequired,
-        isDragging: PropTypes.bool.isRequired,
-    }
 
     togglePost = (cardId, listId) => {
         this.props.archiveCard(cardId, listId)
     }
 
+
     render() {
 
         const {
-            isDragging,
-            // connectDragSource,
             title,
             archiveCard,
             cardId,
@@ -78,21 +66,21 @@ class Card extends Component {
         } = this.props;
 
         const cardStyles = {
-            opacity: isDragging || isArchived ? 0.35 : 1,
             boxShadow: "0 6px 6px rgba(0,0,0,0.16), 0 6px 6px rgba(0,0,0,0.23)",
             textDecoration: isArchived ? "line-through" : "none",
             backgroundColor: isArchived ? "#DECAFF" : "#20c997",
         };
 
+
         return (
             <div>
+
                 <CardWrapper style={cardStyles}>
                     <CardTitle className="col-8">{title}</CardTitle>
                     <ArchiveTask className="col-3" onClick={() => this.togglePost(cardId, listId)}>✓</ArchiveTask>
                     <BtnCardDetails className="col-3" />
-
-
                 </CardWrapper>
+
             </div>
 
         )

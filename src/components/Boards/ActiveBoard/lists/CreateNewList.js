@@ -4,7 +4,7 @@ import { fadeIn } from './../../../../utils/Animations';
 import Icon from "@material-ui/core/Icon";
 
 export const Wrapper = styled.div`
-    width: 100%;
+    width: 320px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.25);
     padding: 20px;
@@ -18,8 +18,6 @@ export const Wrapper = styled.div`
     transition: 200ms ease-in-out;
     font-weight: 400;
     font-size:16px;
-    margin:20px;
-
 
 &:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -35,7 +33,6 @@ const Text = styled.h3`
     display:flex;
     align-items:center;
     margin-bottom:0px;
-
 
     &:hover{
         color:#20c997;

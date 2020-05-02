@@ -46,11 +46,6 @@ export default class CardDetail extends Component {
         // const { error, isLoaded, items } = this.state;
         const { title, content, state, priority, items } = this.state
 
-        // if (error) {
-        //     return <div>Błąd: {error.message}</div>;
-        // } else if (!isLoaded) {
-        //     return <div>Ładowanie...</div>;
-        // } else {
         return (
             <>
                 <Modal
@@ -73,16 +68,10 @@ export default class CardDetail extends Component {
                                             <p>Tutaj mogą być jakieś inputy dodaj plik, udostępnij itp..</p>
                                         </div>
                                         <div className="cardDetailContent">
-                                            {/* <h6 className="mt-5"> {items.map(item => (
-                                                    <p key={item.title}> value={title} onChange={this.changeHandler}
-                                                    </p>
-                                                ))}Tytuł</h6> */}
+
                                             <Form.Group id="cardDetailPriority">
                                                 <Form.Control as="input" name="title" value={title} onChange={this.changeHandler} />
                                             </Form.Group>
-                                            {/* <Form.Group id="cardDetailShortDescription">
-                                                    <Form.Control as="textarea" rows="1" placeholder={items[1].title} />
-                                                </Form.Group> */}
 
                                             <h6 className="mt-5">Pełny Opis</h6>
                                             <Form.Group id="cardDetailDescription">
@@ -90,7 +79,7 @@ export default class CardDetail extends Component {
                                                     editor={ClassicEditor}
                                                     ref="content"
                                                     // value={content}
-                                                    data='dupa'
+                                                    data=''
                                                     onInit={editor => {
                                                         // You can store the "editor" and use when it is needed.
                                                         console.log('Editor is ready to use!', editor);
@@ -109,9 +98,6 @@ export default class CardDetail extends Component {
                                             </Form.Group>
                                         </div>
 
-                                        <Button variant="primary" type="submit" className="ml-0">
-                                            <IoIosSave />
-                                        </Button>
                                     </div>
                                     <div className=" col-12 col-md-2 ml-0 pl-0 cardDetailAction">
                                         <div >
@@ -159,7 +145,11 @@ export default class CardDetail extends Component {
 
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button className="btnDanger" onClick={this.props.onHide}><IoIosCloseCircle /></Button>
+                        {/* <Button className="btnDanger" onClick={this.props.onHide}><IoIosCloseCircle /></Button> */}
+
+                        <Button variant="primary" type="submit" className="ml-0">
+                            <IoIosSave />
+                        </Button>
                     </Modal.Footer>
                 </Modal>
             </>

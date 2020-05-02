@@ -9,7 +9,6 @@ const DisableWrapper = styled.div`
     left: 20px;
     top: -28px;
     height:50px;
-    z-index: 9999;
 `
 
 const DisableButton = styled.svg`

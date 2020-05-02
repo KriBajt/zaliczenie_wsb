@@ -13,9 +13,7 @@ const Title = styled.h3`
     padding-left:0px;
     padding:0;
     margin:0;
-
 `
-
 const TopWrapper = styled.div`
     display: flex;
     justify-content: space-between;

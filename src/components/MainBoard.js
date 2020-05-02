@@ -47,29 +47,37 @@ class MainBoard extends Component {
         return (
             <>
                 <Menu />
-                {/* <DragDropContext onDragEnd={this.onDragEnd}>
+                <DragDropContext onDragEnd={this.onDragEnd}>
                     <div className="contentTrelloBox">
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
-                                <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
-                                    {lists.map((list, index) => (
-                                        <TrelloList
-                                            listID={list.id}
-                                            key={list.id}
-                                            title={list.title}
-                                            cards={list.cards}
-                                            index={index}
-                                        />
-                                    ))}
-                                    {provided.placeholder}
-                                    <TrelloActionButton list />
+                                // <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
+                                //     {lists.map((list, index) => (
+                                //         <TrelloList
+                                //             listID={list.id}
+                                //             key={list.id}
+                                //             title={list.title}
+                                //             cards={list.cards}
+                                //             index={index}
+                                //         />
+                                //     ))}
+                                //     {provided.placeholder}
+                                //     <TrelloActionButton list />
+                                // </div>
+                                <div className="App">
+                                    <Switch>
+                                        <Route exact path="/" component={BoardContainer} />
+                                        <Route path="/b/:id" component={ShowActiveBoard} />
+                                        <Route component={NotFound} />
+                                    </Switch>
+
                                 </div>
                             )}
                         </Droppable>
                         <CardDetail />
                     </div>
-                </DragDropContext> */}
-
+                </DragDropContext>
+                {/*
                 <div className="App">
                     <Switch>
                         <Route exact path="/" component={BoardContainer} />
@@ -77,7 +85,7 @@ class MainBoard extends Component {
                         <Route component={NotFound} />
                     </Switch>
 
-                </div>
+                </div> */}
 
                 <Footer />
             </>

@@ -42,18 +42,22 @@ class ShowActiveBoard extends Component {
         }
 
         return (
-            <div className="container col-10">
-                <ActiveBoardTitle>
-                    {this.getTitle()}
-                </ActiveBoardTitle>
-                <ListWrapper>
+            <>
+                <div className="container col-10">
+                    <ActiveBoardTitle>
+                        {this.getTitle()}
+                    </ActiveBoardTitle>
+                    <ListWrapper className="justify-content-center">
+                        {activeBoard.isEditingList
+                            ? <ListEditingMode onSubmit={this.handleListSubmit} />
+                            : <CreateNewList addList={enableListEditMode} />
+                        }
+                    </ListWrapper>
+                </div>
+                <div className="container col-10">
                     <ListItemsContainer />
-                    {activeBoard.isEditingList
-                        ? <ListEditingMode onSubmit={this.handleListSubmit} />
-                        : <CreateNewList addList={enableListEditMode} />
-                    }
-                </ListWrapper>
-            </div>
+                </div>
+            </>
         )
     }
 }
