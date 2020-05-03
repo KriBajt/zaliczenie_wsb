@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './CardDetail.css';
+import BtnCardDetails from '../Button/BtnCardDetails';
 
 
 export default class showCard extends Component {
@@ -49,8 +50,9 @@ export default class showCard extends Component {
                             </div>
                             <div className="card-body">
                                 <p className="card-text">{item.content}</p>
-                                <a href="#" className="card-link">Card link</a>
-                                <a href="#" className="card-link">Another link</a>
+                                <div className="float-right mb-3">
+                                    <BtnCardDetails />
+                                </div>
                             </div>
 
                         </div>
