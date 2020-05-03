@@ -46,12 +46,11 @@ export default class showCard extends Component {
                         <div className="cardCustomList text-white mb-3">
                             <div className="card-header">
                                 <h5 className="card-title" key={item.title}>{item.title}</h5>
-
                             </div>
                             <div className="card-body">
                                 <p className="card-text">{item.content}</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <a href="#" className="card-link">Card link</a>
+                                <a href="#" className="card-link">Another link</a>
                             </div>
 
                         </div>
