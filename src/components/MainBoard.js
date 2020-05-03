@@ -70,7 +70,7 @@ class MainBoard extends Component {
 
 
                 <div className="container cardCustom">
-                    <CardForm />
+                    {/* <CardForm /> */}
                     {/* <SendDataToApi /> */}
                 </div>
                 <div className="container cardCustom">

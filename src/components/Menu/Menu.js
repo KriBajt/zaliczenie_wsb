@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
 import './Menu.css';
-
+import CardForm from './../Card/CardForm';
 export default class Menu extends Component {
     render() {
         return (
@@ -15,7 +15,10 @@ export default class Menu extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/dane">Dane</Nav.Link>
+                            {/* <Nav.Link href="/dane">Dane</Nav.Link> */}
+                            <Nav.Link href="/dane">
+                                <CardForm />
+                            </Nav.Link>
                             {/* <Nav.Link href="#pricing">Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
