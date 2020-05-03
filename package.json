@@ -10,6 +10,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1",
     "mobx": "^5.15.4",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
@@ -23,6 +25,7 @@
     "react-textarea-autosize": "^7.1.2",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {

@@ -1,7 +1,7 @@
 import { CONSTANTS } from "../actions";
 
-let listID = 2;
-let cardID = 6;
+let listID = null;
+let cardID = null;
 
 const initialState = [
     {
@@ -43,7 +43,7 @@ const initialState = [
     }
 ]
 
-const listsReducer = (state = initialState, action) => {
+const listsReducer = (state = [], action) => {
 
     switch (action.type) {
 

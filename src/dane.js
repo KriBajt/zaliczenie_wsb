@@ -33,6 +33,8 @@ export default class dane extends Component {
 
     render() {
         const { error, isLoaded, items } = this.state;
+        { console.log(items) }
+
         if (error) {
             return <div>Błąd: {error.message}</div>;
         } else if (!isLoaded) {

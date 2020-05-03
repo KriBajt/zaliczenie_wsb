@@ -15,6 +15,10 @@ body {
 
 }
 
+p {
+  color: rgb(105, 105, 105) !important;
+}
+
 /* start stylów kontenera home */
 
 .ListContainer {

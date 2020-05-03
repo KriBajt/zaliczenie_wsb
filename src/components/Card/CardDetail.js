@@ -97,9 +97,7 @@ export default class CardDetail extends Component {
                                                 </Form.Group>
                                             </div>
 
-                                            <Button variant="primary" type="submit" className="ml-0">
-                                                <IoIosSave />
-                                            </Button>
+
                                         </div>
                                         <div className=" col-12 col-md-2 ml-0 pl-0 cardDetailAction">
                                             <div >
@@ -144,7 +142,9 @@ export default class CardDetail extends Component {
 
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button className="btnDanger" onClick={this.props.onHide}><IoIosCloseCircle /></Button>
+                            <Button variant="primary" type="submit" className="ml-0">
+                                <IoIosSave />
+                            </Button>
                         </Modal.Footer>
                     </Modal>
                 </>
