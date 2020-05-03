@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
 
+.formContainer form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formItem {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.formItem input {
+    height: 35px;
+    border-radius: 30px;
+    border: none;
+    text-indent: 10px;
+}
+
+.formItem input:hover {
+    outline: none;
+    background-color: #c7c7c7;
+}
 
 .cardCustom {
     display: flex;

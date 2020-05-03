@@ -13,9 +13,8 @@ import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Card/CardDetail'
 
 import ShowCard from './Card/ShowCard';
-import SendDataToApi from './Card/SendDataToApi';
-
-
+// import SendDataToApi from './Card/SendDataToApi';
+import CardForm from './../components/Card/CardForm';
 
 
 class MainBoard extends Component {
@@ -70,9 +69,10 @@ class MainBoard extends Component {
 
 
 
-
                 <div className="container cardCustom">
-                    <SendDataToApi />
+                    <CardForm />
+
+                    {/* <SendDataToApi /> */}
                 </div>
                 <div className="container cardCustom">
                     <ShowCard />
