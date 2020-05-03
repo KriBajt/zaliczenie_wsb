@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import './CardDetail.css';
 
-export default class dane extends Component {
+
+export default class showCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,22 +42,24 @@ export default class dane extends Component {
         } else {
             return (
                 <>
-                    <ul>
-                        {items.map(item => (
-                            <div class="card text-white bg-dark mb-3">
-                                <div class="card-header">
-                                    <p key={item.title}>{item.title}</p>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Dark card title</h5>
-                                    <p class="card-text">{item.content}</p>
-                                </div>
+                    {items.map(item => (
+                        <div className="cardCustomList text-white mb-3">
+                            <div className="card-header">
+                                <h5 className="card-title" key={item.title}>{item.title}</h5>
 
                             </div>
-                        ))}
-                    </ul>
+                            <div className="card-body">
+                                <p className="card-text">{item.content}</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+
+                        </div>
+                    ))}
                 </>
             );
         }
     }
 }
+
+

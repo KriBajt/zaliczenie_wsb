@@ -12,6 +12,10 @@ import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Card/CardDetail'
 
+import ShowCard from './Card/ShowCard';
+import SendDataToApi from './Card/SendDataToApi';
+
+
 
 
 class MainBoard extends Component {
@@ -40,7 +44,8 @@ class MainBoard extends Component {
         return (
             <>
                 <Menu />
-                <DragDropContext onDragEnd={this.onDragEnd}>
+                {/* <DragDropContext onDragEnd={this.onDragEnd}>
+
                     <div className="contentTrelloBox">
                         <Droppable droppableId="all-list" direction="horizontal" type="list">
                             {provided => (
@@ -61,7 +66,17 @@ class MainBoard extends Component {
                         </Droppable>
                         <CardDetail />
                     </div>
-                </DragDropContext>
+                </DragDropContext> */}
+
+
+
+
+                <div className="container cardCustom">
+                    <SendDataToApi />
+                </div>
+                <div className="container cardCustom">
+                    <ShowCard />
+                </div>
                 <Footer />
 
             </>

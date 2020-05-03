@@ -6,10 +6,16 @@ export const addList = title => {
         payload: title
     };
 };
+export const showList = title => {
+    return {
+        type: CONSTANTS.SHOW_LIST,
+        payload: title
+    };
+};
 
 export function getDataRequested() {
     return {
-        type: 'CONSTANTS.ADD_CARD'
+        type: 'CONSTANTS.SHOW_LIST'
     };
 }
 

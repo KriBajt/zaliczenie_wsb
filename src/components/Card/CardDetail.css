@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
 
 
+.cardCustom {
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+.cardCustomList {
+    width: 350px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #2e2e2e;
+}
+
 .cardDetailNav {
     display: flex;
     background-color: #ffff;
