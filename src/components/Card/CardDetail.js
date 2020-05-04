@@ -21,7 +21,7 @@ export default class CardDetail extends Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        cards: result
                     });
                 },
                 // Uwaga: to ważne, żeby obsłużyć błędy tutaj, a
@@ -37,7 +37,7 @@ export default class CardDetail extends Component {
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, cards } = this.state;
         if (error) {
             return <div>Błąd: {error.message}</div>;
         } else if (!isLoaded) {
@@ -65,13 +65,13 @@ export default class CardDetail extends Component {
                                                 <p>Tutaj mogą być jakieś inputy dodaj plik, udostępnij itp..</p>
                                             </div>
                                             <div className="cardDetailContent">
-                                                <h6 className="mt-5"> {items.map(item => (
+                                                <h6 className="mt-5"> {cards.map(item => (
                                                     <p key={item.title}>
                                                     </p>
                                                 ))}Tytuł</h6>
 
                                                 <Form.Group id="cardDetailShortDescription">
-                                                    <Form.Control as="textarea" rows="1" placeholder={items[1].title} />
+                                                    <Form.Control as="textarea" rows="1" placeholder={cards.title} />
                                                 </Form.Group>
                                                 <h6 className="mt-5">Pełny Opis</h6>
                                                 <Form.Group id="cardDetailDescription">

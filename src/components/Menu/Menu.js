@@ -16,9 +16,10 @@ export default class Menu extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                             {/* <Nav.Link href="/dane">Dane</Nav.Link> */}
-                            <Nav.Link href="/dane">
-                                <CardForm />
-                            </Nav.Link>
+                            {/* <Nav.Link href="/dane">
+                            </Nav.Link> */}
+                            <CardForm />
+
                             {/* <Nav.Link href="#pricing">Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

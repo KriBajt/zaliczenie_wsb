@@ -9,9 +9,11 @@ export default class CardForm extends Component {
         super(props)
 
         this.state = {
-            id: '',
-            title: '',
-            content: ''
+            id: null,
+            title: null,
+            content: null,
+            priority: null,
+
         }
     }
     changeHandler = (e) => {
@@ -33,7 +35,7 @@ export default class CardForm extends Component {
 
 
     render() {
-        const { id, title, content } = this.state
+        const { id, title, content, priority, state } = this.state
         return (
             <div className="formContainer">
                 <form onSubmit={this.submitHandler}>
@@ -42,6 +44,9 @@ export default class CardForm extends Component {
                     </div>
                     <div className="formItem">
                         <input type="content" name="content" value={content} onChange={this.changeHandler} placeholder="Wpisz treść zadania" />
+                    </div>
+                    <div className="formItem">
+                        <input type="priority" name="priority" value={priority} onChange={this.changeHandler} placeholder="Prioritet" />
                     </div>
                     <div>
                         <Button variant="primary" type="submit" className="ml-0">
