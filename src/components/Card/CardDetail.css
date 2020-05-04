@@ -86,3 +86,14 @@
 .cardDetailDescription {
     color: black;
 }
+
+
+
+.btnDelete svg:hover {
+    color: red !important;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}

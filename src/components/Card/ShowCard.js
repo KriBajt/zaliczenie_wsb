@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './CardDetail.css';
 import BtnCardDetails from '../Button/BtnCardDetails';
-
+import { BsFillTrashFill } from 'react-icons/bs';
 
 export default class showCard extends Component {
     constructor(props) {
@@ -9,6 +9,7 @@ export default class showCard extends Component {
         this.state = {
             error: null,
             isLoaded: false,
+            cards: []
         };
     }
 
@@ -19,7 +20,7 @@ export default class showCard extends Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        cards: result
                     });
                 },
                 // Uwaga: to ważne, żeby obsłużyć błędy tutaj, a
@@ -33,9 +34,22 @@ export default class showCard extends Component {
                 }
             )
     }
+    deleteCard(id) {
+        if (window.confirm('Czy jesteś pewien?')) {
+            fetch('http://localhost:1028/api/taskboards/3/cards/' + id, {
+                method: 'DELETE',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+        }
+    }
+
+
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, cards } = this.state;
         if (error) {
             return <div>Błąd: {error.message}</div>;
         } else if (!isLoaded) {
@@ -43,16 +57,22 @@ export default class showCard extends Component {
         } else {
             return (
                 <>
-                    {items.map(item => (
+                    {cards.map(item => (
                         <div className="cardCustomList text-white mb-3">
                             <div className="card-header">
                                 <h5 className="card-title" key={item.title}>{item.title}</h5>
+                                <div className="btnDetails btnDelete">
+                                    <BsFillTrashFill onClick={() => this.deleteCard(item.id)} />
+                                </div>
                             </div>
                             <div className="card-body">
                                 <p className="card-text">{item.content}</p>
+                                <p className="card-text">{item.priority}</p>
+                                <p className="card-text">{item.state}</p>
                                 <div className="float-right mb-3">
                                     <BtnCardDetails />
                                 </div>
+
                             </div>
 
                         </div>
