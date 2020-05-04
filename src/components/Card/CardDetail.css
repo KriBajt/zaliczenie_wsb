@@ -20,12 +20,15 @@
 
 .formItem input:hover {
     outline: none;
-    background-color: #c7c7c7;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 .cardCustom {
     display: flex;
     flex-wrap: wrap;
+
 
 
 }
@@ -35,6 +38,9 @@
     margin: 10px;
     border-radius: 10px;
     background: #2e2e2e;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 .cardDetailNav {
