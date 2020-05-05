@@ -13,7 +13,6 @@ export default class BtnDelete extends Component {
     }
 
 
-
     render() {
         const { cards } = this.state;
         return (

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TrelloList from "./TrelloList";
 import { connect } from "react-redux";
 import TrelloActionButton from "./Button/TrelloActionButton";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
@@ -15,69 +14,59 @@ import CardDetail from './Card/CardDetail'
 import ShowCard from './Card/ShowCard';
 // import SendDataToApi from './Card/SendDataToApi';
 import CardForm from './../components/Card/CardForm';
+import axios from "axios";
 
 
 class MainBoard extends Component {
+    state = {
+        cards: []
+    };
 
-    onDragEnd = result => {
-        const { destination, source, draggableId, type } = result;
+    componentDidMount() {
+        axios
+            .get("http://localhost:1028/api/taskboards/3/cards")
+            .then(res =>
+                this.setState({
+                    cards: res.data
+                })
+            );
+    }
 
-        if (!destination) {
-            return;
-        }
+    //toggle complete
+    markComplete = id => {
+        this.setState({
+            cards: this.state.cards.map(card => {
+                if (card.id === id) {
+                    card.completed = !card.completed;
+                }
+                return card;
+            })
+        });
+    };
 
-        this.props.dispatch(
-            sort(
-                source.droppableId,
-                destination.droppableId,
-                source.index,
-                destination.index,
-                draggableId,
-                type
-            )
+    // Usuwanie karty
+    deleteCard = id => {
+        axios.delete(`http://localhost:1028/api/taskboards/3/cards/${id}`).then(res =>
+            this.setState({
+                cards: [...this.state.cards.filter(card => card.id !== id)]
+            })
         );
     };
 
+
     render() {
-        const { lists } = this.props;
         return (
             <>
                 <Menu />
-                {/* <DragDropContext onDragEnd={this.onDragEnd}>
-
-                    <div className="contentTrelloBox">
-                        <Droppable droppableId="all-list" direction="horizontal" type="list">
-                            {provided => (
-                                <div className={'cardListBox'} {...provided.droppableProps} ref={provided.innerRef} >
-                                    {lists.map((list, index) => (
-                                        <TrelloList
-                                            listID={list.id}
-                                            key={list.id}
-                                            title={list.title}
-                                            cards={list.cards}
-                                            index={index}
-                                        />
-                                    ))}
-                                    {provided.placeholder}
-                                    <TrelloActionButton list />
-                                </div>
-                            )}
-                        </Droppable>
-                        <CardDetail />
-                    </div>
-                </DragDropContext> */}
-
-
-
                 <div className="container cardCustom">
-                    {/* <CardForm /> */}
-                    {/* <SendDataToApi /> */}
                 </div>
                 <div className="container cardCustom">
-                    <ShowCard />
+                    <ShowCard
+                        cards={this.state.cards}
+                        markComplete={this.markComplete}
+                        deleteCard={this.deleteCard} />
                 </div>
                 <Footer />
-
             </>
         )
     }

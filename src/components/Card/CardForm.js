@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
+import SchowCard from './ShowCard';
+import PropTypes from 'prop-types';
 
 
 export default class CardForm extends Component {
@@ -10,9 +12,10 @@ export default class CardForm extends Component {
 
         this.state = {
             id: null,
-            title: null,
-            content: null,
-            priority: null,
+            title: '',
+            content: '',
+            priority: '',
+            cards: []
 
         }
     }
@@ -20,22 +23,19 @@ export default class CardForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-
     submitHandler = e => {
-        e.preventDefault()
-        console.log(this.state);
         axios.post('http://localhost:1028/api/taskboards/3/cards', this.state)
             .then(response => {
-                console.log(response)
             })
             .catch(error => {
-                console.log(error)
             })
+        window.location.reload(false);
+
     }
 
 
     render() {
-        const { id, title, content, priority, state } = this.state
+        const { id, title, content, priority, state, cards } = this.state
         return (
             <div className="formContainer">
                 <form onSubmit={this.submitHandler}>
@@ -58,3 +58,4 @@ export default class CardForm extends Component {
         )
     }
 }
+
