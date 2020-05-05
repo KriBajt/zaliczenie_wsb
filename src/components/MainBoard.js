@@ -53,6 +53,14 @@ class MainBoard extends Component {
         );
     };
 
+    // addCard = cards => {
+    //     axios
+    //         .post("http://localhost:1028/api/taskboards/3/cards", {
+    //             cards,
+    //             completed: false
+    //         })
+    //         .then(res => this.setState({ cards: [...this.state.cards, res.data] }));
+    // };
 
     render() {
         return (
