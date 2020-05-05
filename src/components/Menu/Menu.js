@@ -18,7 +18,7 @@ export default class Menu extends Component {
                             {/* <Nav.Link href="/dane">Dane</Nav.Link> */}
                             {/* <Nav.Link href="/dane">
                             </Nav.Link> */}
-                            <CardForm />
+                            <CardForm addCard={this.props.addCard} />
 
                             {/* <Nav.Link href="#pricing">Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

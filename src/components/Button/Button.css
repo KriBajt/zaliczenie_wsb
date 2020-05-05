@@ -27,6 +27,8 @@
     color: rgb(219, 219, 219);
     font-weight: 400;
     font-size: 25px;
+    margin-bottom: 10px;
+
 }
 
 .btnDetails svg:hover {
