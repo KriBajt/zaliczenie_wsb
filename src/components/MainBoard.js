@@ -9,58 +9,49 @@ import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
-import CardDetail from './Card/CardDetail'
+import CardDetail from './Table/TableDetail'
 
-import ShowCard from './Card/ShowCard';
-// import SendDataToApi from './Card/SendDataToApi';
-import CardForm from './../components/Card/CardForm';
+import ShowTable from './Table/ShowTable';
+
+// import SendDataToApi from './Table/SendDataToApi';
+import TableForm from './../components/Table/TableForm';
 import axios from "axios";
 
 
 class MainBoard extends Component {
     state = {
-        cards: []
+        tables: []
     };
 
     componentDidMount() {
         axios
-            .get("http://localhost:1028/api/taskboards/3/cards")
+            .get("http://localhost:1028/api/taskboards/")
             .then(res =>
                 this.setState({
-                    cards: res.data
+                    tables: res.data
                 })
             );
     }
-
     //toggle complete
     markComplete = id => {
         this.setState({
-            cards: this.state.cards.map(card => {
-                if (card.id === id) {
-                    card.completed = !card.completed;
+            tables: this.state.tables.map(table => {
+                if (table.id === id) {
+                    table.completed = !table.completed;
                 }
-                return card;
+                return table;
             })
         });
     };
 
     // Usuwanie karty
-    deleteCard = id => {
-        axios.delete(`http://localhost:1028/api/taskboards/3/cards/${id}`).then(res =>
+    deleteTable = id => {
+        axios.delete(`http://localhost:1028/api/taskboards/${id}`).then(res =>
             this.setState({
-                cards: [...this.state.cards.filter(card => card.id !== id)]
+                tables: [...this.state.tables.filter(table => table.id !== id)]
             })
         );
     };
-
-    // addCard = cards => {
-    //     axios
-    //         .post("http://localhost:1028/api/taskboards/3/cards", {
-    //             cards,
-    //             completed: false
-    //         })
-    //         .then(res => this.setState({ cards: [...this.state.cards, res.data] }));
-    // };
 
     render() {
         return (
@@ -69,10 +60,10 @@ class MainBoard extends Component {
                 <div className="container cardCustom">
                 </div>
                 <div className="container cardCustom">
-                    <ShowCard
-                        cards={this.state.cards}
+                    <ShowTable
+                        tables={this.state.tables}
                         markComplete={this.markComplete}
-                        deleteCard={this.deleteCard} />
+                        deleteTable={this.deleteTable} />
                 </div>
                 <Footer />
             </>

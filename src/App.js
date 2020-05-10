@@ -11,6 +11,7 @@ import Registration from './components/auth/Registration';
 import Dane from './dane';
 import CardDetail from './components/Card/CardDetail';
 import Menu from './components/Menu/Menu'
+import CardLists from './components/CardLists';
 
 
 export default class App extends Component {
@@ -23,6 +24,7 @@ export default class App extends Component {
                     <Route path="/dane" exact component={Dane} />
                     <Route path="/dane/:id" component={CardDetail} />
                     <Route path="/card-details/" component={CardDetail} />
+                    <Route path="/cards/:id" component={CardLists} />
 
                     {/* MainBoard musi być na koncu, inczej sie jebie */}
                     <Route path="/" component={MainBoard} />
