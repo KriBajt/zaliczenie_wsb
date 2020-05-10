@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "es6-promise": "^4.2.8",
+    "history": "^4.10.1",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^5.15.4",
     "react": "^16.13.1",
@@ -26,6 +27,7 @@
     "react-textarea-autosize": "^7.1.2",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.0"
   },

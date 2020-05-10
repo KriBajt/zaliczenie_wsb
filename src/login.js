@@ -6,7 +6,43 @@ import { GiNinjaHead } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import MainBoard from './components/MainBoard';
 
+import { connect } from 'react-redux';
+import { userActions } from '../_actions';
+
 export default class login extends Component {
+    constructor(props) {
+        super(props);
+
+        // reset login status
+        this.props.logout();
+
+        this.state = {
+            username: '',
+            password: '',
+            submitted: false
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        this.setState({ submitted: true });
+        const { username, password } = this.state;
+        if (username && password) {
+            this.props.login(username, password);
+        }
+    }
+
+
+
     render() {
         return (
             <div className={'authBox'}>
