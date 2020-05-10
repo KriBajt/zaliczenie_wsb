@@ -7,30 +7,27 @@ using System.Threading.Tasks;
 
 namespace NinjaOrganizer.API.Entities
 {
-    public enum AccountState
-    {
-        PendingForActivation=0,
-        Active=1,
-        Deleted=2
-    }
+    //public enum AccountState
+    //{
+    //    PendingForActivation=0,
+    //    Active=1,
+    //    Deleted=2
+    //}
 
     public class User
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Email { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string Name { get; set; }
+ 
 
-        [MaxLength(50)]
-        public string Password { get; set; }
+        public ICollection<Taskboard> Taskboards { get; set; }
+              = new List<Taskboard>();
 
-        public AccountState State { get; set; }
-
-       
-        public ICollection<Card> Taskboards { get; set; }
-               = new List<Card>();
     }
 }

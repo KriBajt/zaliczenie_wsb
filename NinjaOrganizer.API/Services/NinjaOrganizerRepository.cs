@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using NinjaOrganizer.API.Contexts;
 using NinjaOrganizer.API.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace NinjaOrganizer.API.Services
 {
@@ -46,6 +48,11 @@ namespace NinjaOrganizer.API.Services
                           .Where(p => p.TaskboardId == taskboardId).ToList();
         }
 
+        public IEnumerable<Taskboard> GetTaskboardsForUser(int userId)
+        {
+            return _context.Taskboards.Where(u => u.UserId == userId).ToList();
+        }
+
         public bool TaskboardExists(int taskboardId)
         {
             return _context.Taskboards.Any(c => c.Id == taskboardId);
@@ -59,7 +66,14 @@ namespace NinjaOrganizer.API.Services
 
         public void UpdateCardForTaskboard(int taskboardId, Card card)
         {
+            // TODO sprawdzic
+            _context.Cards.Update(card);
+        }
 
+        public void UpdateTaskboard(int taskboardId, Taskboard taskboard)
+        {
+            //TODO sprawdzic
+            _context.Taskboards.Update(taskboard);
         }
 
         public void DeleteCard(Card card)
@@ -69,6 +83,22 @@ namespace NinjaOrganizer.API.Services
 
         public bool Save()
         {
+            var AddedEntities = _context.ChangeTracker.Entries().Where(E => E.State == EntityState.Added).ToList();
+            AddedEntities.ForEach(E =>
+            {
+                string displayName = E.Metadata.DisplayName();
+                if (displayName == "Card" || displayName == "Taskboard")
+                    E.Property("Created").CurrentValue = DateTime.Now;
+            });
+
+            var EditedEntities = _context.ChangeTracker.Entries().Where(E => E.State == EntityState.Modified).ToList();
+            EditedEntities.ForEach(E =>
+            {
+                string displayName = E.Metadata.DisplayName();
+                if (displayName == "Card" || displayName == "Taskboard")
+                    E.Property("Updated").CurrentValue = DateTime.Now;
+            });
+
             return (_context.SaveChanges() >= 0);
         }
 

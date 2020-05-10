@@ -8,11 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NinjaOrganizer.API.Controllers
 {
+    [Authorize]
     [ApiController]
-    [Route("api/taskboards/{taskboardId}/cards")]
+    [Route("api/users/{userId}/taskboards/{taskboardId}/cards")]
     public class CardsController : ControllerBase
     {
         private readonly ILogger<CardsController> _logger;
@@ -95,10 +97,12 @@ namespace NinjaOrganizer.API.Controllers
                 return NotFound();
             }
 
+            
+
             var finalCard = _mapper.Map<Entities.Card>(card);
 
             _ninjaOrganizerRepository.AddCardForTaskboard(taskboardId, finalCard);
-
+            
             _ninjaOrganizerRepository.Save();
 
             var createdCardToReturn = _mapper
@@ -151,6 +155,7 @@ namespace NinjaOrganizer.API.Controllers
         public IActionResult PartiallyUpdateCard(int taskboardId, int id,
             [FromBody] JsonPatchDocument<CardForUpdateDto> patchDoc)
         {
+            throw new NotImplementedException("CardsController/patch -sprawdzic czy dziala");
             if (!_ninjaOrganizerRepository.TaskboardExists(taskboardId))
             {
                 return NotFound();

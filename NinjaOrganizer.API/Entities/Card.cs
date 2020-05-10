@@ -34,8 +34,10 @@ namespace NinjaOrganizer.API.Entities
 
         public CardState State { get; set; }
         public CardPriority Priority { get; set; }
-        //public DateTime Created { get; set; }
-       // public DateTime Updated { get; set; }
+
+
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
         [ForeignKey("TaskboardId")]
         public Taskboard Taskboard { get; set; }

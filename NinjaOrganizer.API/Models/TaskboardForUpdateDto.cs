@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NinjaOrganizer.API.Models
 {
-    public class TaskboardForCreationDto
+    public class TaskboardForUpdateDto
     {
         [Required(ErrorMessage = "You should provide a title value.")]
         [MaxLength(50)]
@@ -14,7 +14,5 @@ namespace NinjaOrganizer.API.Models
 
         [MaxLength(200)]
         public string Description { get; set; }
-
-
     }
 }

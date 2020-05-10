@@ -9,14 +9,17 @@ namespace NinjaOrganizer.API.Models
 {
     public class CardForCreationDto
     {       
-        [Required(ErrorMessage = "You should provide a name value.")]
+        [Required(ErrorMessage = "You should provide a title value.")]
         [MaxLength(50)]
         public string Title { get; set; }
 
         [MaxLength(200)]
         public string Content { get; set; }
 
+        [EnumDataType(typeof(CardState), ErrorMessage ="Wrong state of State.")]
         public CardState State { get; set; }
+
+        [EnumDataType(typeof(CardPriority), ErrorMessage = "Wrong state of Priority.")]
         public CardPriority Priority { get; set; }
 
     }

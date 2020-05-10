@@ -13,5 +13,8 @@ namespace NinjaOrganizer.API.Models
         public string Content { get; set; }
         public CardState State { get; set; }
         public CardPriority Priority { get; set; }
+
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
     }
 }

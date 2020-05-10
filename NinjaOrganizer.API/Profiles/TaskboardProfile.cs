@@ -13,6 +13,7 @@ namespace NinjaOrganizer.API.Profiles
             CreateMap<Entities.Taskboard, Models.TaskboardWithoutCardsDto>();
             CreateMap<Entities.Taskboard, Models.TaskboardDto>();
             CreateMap<Models.TaskboardForCreationDto, Entities.Taskboard>().ReverseMap();
+            CreateMap<Models.TaskboardForUpdateDto, Entities.Taskboard>().ReverseMap();
         }
 
     }

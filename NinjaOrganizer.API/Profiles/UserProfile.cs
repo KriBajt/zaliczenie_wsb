@@ -12,6 +12,8 @@ namespace NinjaOrganizer.API.Profiles
         public UserProfile()
         {
             CreateMap<Entities.User, Models.UserDto>();
+            CreateMap<Models.UserForRegisterDto, Entities.User>().ReverseMap();
+
         }
 
 

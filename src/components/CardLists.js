@@ -7,51 +7,60 @@ import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
 import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
-import Dane from './../dane';
+import Dane from '../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
-import CardDetail from './Table/TableDetail'
+import CardDetail from './Card/CardDetail'
 
-import ShowTable from './Table/ShowTable';
-
-// import SendDataToApi from './Table/SendDataToApi';
-import TableForm from './../components/Table/TableForm';
+import ShowCard from './Card/ShowCard';
+// import SendDataToApi from './Card/SendDataToApi';
+import CardForm from './Card/CardForm';
 import axios from "axios";
 
 
-class MainBoard extends Component {
+class CardLists extends Component {
     state = {
-        tables: []
+        cards: []
     };
 
     componentDidMount() {
         axios
-            .get("http://localhost:1028/api/taskboards/")
+            .get("http://localhost:1028/api/taskboards/3/cards/2")
             .then(res =>
                 this.setState({
-                    tables: res.data
+                    cards: res.data
                 })
             );
     }
+
     //toggle complete
     markComplete = id => {
         this.setState({
-            tables: this.state.tables.map(table => {
-                if (table.id === id) {
-                    table.completed = !table.completed;
+            cards: this.state.cards.map(card => {
+                if (card.id === id) {
+                    card.completed = !card.completed;
                 }
-                return table;
+                return card;
             })
         });
     };
 
     // Usuwanie karty
-    deleteTable = id => {
+    deleteCard = id => {
         axios.delete(`http://localhost:1028/api/taskboards/${id}`).then(res =>
             this.setState({
-                tables: [...this.state.tables.filter(table => table.id !== id)]
+                cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
     };
+
+    // addCard = cards => {
+    //     axios
+    //         .post("http://localhost:1028/api/taskboards/3/cards", {
+    //             cards,
+    //             completed: false
+    //         })
+    //         .then(res => this.setState({ cards: [...this.state.cards, res.data] }));
+    // };
 
     render() {
         return (
@@ -60,10 +69,10 @@ class MainBoard extends Component {
                 <div className="container cardCustom">
                 </div>
                 <div className="container cardCustom">
-                    <ShowTable
-                        tables={this.state.tables}
+                    <ShowCard
+                        cards={this.state.cards}
                         markComplete={this.markComplete}
-                        deleteTable={this.deleteTable} />
+                        deleteCard={this.deleteCard} />
                 </div>
                 <Footer />
             </>
@@ -75,4 +84,4 @@ const mapStateToProps = state => ({
     lists: state.lists
 });
 
-export default connect(mapStateToProps)(MainBoard);
+export default connect(mapStateToProps)(CardLists);
