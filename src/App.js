@@ -14,19 +14,46 @@ import Menu from './components/Menu/Menu'
 import CardLists from './components/CardLists';
 import Login from './login';
 import Dashboard from './Dashboard';
+import Home from './Home';
 
 export default class App extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            loggedInStatus: "NOT_LOGGED_IN",
+            user: {}
+        };
+
+        this.handleLogin = this.handleLogin.bind(this);
+    }
+
+    handleLogin(data) {
+        this.setState({
+            loggedInStatus: "LOGGED_IN",
+            data
+        })
+    }
+
     render() {
         return (
             <>
                 <Router>
                     <Switch>
+                        <Route exact path={"/"} render={props => (
+                            <Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+                        )} />
+                        <Route exact path={"/dashboard"} render={props => (
+                            <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />
+                        )} />
+
                         <Route path="/login" component={Login} />
+                        <Route path="/mainboard" component={MainBoard} />
                         <Route path='/rejestracja' component={Registration} />
                         <Route path="/card-details/" component={CardDetail} />
                         <Route path="/cards/:id" component={CardLists} />
 
-                        <Route path="/" component={MainBoard} />
+
 
                         <Registration />
                         <Login />

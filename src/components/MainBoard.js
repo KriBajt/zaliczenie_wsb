@@ -17,8 +17,11 @@ import ShowTable from './Table/ShowTable';
 import TableForm from './../components/Table/TableForm';
 import axios from "axios";
 
-
 class MainBoard extends Component {
+
+    constructor(props) {
+        super(props);
+    }
     state = {
         tables: []
     };
