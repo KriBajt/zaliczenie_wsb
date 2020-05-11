@@ -65,7 +65,7 @@ export default class login extends Component {
                 <div className={'rightBoxLogin'}>
                     <div className={'box'}>
                         <div className={'titleAuth mb-0'}>LET'S KICK IT!</div>
-                        <div className={'titleAuth2'}>Jeśli nie masz jeszcze konta, <Link to={'/registration'}> zarejestruj się! </Link></div>
+                        <div className={'titleAuth2'}>Jeśli nie masz jeszcze konta, <Link to={'/rejestracja'}> zarejestruj się! </Link></div>
 
                         <div className={'inputSBox'}>
                             <Input type="text" onChange={this.Email} placeholder="Enter Email" />

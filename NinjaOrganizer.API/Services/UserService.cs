@@ -72,7 +72,6 @@ namespace NinjaOrganizer.API.Services
 
         public User Create(User user, string password)
         {
-            // TODO sprawdzic czy jest wpisane haslo i czy uzytkownik juz istnieje
 
             byte[] passwordHash, passwordSalt;
             passwordHash = createPasswordHash(password, out passwordSalt);
@@ -81,15 +80,7 @@ namespace NinjaOrganizer.API.Services
             user.PasswordSalt = passwordSalt;
 
             _context.Users.Add(user);
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-                string ee = ex.Message;
-            }
+            _context.SaveChanges();
 
             return user;
         }

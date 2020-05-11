@@ -31,5 +31,8 @@ namespace NinjaOrganizer.API.Services
         void DeleteCard(Card card);
 
         bool Save();
+
+        bool UserExists(string username);
+        bool UserExists(int userId);
     }
 }

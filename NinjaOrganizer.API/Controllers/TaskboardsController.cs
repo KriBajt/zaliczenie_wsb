@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace NinjaOrganizer.API.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [ApiController]
     [Route("api/users/{userId}/taskboards")]
     public class TaskboardsController : ControllerBase

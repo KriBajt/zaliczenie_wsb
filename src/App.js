@@ -13,7 +13,6 @@ import CardDetail from './components/Card/CardDetail';
 import Menu from './components/Menu/Menu'
 import CardLists from './components/CardLists';
 import Login from './login';
-import Reg from './Reg';
 import Dashboard from './Dashboard';
 
 export default class App extends Component {
@@ -22,15 +21,13 @@ export default class App extends Component {
             <>
                 <Router>
                     <Switch>
-                        <Route exact path='/Login' component={Login} />
-                        <Route path='/Signup' component={Reg} />
                         <Route path="/login" component={Login} />
-                        <Route path="/registration" component={Registration} />
-
+                        <Route path='/rejestracja' component={Registration} />
                         <Route path="/card-details/" component={CardDetail} />
                         <Route path="/cards/:id" component={CardLists} />
 
                         <Route path="/" component={MainBoard} />
+
                         <Registration />
                         <Login />
                     </Switch>

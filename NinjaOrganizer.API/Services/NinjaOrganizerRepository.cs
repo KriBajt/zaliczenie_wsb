@@ -58,6 +58,16 @@ namespace NinjaOrganizer.API.Services
             return _context.Taskboards.Any(c => c.Id == taskboardId);
         }
 
+        public bool UserExists(string username)
+        {
+            return _context.Users.Any(u => u.Username == username);
+        }
+
+        public bool UserExists(int userId)
+        {
+            return _context.Users.Any(u => u.Id == userId);
+        }
+
         public void AddCardForTaskboard(int taskboardId, Card card)
         {
             var taskboard = GetTaskboard(taskboardId, false);

@@ -12,10 +12,10 @@ export default class Registration extends Component {
         super(props);
 
         this.state = {
-            email: "",
-            password: "",
-            password_confirmation: "",
-            registrationErrors: ""
+            FirstName: "",
+            LastName: "",
+            Username: "",
+            Password: ""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,17 +33,19 @@ export default class Registration extends Component {
     handleSubmit(event) {
 
         const {
-            email,
-            password,
-            password_confirmation
-        } = this.state;
+            FirstName,
+            LastName,
+            Username,
+            Password
+        } = this.state
 
         axios.post("http://localhost:1028/api/users/register", {
-            user: {
-                email: email,
-                password: password,
-                password_confirmation: password_confirmation
-            }
+
+            FirstName: FirstName,
+            LastName: LastName,
+            Username: Username,
+            Password: Password,
+
         },
             { withCredentials: true }
         ).then(response => {
@@ -70,16 +72,16 @@ export default class Registration extends Component {
                                 <div className={'titleAuth mb-0'}>LET'S KICK IT!</div>
                                 <div className={'titleAuth2'}><i>"Każda praca jest dobra, o ile jest dobrze zarządzana."</i></div>
                                 <div className={'inputSBox'}>
-                                    <input type={"text"} name="login" className={"inputS"} placeholder={'Nazwa użytkownika'} />
+                                    <input type={"text"} name="FirstName" className={"inputS"} placeholder={'Imie użytkownika'} value={this.state.FirstName} onChange={this.handleChange} />
                                 </div>
                                 <div className={'inputSBox'}>
-                                    <input type={"email"} name="email" className={"inputS"} placeholder={'Email'} value={this.state.email} onChange={this.handleChange} required />
+                                    <input type={"lastname"} name="LastName" className={"inputS"} placeholder={'Nazwisko'} value={this.state.LastName} onChange={this.handleChange} required />
                                 </div>
                                 <div className={'inputSBox'}>
-                                    <input type={'password'} name="password" className={"inputS"} placeholder={'Hasło'} value={this.state.password} onChange={this.handleChange} required />
+                                    <input type={'username'} name="Username" className={"inputS"} placeholder={'Nazwa użytkownika'} value={this.state.Username} onChange={this.handleChange} required />
                                 </div>
                                 <div className={'inputSBox'}>
-                                    <input type={'password'} name="password_confirmation" className={"inputS"} placeholder={'Wprowadź ponownie hasło'} value={this.state.password_confirmation} onChange={this.handleChange} required />
+                                    <input type={'password'} name="Password" className={"inputS"} placeholder={'Hasło'} value={this.state.Password} onChange={this.handleChange} required />
                                 </div>
 
                                 {/* <Link to={'/MainBoard'}> */}

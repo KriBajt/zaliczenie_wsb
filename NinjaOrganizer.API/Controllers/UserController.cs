@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace NinjaOrganizer.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/users")]
     public class UserController : ControllerBase
@@ -47,20 +47,20 @@ namespace NinjaOrganizer.API.Controllers
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
-                }),
-                Expires = DateTime.UtcNow.AddDays(7), //TODO sprawdzic czy dziala i zwalidowac
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-            var expiresDate = token.ValidTo;
+            //var tokenHandler = new JwtSecurityTokenHandler();
+            //var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            //var tokenDescriptor = new SecurityTokenDescriptor
+            //{
+            //    Subject = new ClaimsIdentity(new Claim[]
+            //    {
+            //        new Claim(ClaimTypes.Name, user.Id.ToString())
+            //    }),
+            //    Expires = DateTime.UtcNow.AddDays(7), //TODO sprawdzic czy dziala i zwalidowac
+            //    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            //};
+            //var token = tokenHandler.CreateToken(tokenDescriptor);
+            //var tokenString = tokenHandler.WriteToken(token);
+            //var expiresDate = token.ValidTo;
 
             // return basic user info and authentication token
             return Ok(new
@@ -68,9 +68,9 @@ namespace NinjaOrganizer.API.Controllers
                 Id = user.Id,
                 Username = user.Username,
                 FirstName = user.FirstName,
-                LastName = user.LastName,
-                Token = tokenString,
-                Expires = expiresDate
+                LastName = user.LastName//,
+               // Token = tokenString,
+               // Expires = expiresDate
             });
         }
 
@@ -78,8 +78,14 @@ namespace NinjaOrganizer.API.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
-            var user = _mapper.Map<User>(userForRegisterDto);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            if (_ninjaOrganizerRepository.UserExists(userForRegisterDto.Username))
+                return BadRequest(new { message = "Username exist" });
+
+            var user = _mapper.Map<User>(userForRegisterDto);
+            
             try
             {
                 _userService.Create(user, userForRegisterDto.Password);
@@ -111,6 +117,23 @@ namespace NinjaOrganizer.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]UserForUpdateDto userForUpdate)
         {
+            if (userForUpdate.Username == userForUpdate.Password)
+            {
+                ModelState.AddModelError(
+                    "Description",
+                    "The same name and pass");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!_ninjaOrganizerRepository.UserExists(userForUpdate.Username))
+            {
+                return NotFound();
+            }
+
             // map model to entity and set id
             var user = _mapper.Map<User>(userForUpdate);
             user.Id = id;
@@ -131,8 +154,12 @@ namespace NinjaOrganizer.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            if (!_ninjaOrganizerRepository.UserExists(id))
+                return NotFound();
+
             _userService.Delete(id);
-            return Ok();
+
+            return NoContent();
         }
 
     }
