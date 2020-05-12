@@ -66,7 +66,8 @@ class MainBoard extends Component {
                     <ShowTable
                         tables={this.state.tables}
                         markComplete={this.markComplete}
-                        deleteTable={this.deleteTable} />
+                        deleteTable={this.deleteTable}
+                    />
                 </div>
                 <Footer />
             </>

@@ -15,7 +15,7 @@ export default class TableDetail extends Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:1028/api/taskboards")
+        fetch("http://localhost:1028/api/users/1/taskboards/")
             .then(res => res.json())
             .then(
                 (result) => {
