@@ -29,6 +29,11 @@ export default class Registration extends Component {
             [event.target.name]: event.target.value
         })
     }
+    handleSuccessfulAuth(data) {
+        //Todo update parent componen
+        this.props.handleLogin(data);
+        this.props.history.push("/MainBoard");
+    }
 
     handleSubmit(event) {
 
@@ -87,7 +92,7 @@ export default class Registration extends Component {
                                 </div>
 
                                 {/* <Link to={'/MainBoard'}> */}
-                                <button className={'btnAuth'}>Zarejestruj się</button>
+                                <button className={'btnAuth'} type="submit">Zarejestruj się</button>
                                 {/* </Link> */}
 
                                 <div className={'borderBox'}>

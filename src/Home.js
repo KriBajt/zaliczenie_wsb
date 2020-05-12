@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Registration from './components/auth/Registration';
+import Login from './components/auth/login';
 
 export default class Home extends Component {
     constructor(props) {
@@ -12,14 +13,15 @@ export default class Home extends Component {
     handleSuccessfulAuth(data) {
         //Todo update parent componen
         this.props.handleLogin(data);
-        this.props.history.push("/dashboard");
+        this.props.history.push("/MainBoard");
     }
 
     render() {
         return (
             <div>
-                <h1>Statusss {this.props.loggedInStatus}</h1>
-                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
+                <h1>Status {this.props.loggedInStatus}</h1>
+                <Login handleSuccessfulAuth={this.handleSuccessfulAuth} />
+
             </div>
         )
     }

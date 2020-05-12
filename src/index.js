@@ -8,8 +8,7 @@ import MainBoard from "./components/MainBoard";
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './login';
-import Register from './register';
+
 import App from './App';
 
 ReactDOM.render(

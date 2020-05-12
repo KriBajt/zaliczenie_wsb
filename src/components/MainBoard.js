@@ -28,7 +28,7 @@ class MainBoard extends Component {
 
     componentDidMount() {
         axios
-            .get("http://localhost:1028/api/taskboards/")
+            .get("http://localhost:1028/api/users/1/taskboards/")
             .then(res =>
                 this.setState({
                     tables: res.data

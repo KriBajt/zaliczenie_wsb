@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using NinjaOrganizer.API.Entities;
-using NinjaOrganizer.API.Helpers;
 using NinjaOrganizer.API.Models;
 using NinjaOrganizer.API.Services;
 using System;
@@ -18,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace NinjaOrganizer.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/users")]
     public class UserController : ControllerBase
@@ -26,52 +25,41 @@ namespace NinjaOrganizer.API.Controllers
         private readonly INinjaOrganizerRepository _ninjaOrganizerRepository;
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
-        private readonly AppSettings _appSettings;
 
-        public UserController(INinjaOrganizerRepository ninjaOrganizerRepository, IMapper mapper, IUserService userService, IOptions<AppSettings> appSettings)
+        public UserController(INinjaOrganizerRepository ninjaOrganizerRepository, IMapper mapper, IUserService userService)
         {
             _ninjaOrganizerRepository = ninjaOrganizerRepository ??
                throw new ArgumentNullException(nameof(ninjaOrganizerRepository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
-            _appSettings = appSettings.Value;
         }
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]UserForAuthenticateDto userForAuth)
+        public async Task<IActionResult> Authenticate([FromBody]UserForAuthenticateDto userForAuth)
         {
-            var user = _userService.Authenticate(userForAuth.Username, userForAuth.Password);
+            var usersL = await Task.Run(() => _userService.GetAll());
+            bool found = false;
+            foreach(User us in usersL)
+            {
+                if (us.Username == userForAuth.Username)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)
+                return BadRequest(new { message = "Username not exist." });
+
+            var user = await _userService.Authenticate(userForAuth.Username, userForAuth.Password);
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Password is incorrect." });
 
-            //var tokenHandler = new JwtSecurityTokenHandler();
-            //var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            //var tokenDescriptor = new SecurityTokenDescriptor
-            //{
-            //    Subject = new ClaimsIdentity(new Claim[]
-            //    {
-            //        new Claim(ClaimTypes.Name, user.Id.ToString())
-            //    }),
-            //    Expires = DateTime.UtcNow.AddDays(7), //TODO sprawdzic czy dziala i zwalidowac
-            //    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            //};
-            //var token = tokenHandler.CreateToken(tokenDescriptor);
-            //var tokenString = tokenHandler.WriteToken(token);
-            //var expiresDate = token.ValidTo;
+            user.Password = null;
 
-            // return basic user info and authentication token
-            return Ok(new
-            {
-                Id = user.Id,
-                Username = user.Username,
-                FirstName = user.FirstName,
-                LastName = user.LastName//,
-               // Token = tokenString,
-               // Expires = expiresDate
-            });
+            return Ok(user);
         }
 
         [AllowAnonymous]
@@ -99,11 +87,11 @@ namespace NinjaOrganizer.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var users = _userService.GetAll();
-            var userDto = _mapper.Map<IList<UserDto>>(users);
-            return Ok(userDto);
+            var users = _userService.GetAll().Result;
+          //  var userDto = await _mapper.Map<IList<UserDto>>(users.Result);
+            return Ok(users);
         }
 
         [HttpGet("{id}")]

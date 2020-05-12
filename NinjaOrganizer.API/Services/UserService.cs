@@ -18,24 +18,20 @@ namespace NinjaOrganizer.API.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public User Authenticate(string username, string password)
+        public async Task<User> Authenticate(string username, string password)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                return null;
+            // if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            //   return null;
+            var users = _context.Users;
+            var user = await Task.Run(() => users.SingleOrDefault(x => x.Username == username && x.Password == password));
 
-            var user = _context.Users.SingleOrDefault(x => x.Username == username);
-
-            // check if username exists
             if (user == null)
-                return null;
-
-            // check if password is correct
-            if (!checkPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
 
             // authentication successful
             return user;
         }
+
 
         private bool checkPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
@@ -76,8 +72,8 @@ namespace NinjaOrganizer.API.Services
             byte[] passwordHash, passwordSalt;
             passwordHash = createPasswordHash(password, out passwordSalt);
 
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
+            //user.PasswordHash = passwordHash;
+           // user.PasswordSalt = passwordSalt;
 
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -95,9 +91,9 @@ namespace NinjaOrganizer.API.Services
             }
         }
 
-        public IEnumerable<User> GetAll()
+        public async Task<IEnumerable<User>> GetAll()
         {
-            return _context.Users;
+            return await Task.Run(() => _context.Users);
         }
 
         public User GetById(int id)
@@ -135,8 +131,8 @@ namespace NinjaOrganizer.API.Services
                 byte[] passwordHash, passwordSalt;
                 CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
-                user.PasswordHash = passwordHash;
-                user.PasswordSalt = passwordSalt;
+               // user.PasswordHash = passwordHash;
+               // user.PasswordSalt = passwordSalt;
             }
 
             _context.Users.Update(user);
@@ -156,5 +152,6 @@ namespace NinjaOrganizer.API.Services
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
+
     }
 }

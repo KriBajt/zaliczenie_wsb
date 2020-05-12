@@ -5,12 +5,11 @@ import TrelloActionButton from "./Button/TrelloActionButton";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
-import Menu from './Menu/Menu';
+import MenuCard from './Menu/MenuCard';
 import Footer from './Footer/Footer';
 import Dane from '../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Card/CardDetail'
-
 import ShowCard from './Card/ShowCard';
 // import SendDataToApi from './Card/SendDataToApi';
 import CardForm from './Card/CardForm';
@@ -24,7 +23,7 @@ class CardLists extends Component {
 
     componentDidMount() {
         axios
-            .get("http://localhost:1028/api/taskboards/3/cards/2")
+            .get("http://localhost:1028/api/users/1/taskboards/1/cards")
             .then(res =>
                 this.setState({
                     cards: res.data
@@ -46,7 +45,7 @@ class CardLists extends Component {
 
     // Usuwanie karty
     deleteCard = id => {
-        axios.delete(`http://localhost:1028/api/taskboards/${id}`).then(res =>
+        axios.delete(`http://localhost:1028/api/users/1/taskboards/1/cards/${id}`).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
@@ -65,7 +64,7 @@ class CardLists extends Component {
     render() {
         return (
             <>
-                <Menu />
+                <MenuCard />
                 <div className="container cardCustom">
                 </div>
                 <div className="container cardCustom">

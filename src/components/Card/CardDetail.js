@@ -15,7 +15,7 @@ export default class CardDetail extends Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:1028/api/taskboards/3/cards")
+        fetch("http://localhost:1028/api/users/1/taskboards/1/cards/")
             .then(res => res.json())
             .then(
                 (result) => {

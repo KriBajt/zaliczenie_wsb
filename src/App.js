@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import './App.css';
 import './components/Button/Button.css';
 import MainBoard from "./components/MainBoard";
@@ -12,7 +13,7 @@ import Dane from './dane';
 import CardDetail from './components/Card/CardDetail';
 import Menu from './components/Menu/Menu'
 import CardLists from './components/CardLists';
-import Login from './login';
+import Login from './components/auth/login';
 import Dashboard from './Dashboard';
 import Home from './Home';
 
@@ -26,8 +27,33 @@ export default class App extends Component {
         };
 
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleLogOut = this.handleLogin.bind(this);
     }
 
+    checkLoginStatus() {
+        axios.post("http://localhost:1028/api/users/authenticate", { withCredentials: true }).then(response => {
+            // if (response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN") {
+            this.setState({
+                loggedInStatus: "LOGGED_IN",
+                user: response.data.user  // usunąć useera ?
+            })
+            // } else if (!response.data.logged_in & this.state.loggedInStatus === "LOGGED_IN"){
+            // this.setState({
+            //     loggedInStatus: "NOT_LOGGED_IN",
+            //     user: {}
+            // })
+            // }
+            console.log("zalogowany?", response);
+        }).catch(error => {
+            console.log("błędy logowania ", error);
+        })
+    }
+
+
+    componentDidMount() {
+        this.checkLoginStatus();
+
+    }
     handleLogin(data) {
         this.setState({
             loggedInStatus: "LOGGED_IN",
@@ -53,10 +79,7 @@ export default class App extends Component {
                         <Route path="/card-details/" component={CardDetail} />
                         <Route path="/cards/:id" component={CardLists} />
 
-
-
                         <Registration />
-                        <Login />
                     </Switch>
                 </Router>
             </>

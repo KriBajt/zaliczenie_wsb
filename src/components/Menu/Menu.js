@@ -11,7 +11,7 @@ export default class Menu extends Component {
         return (
             <div >
                 <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
-                    <Navbar.Brand href="/" className={'style1'}>NinjaTask<GiNinjaHead /></Navbar.Brand>
+                    <Navbar.Brand href="/MainBoard" className={'style1'}>NinjaTask<GiNinjaHead /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
