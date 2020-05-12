@@ -71,7 +71,10 @@ class CardLists extends Component {
                     <ShowCard
                         cards={this.state.cards}
                         markComplete={this.markComplete}
-                        deleteCard={this.deleteCard} />
+                        deleteCard={this.deleteCard}
+
+
+                    />
                 </div>
                 <Footer />
             </>

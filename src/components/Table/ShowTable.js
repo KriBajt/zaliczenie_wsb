@@ -14,10 +14,12 @@ export default class showTable extends Component {
     // }
     render() {
         return this.props.tables.map(table => (
+
             <TableItem
                 key={table.id}
                 markComplete={this.props.markComplete}
                 deleteTable={this.props.deleteTable}
+                setUpdate={this.props.setUpdate}
                 table={table}
 
             />
@@ -30,7 +32,9 @@ export default class showTable extends Component {
 showTable.propTypes = {
     tables: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
-    deleteTable: PropTypes.func.isRequired
+    deleteTable: PropTypes.func.isRequired,
+    setUpdate: PropTypes.func.isRequired,
+
 };
 
 

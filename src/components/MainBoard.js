@@ -10,7 +10,6 @@ import Footer from './Footer/Footer';
 import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Table/TableDetail'
-
 import ShowTable from './Table/ShowTable';
 
 // import SendDataToApi from './Table/SendDataToApi';
@@ -23,12 +22,15 @@ class MainBoard extends Component {
         super(props);
     }
     state = {
-        tables: []
+        tables: [],
+        id: 1
+
     };
 
     componentDidMount() {
+        const { id } = this.state;
         axios
-            .get("http://localhost:1028/api/users/1/taskboards/")
+            .get(`http://localhost:1028/api/users/${id}/taskboards/`)
             .then(res =>
                 this.setState({
                     tables: res.data
@@ -47,14 +49,34 @@ class MainBoard extends Component {
         });
     };
 
+    // editTable = id => {
+    //     axios.delete(`http://localhost:1028/api/taskboards/${id}`).then(res =>
+    //         this.setState({
+    //             tables: [...this.state.tables.filter(table => table.id !== id)]
+    //         })
+    //     );
+    // };
+
     // Usuwanie karty
     deleteTable = id => {
-        axios.delete(`http://localhost:1028/api/taskboards/${id}`).then(res =>
+        axios.delete(`http://localhost:1028/api/users/1/taskboards/${id}`).then(res =>
             this.setState({
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
         );
     };
+
+    setUpdate = (title, id) => {
+        axios.put(`http://localhost:1028/api/users/1/taskboards/${id}`, {
+            Title: 'dupa',
+        }).then(response => {
+            console.log(response);
+        })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
 
     render() {
         return (
@@ -62,13 +84,18 @@ class MainBoard extends Component {
                 <Menu />
                 <div className="container cardCustom">
                 </div>
+
                 <div className="container cardCustom">
                     <ShowTable
                         tables={this.state.tables}
                         markComplete={this.markComplete}
                         deleteTable={this.deleteTable}
+                        setUpdate={this.setUpdate}
+
                     />
+
                 </div>
+
                 <Footer />
             </>
         )

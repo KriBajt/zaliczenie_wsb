@@ -109,3 +109,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.card-footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}

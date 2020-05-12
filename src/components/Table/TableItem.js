@@ -6,6 +6,7 @@ import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 // import CardList from '../CardList';
+import FlipMove from 'react-flip-move';
 
 export default class TableItem extends Component {
     render() {
@@ -15,26 +16,25 @@ export default class TableItem extends Component {
         return (
             <div>
                 <div className="cardCustomList text-white mb-3">
-
                     <div className="card-header">
-                        <h5 className="card-title" onChange={this.props.markComplete.bind(this, id)} key={title}>{title}</h5>
+                        <FlipMove duration={300} easing="ease-in-out">
+
+                            <input type="text" className="card-title" onChange={(e) => { this.props.setUpdate(e.target.value, title) }} key={title} value={title}></input>
+                        </FlipMove>
+
                         <div className="btnDetails btnDelete">
                             <BsFillTrashFill onClick={this.props.deleteTable.bind(this, id)} />
                         </div>
                     </div>
                     <div className="card-body">
-                        <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>{title}</p>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Opis: {description}</p>
                     </div>
-
                     <div className="card-footer">
                         <p></p>
-                        <Link to={`/cards/${id}`}  > Lista zadań </Link>
+                        <Link to={`/cards/${id}`} > Lista zadań </Link>
                         <div className="btnDetails d-flex ">
-
                         </div>
                     </div>
-
                 </div>
             </div >
         )
@@ -45,5 +45,7 @@ export default class TableItem extends Component {
 TableItem.propTypes = {
     table: PropTypes.object.isRequired,
     markComplete: PropTypes.func.isRequired,
-    deleteTable: PropTypes.func.isRequired
+    deleteTable: PropTypes.func.isRequired,
+    setUpdate: PropTypes.func.isRequired,
+
 }
