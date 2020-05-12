@@ -23,7 +23,7 @@ class CardLists extends Component {
 
     componentDidMount() {
         axios
-            .get("http://localhost:1028/api/users/1/taskboards/1/cards")
+            .get(`http://localhost:1028/api/users/1/taskboards/1/cards`)
             .then(res =>
                 this.setState({
                     cards: res.data

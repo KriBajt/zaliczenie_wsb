@@ -27,6 +27,7 @@ export default class CardDetail extends Component {
                 // Uwaga: to ważne, żeby obsłużyć błędy tutaj, a
                 // nie w bloku catch(), aby nie przetwarzać błędów
                 // mających swoje źródło w komponencie.
+
                 (error) => {
                     this.setState({
                         isLoaded: true,
