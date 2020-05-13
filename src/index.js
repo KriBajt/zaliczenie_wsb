@@ -1,15 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
+
+import { store } from './helpers';
+import { App } from './App/App';
+
 import './App.css';
 import './components/Button/Button.css';
-import store from "./store";
 import MainBoard from "./components/MainBoard";
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -24,5 +27,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-

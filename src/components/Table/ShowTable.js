@@ -20,6 +20,8 @@ export default class showTable extends Component {
                 markComplete={this.props.markComplete}
                 deleteTable={this.props.deleteTable}
                 setUpdate={this.props.setUpdate}
+                onChange={this.handleChange}
+
                 table={table}
 
             />
@@ -34,6 +36,8 @@ showTable.propTypes = {
     markComplete: PropTypes.func.isRequired,
     deleteTable: PropTypes.func.isRequired,
     setUpdate: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+
 
 };
 

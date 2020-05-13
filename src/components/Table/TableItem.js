@@ -19,7 +19,7 @@ export default class TableItem extends Component {
                     <div className="card-header">
                         <FlipMove duration={300} easing="ease-in-out">
 
-                            <input type="text" className="card-title" onChange={(e) => { this.props.setUpdate(e.target.value, title) }} key={title} value={title}></input>
+                            <input type="text" className="card-title" onChange={this.handleChange} key={title} value={title}></input>
                         </FlipMove>
 
                         <div className="btnDetails btnDelete">

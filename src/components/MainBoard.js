@@ -11,7 +11,7 @@ import Dane from './../dane';
 import BtnCardDetails from './Button/BtnCardDetails'
 import CardDetail from './Table/TableDetail'
 import ShowTable from './Table/ShowTable';
-
+import Modal from '../components/Modal/Modal';
 // import SendDataToApi from './Table/SendDataToApi';
 import TableForm from './../components/Table/TableForm';
 import axios from "axios";
@@ -77,6 +77,11 @@ class MainBoard extends Component {
             });
     }
 
+    handleChange = (evt) => {
+        this.setState({
+            tables: evt.target.value,
+        });
+    }
 
     render() {
         return (
@@ -91,11 +96,11 @@ class MainBoard extends Component {
                         markComplete={this.markComplete}
                         deleteTable={this.deleteTable}
                         setUpdate={this.setUpdate}
-
+                        onChange={this.handleChange}
                     />
-
                 </div>
 
+                <Modal />
                 <Footer />
             </>
         )
