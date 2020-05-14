@@ -13,7 +13,7 @@ export default class Home extends Component {
     handleSuccessfulAuth(data) {
         //Todo update parent componen
         this.props.handleLogin(data);
-        this.props.history.push("/MainBoard");
+        this.props.history.push("/HomePage");
     }
 
     render() {

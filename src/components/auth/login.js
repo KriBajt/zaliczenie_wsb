@@ -36,7 +36,7 @@ export default class login extends Component {
         } = this.state
 
 
-        axios.post("http://localhost:1028/api/users/authenticate", {
+        axios.post("http://localhost:1028/users/authenticate", {
             Username: Username,
             Password: Password,
 

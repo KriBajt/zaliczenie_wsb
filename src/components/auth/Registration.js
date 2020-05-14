@@ -44,7 +44,7 @@ export default class Registration extends Component {
             Password
         } = this.state
 
-        axios.post("http://localhost:1028/api/users/register", {
+        axios.post("http://localhost:1028/users/register", {
 
             FirstName: FirstName,
             LastName: LastName,

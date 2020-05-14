@@ -22,7 +22,7 @@ export default class TableForm extends Component {
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     onSubmit = (e) => {
-        axios.post('http://localhost:1028/api/users/1/taskboards/', this.state)
+        axios.post('http://localhost:1028/users/1003/taskboards/', this.state)
             .then(response => {
                 let tables = response.data;
                 this.setState({ tables: tables });

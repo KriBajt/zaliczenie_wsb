@@ -10,7 +10,7 @@ export default class dane extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:1028/api/taskboards/3/cards")
+        fetch("http://localhost:1028/taskboards/3/cards")
             .then(res => res.json())
             .then(
                 (result) => {

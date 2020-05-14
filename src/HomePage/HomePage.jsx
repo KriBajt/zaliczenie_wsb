@@ -1,13 +1,84 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { userActions } from '../actions';
 
+import TrelloList from '../components/TrelloList';
+import TrelloActionButton from "../components/Button/TrelloActionButton";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { sort } from "../actions";
+import { GiNinjaHead } from 'react-icons/gi';
+import Menu from '../components/Menu/Menu';
+import Footer from '../components/Footer/Footer';
+import BtnCardDetails from '../components/Button/BtnCardDetails'
+import CardDetail from '../components/Table/TableDetail'
+import ShowTable from '../components/Table/ShowTable';
+// coś modal psuje
+import Modal from '../components/Modal/Modal';
+
+
+import TableForm from '../components/Table/TableForm';
+import axios from "axios";
+
+
 class HomePage extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+    state = {
+        tables: [],
+        id: 1
+
+    };
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
+
+        const { id } = this.state;
+        axios
+            .get(`http://localhost:1028/users/1003/taskboards/`)
+            .then(res =>
+                this.setState({
+                    tables: res.data
+                })
+            );
     }
+
+
+
+
+
+    // Usuwanie karty
+    deleteTable = id => {
+        axios.delete(`http://localhost:1028/users/1003/taskboards/${id}`).then(res =>
+            this.setState({
+                tables: [...this.state.tables.filter(table => table.id !== id)]
+            })
+        );
+    };
+
+    setUpdate = (title, id) => {
+        axios.put(`http://localhost:1028/users/1003/taskboards/${id}`, {
+            Title: 'dupa',
+        }).then(response => {
+            console.log(response);
+        })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    //toggle complete
+    markComplete = id => {
+        this.setState({
+            tables: this.state.tables.map(table => {
+                if (table.id === id) {
+                    table.completed = !table.completed;
+                }
+                return table;
+            })
+        });
+    };
 
     handleDeleteUser(id) {
         return (e) => this.props.dispatch(userActions.delete(id));
@@ -15,31 +86,26 @@ class HomePage extends React.Component {
 
     render() {
         const { user, users } = this.props;
+
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h1>Hi {user.firstName}!</h1>
-                <p>You're logged in with React and ASP.NET Core 2.0!!</p>
-                <h3>All registered users:</h3>
-                {users.loading && <em>Loading users...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-                {users.items &&
-                    <ul>
-                        {users.items.map((user, index) =>
-                            <li key={user.id}>
-                                {user.firstName + ' ' + user.lastName}
-                                {
-                                    user.deleting ? <em> - Deleting...</em>
-                                        : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                            : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-                                }
-                            </li>
-                        )}
-                    </ul>
-                }
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
-            </div>
+            <>
+                <Menu />
+                <div className="container cardCustom">
+                </div>
+                {user.id}
+
+                <div className="container cardCustom">
+                    <ShowTable
+                        tables={this.state.tables}
+                        markComplete={this.markComplete}
+                        deleteTable={this.deleteTable}
+                        setUpdate={this.setUpdate}
+                        onChange={this.handleChange}
+                    />
+                </div>
+                <Footer />
+
+            </>
         );
     }
 }

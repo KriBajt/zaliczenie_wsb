@@ -23,7 +23,7 @@ export default class CardForm extends Component {
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     onSubmit = (e) => {
-        axios.put('http://localhost:1028/api/users/1/taskboards/1/cards', this.state)
+        axios.put('http://localhost:1028/users/1/taskboards/1/cards', this.state)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });

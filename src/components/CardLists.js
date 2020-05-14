@@ -23,7 +23,7 @@ class CardLists extends Component {
 
     componentDidMount() {
         axios
-            .get(`http://localhost:1028/api/users/1/taskboards/1/cards`)
+            .get(`http://localhost:1028/users/1003/taskboards/1/cards`)
             .then(res =>
                 this.setState({
                     cards: res.data
@@ -45,21 +45,12 @@ class CardLists extends Component {
 
     // Usuwanie karty
     deleteCard = id => {
-        axios.delete(`http://localhost:1028/api/users/1/taskboards/1/cards/${id}`).then(res =>
+        axios.delete(`http://localhost:1028/users/1/taskboards/1/cards/${id}`).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
     };
-
-    // addCard = cards => {
-    //     axios
-    //         .post("http://localhost:1028/api/taskboards/3/cards", {
-    //             cards,
-    //             completed: false
-    //         })
-    //         .then(res => this.setState({ cards: [...this.state.cards, res.data] }));
-    // };
 
     render() {
         return (
