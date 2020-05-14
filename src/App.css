@@ -240,6 +240,18 @@ contentTrelloBox {
 .inputSBox input {
   border: 0;
   font-size: 14px;
+  outline: none;
+
+}
+
+.inputSBox:hover {
+  outline: none;
+
+}
+
+.inputSBox input:hover {
+  border: 0;
+  background-color: rgb(33, 212, 212);
 
 }
 
@@ -249,11 +261,12 @@ contentTrelloBox {
   font-size: 14px;
   color: var(--firstColor);
   text-indent: 10px;
-  border: 0;
+  border-radius: 5px 5px 0 0px;
   outline: none;
-  border: 0;
+}
 
-
+.inputS:focus {
+  outline: none;
 }
 
 .contentBox {
