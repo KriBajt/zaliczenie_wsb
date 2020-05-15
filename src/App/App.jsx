@@ -9,6 +9,7 @@ import { HomePage } from '../HomePage'
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import MainBoard from '../components/MainBoard';
+import SchowCard from '../components/Card/ShowCard';
 
 class App extends React.Component {
     constructor(props) {
@@ -25,13 +26,13 @@ class App extends React.Component {
         const { alert } = this.props;
         return (
             <>
-
                 {alert.message &&
                     <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }
                 <Router history={history}>
                     <div>
                         <PrivateRoute exact path="/" component={HomePage} />
+                        <Route path="/SchowCard" component={SchowCard} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
                     </div>

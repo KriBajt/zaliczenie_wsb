@@ -13,6 +13,7 @@ export default class showCard extends Component {
     //     const data =  await fetch()
     // }
     render() {
+
         return this.props.cards.map(card => (
             <CardItem
                 key={card.id}

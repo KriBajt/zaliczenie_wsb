@@ -7,7 +7,7 @@ import TableItem from './TableItem';
 import PropTypes from 'prop-types';
 
 
-export default class showTable extends Component {
+export default class ShowTable extends Component {
 
     // const fetchItems = async ()=>{
     //     const data =  await fetch()
@@ -31,7 +31,7 @@ export default class showTable extends Component {
 
 //PropTypes
 
-showTable.propTypes = {
+ShowTable.propTypes = {
     tables: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
     deleteTable: PropTypes.func.isRequired,

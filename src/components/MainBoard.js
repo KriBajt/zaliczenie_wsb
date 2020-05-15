@@ -38,7 +38,7 @@
 //         this.props.dispatch(userActions.getAll());
 //         const { id } = this.state;
 //         axios
-//             .get(`hhttp://localhost:1028/users/1003/taskboards/`)
+//             .get(`hhttp://localhost:1028/users/1005/taskboards/`)
 //             .then(res =>
 //                 this.setState({
 //                     tables: res.data
@@ -67,7 +67,7 @@
 
 //     // Usuwanie karty
 //     deleteTable = id => {
-//         axios.delete(`http://localhost:1028/users/1003/taskboards/${id}`).then(res =>
+//         axios.delete(`http://localhost:1028/users/1005/taskboards/${id}`).then(res =>
 //             this.setState({
 //                 tables: [...this.state.tables.filter(table => table.id !== id)]
 //             })
@@ -75,7 +75,7 @@
 //     };
 
 //     setUpdate = (title, id) => {
-//         axios.put(`http://localhost:1028/users/1003/taskboards/${id}`, {
+//         axios.put(`http://localhost:1028/users/1005/taskboards/${id}`, {
 //             Title: 'dupa',
 //         }).then(response => {
 //             console.log(response);
