@@ -28,6 +28,7 @@
 .cardCustom {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .card-body {

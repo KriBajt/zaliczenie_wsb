@@ -4,7 +4,9 @@ import { Button } from 'react-bootstrap';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 import SchowCard from './ShowCard';
 import PropTypes from 'prop-types';
-
+import { userActions } from '../actions';
+import { connect } from 'react-redux';
+import ShowTable from '../components/Table/ShowTable';
 
 export default class CardForm extends Component {
     constructor(props) {
@@ -24,7 +26,14 @@ export default class CardForm extends Component {
 
 
     onSubmit = (e) => {
-        axios.put('http://localhost:1028/users/1/taskboards/1/cards', this.state)
+        const userID = this.props.user.id;
+        const token = this.props.user.token;
+
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        axios.put(`http://localhost:1028/users/${userID}/taskboards/1/cards`, config, this.state)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
@@ -33,6 +42,7 @@ export default class CardForm extends Component {
             .catch(error => {
             })
     }
+
 
 
 

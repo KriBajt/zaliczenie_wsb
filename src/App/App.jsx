@@ -35,6 +35,7 @@ class App extends React.Component {
                         <Route path="/SchowCard" component={SchowCard} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
+
                     </div>
                 </Router>
             </>

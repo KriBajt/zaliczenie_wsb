@@ -52,9 +52,15 @@ class HomePage extends React.Component {
 
     // Usuwanie karty
     deleteTable = id => {
+        this.props.dispatch(userActions.getAll());
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
         const userID = this.props.user.id;
 
-        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`).then(res =>
+        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
             this.setState({
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
@@ -62,13 +68,17 @@ class HomePage extends React.Component {
     };
 
     setUpdate = (title, id) => {
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
         const userID = this.props.user.id;
 
-        axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, {
-            Title: 'dupa',
-        }).then(response => {
-            console.log(response);
-        })
+        axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
+            .then(response => {
+                console.log(response);
+            })
             .catch(error => {
                 console.log(error);
             });
@@ -96,24 +106,24 @@ class HomePage extends React.Component {
         return (
             <>
                 <Menu />
-                <div className="container cardCustom">
+                <div className="cardCustom">
                 </div>
 
                 <div className="tablica">
                     <div className="hello">
-
                         <p>Cześć!<br></br> {user.firstName} {title}  </p>
                     </div>
-                    <div >
-                        <div className="container cardCustom">
-                            <ShowTable
-                                tables={this.state.tables}
-                                markComplete={this.markComplete}
-                                deleteTable={this.deleteTable}
-                                setUpdate={this.setUpdate}
-                                onChange={this.handleChange}
-                            />
-                        </div>
+                    <div className="container cardCustom">
+                        <ShowTable
+                            tables={this.state.tables}
+                            markComplete={this.markComplete}
+                            deleteTable={this.deleteTable}
+                            setUpdate={this.setUpdate}
+                            onChange={this.handleChange}
+                            user={user}
+                        />
+
+
                     </div>
                 </div>
                 <div className="container cardCustom">
