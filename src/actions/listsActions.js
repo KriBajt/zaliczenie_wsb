@@ -38,7 +38,7 @@ export function getData() {
         // set state to "loading"
         dispatch(getDataRequested());
 
-        fetch('http://localhost:1028/api/taskboards/cards/')
+        fetch('http://localhost:1028/taskboards/cards/')
             .then(response => response.json())
             .then(data => {
                 dispatch(getDataDone(data));

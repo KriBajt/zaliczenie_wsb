@@ -3,10 +3,10 @@ import { Modal, Row, Col, Form } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './CardDetail.css';
+import './TableDetail.css';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
-export default class CardDetail extends Component {
+export default class TableDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,19 +15,18 @@ export default class CardDetail extends Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:1028/users/1/taskboards/1/cards/")
+        fetch("http://localhost:1028/users/1/taskboards/")
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        cards: result
+                        table: result
                     });
                 },
                 // Uwaga: to ważne, żeby obsłużyć błędy tutaj, a
                 // nie w bloku catch(), aby nie przetwarzać błędów
                 // mających swoje źródło w komponencie.
-
                 (error) => {
                     this.setState({
                         isLoaded: true,
@@ -38,7 +37,7 @@ export default class CardDetail extends Component {
     }
 
     render() {
-        const { error, isLoaded, cards } = this.state;
+        const { error, isLoaded, tables } = this.state;
         if (error) {
             return <div>Błąd: {error.message}</div>;
         } else if (!isLoaded) {
@@ -66,13 +65,13 @@ export default class CardDetail extends Component {
                                                 <p>Tutaj mogą być jakieś inputy dodaj plik, udostępnij itp..</p>
                                             </div>
                                             <div className="cardDetailContent">
-                                                <h6 className="mt-5"> {cards.map(item => (
+                                                <h6 className="mt-5"> {tables.map(item => (
                                                     <p key={item.title}>
                                                     </p>
                                                 ))}Tytuł</h6>
 
                                                 <Form.Group id="cardDetailShortDescription">
-                                                    <Form.Control as="textarea" rows="1" placeholder={cards.title} />
+                                                    <Form.Control as="textarea" rows="1" placeholder={tables.title} />
                                                 </Form.Group>
                                                 <h6 className="mt-5">Pełny Opis</h6>
                                                 <Form.Group id="cardDetailDescription">

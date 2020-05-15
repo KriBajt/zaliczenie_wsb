@@ -1,36 +1,56 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
-import './App.css';
-import './components/Button/Button.css';
-import MainBoard from "./components/MainBoard";
-import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './login';
-import Registration from './components/auth/Registration';
-import Dane from './dane';
-import CardDetail from './components/Card/CardDetail';
-import Menu from './components/Menu/Menu'
+// import React from 'react';
+// import { Router, Route } from 'react-router-dom';
+// import { connect } from 'react-redux';
 
+// import { history } from './helpers';
+// import { alertActions } from './actions';
+// import { PrivateRoute } from './components';
+// import { HomePage } from './HomePage';
+// import { LoginPage } from './LoginPage';
+// import { RegisterPage } from './RegisterPage';
 
-export default class App extends Component {
-    render() {
-        return (
-            <Router>
-                <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/registration" component={Registration} />
-                    <Route path="/dane" exact component={Dane} />
-                    <Route path="/dane/:id" component={CardDetail} />
-                    <Route path="/card-details/" component={CardDetail} />
+// class App extends React.Component {
+//     constructor(props) {
+//         super(props);
 
-                    {/* MainBoard musi być na koncu, inczej sie jebie */}
-                    <Route path="/" component={MainBoard} />
-                    <Registration />
-                    <Login />
-                </Switch>
-            </Router>
+//         const { dispatch } = this.props;
+//         history.listen((location, action) => {
+//             // clear alert on location change
+//             dispatch(alertActions.clear());
+//         });
+//     }
 
-        )
-    }
-}
+//     render() {
+//         const { alert } = this.props;
+//         return (
+//             <>
+//                 <div className="jumbotron">
+//                     <div className="container">
+//                         <div className="col-sm-8 col-sm-offset-2">
+//                             {alert.message &&
+//                                 <div className={`alert ${alert.type}`}>{alert.message}</div>
+//                             }
+//                             <Router history={history}>
+//                                 <div>
+//                                     <PrivateRoute exact path="/" component={HomePage} />
+//                                     <Route path="/login" component={LoginPage} />
+//                                     <Route path="/register" component={RegisterPage} />
+//                                 </div>
+//                             </Router>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </>
+//         );
+//     }
+// }
+
+// function mapStateToProps(state) {
+//     const { alert } = state;
+//     return {
+//         alert
+//     };
+// }
+
+// const connectedApp = connect(mapStateToProps)(App);
+// export { connectedApp as App };

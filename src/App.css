@@ -237,13 +237,35 @@ contentTrelloBox {
   margin-bottom: 10px;
 }
 
+.inputSBox input {
+  border: 0;
+  font-size: 14px;
+  outline: none;
+
+}
+
+.inputSBox:hover {
+  outline: none;
+
+}
+
+.inputSBox input:hover {
+  border: 0;
+  background-color: rgb(33, 212, 212);
+
+}
+
 .inputS {
   width: 100%;
   height: 98%;
   font-size: 14px;
   color: var(--firstColor);
   text-indent: 10px;
-  border: 0;
+  border-radius: 5px 5px 0 0px;
+  outline: none;
+}
+
+.inputS:focus {
   outline: none;
 }
 
@@ -289,8 +311,9 @@ contentTrelloBox {
   background-color: var(--firstColor);
   text-align: center;
   line-height: 47px;
-  border-radius: 4px;
   cursor: pointer;
+  border-radius: 5px;
+  border: 0;
 }
 
 .btnAuth:hover {

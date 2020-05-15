@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import './CardDetail.css';
 import BtnCardDetails from '../Button/BtnCardDetails';
 import { BsFillTrashFill } from 'react-icons/bs';
@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 
 export default class showCard extends Component {
 
+    // const fetchItems = async ()=>{
+    //     const data =  await fetch()
+    // }
     render() {
         return this.props.cards.map(card => (
             <CardItem
