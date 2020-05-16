@@ -19,6 +19,8 @@ import '../App.css';
 
 import TableForm from '../components/Table/TableForm';
 import axios from "axios";
+import { Button } from 'react-bootstrap';
+import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
 
 class HomePage extends React.Component {
@@ -48,6 +50,21 @@ class HomePage extends React.Component {
         )
     }
 
+    sub = (e) => {
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        const userID = this.props.user.id;
+
+        const body = {
+            title: "Tytuł tablicy",
+            description: "Opis tablicy"
+        }
+
+        const res = axios.post('http://localhost:1028/users/1/taskboards/', body, config);
+    };
 
 
     // Usuwanie karty
@@ -84,25 +101,23 @@ class HomePage extends React.Component {
             });
     }
 
-    onSubmit = (id, token) => {
-        this.props.dispatch(userActions.getAll());
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
-        const bodyParameters = {
-            key: "value"
-        };
-        axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, bodyParameters, this.state)
-            .then(response => {
-                let tables = response.data;
-                this.setState({ tables: tables });
-                //   this.setState({user:user});
-                console.log(response);
+    // onSubmit = (id, token) => {
+    //     this.props.dispatch(userActions.getAll());
+    //     const config = {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     };
 
-            })
-            .catch(error => {
-            })
-    }
+    //     axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, this.state)
+    //         .then(response => {
+    //             let tables = response.data;
+    //             this.setState({ tables: tables });
+    //             //   this.setState({user:user});
+    //             console.log(response);
+    //         })
+    //         .catch(error => {
+    //             console.log('erere')
+    //         })
+    // }
 
 
 
@@ -127,24 +142,27 @@ class HomePage extends React.Component {
 
         return (
             <>
-                <Menu user={user} onSubmit={this.onSubmit} />
+
+                <Menu user={user} />
+
                 <div className="cardCustom">
                 </div>
 
                 <div className="tablica">
                     <div className="hello">
+
                         <p>Cześć!<br></br> {user.firstName} {title}  </p>
                     </div>
                     <div className="container cardCustom">
+
                         <ShowTable
                             tables={this.state.tables}
                             markComplete={this.markComplete}
                             deleteTable={this.deleteTable}
                             setUpdate={this.setUpdate}
-                            onChange={this.handleChange}
+                            onChange={this.onChange}
                             user={user}
                         />
-
 
                     </div>
                 </div>

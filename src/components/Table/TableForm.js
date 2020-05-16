@@ -24,26 +24,46 @@ export default class TableForm extends Component {
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
+    onSubmit = (e) => {
+        const token = this.props.user.token;
+        const userID = this.props.user.id;
 
-    onSubmit = (id, token) => {
-        this.props.dispatch(userActions.getAll());
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
         const bodyParameters = {
-            key: "value"
+            title: "sdadsa",
+            description: "asdasd"
         };
-        axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, bodyParameters, this.state)
+        axios.post(`http://localhost:1028/users/${userID}/taskboards/`, bodyParameters, config)
             .then(response => {
-                let tables = response.data;
-                this.setState({ tables: tables });
+                // let tables = response.data;
+                // this.setState({ tables: tables });
                 //   this.setState({user:user});
                 console.log(response);
-
             })
             .catch(error => {
+                console.log(error);
             })
     }
+
+
+    sub = (e) => {
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        const userID = this.props.user.id;
+
+        const body = {
+            title: "dfsdfsd",
+            description: "sfsdfs"
+        }
+
+        const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config);
+    };
+
 
 
     render() {
@@ -51,20 +71,24 @@ export default class TableForm extends Component {
 
         return (
             <div className="formContainer">
-                <form onSubmit={this.onSubmit}>
+                <form >
                     <div className="formItem">
-                        <input type="title" name="title" value={this.state.title} onChange={this.onChange} placeholder="Wpisz tytuł tablicy" />
+                        <input type="title" name="title" value={title} onChange={this.onChange} placeholder="Wpisz tytuł tablicy" />
                     </div>
                     <div className="formItem">
-                        <input type="content" name="description" value={this.state.description} onChange={this.onChange} placeholder="Krótki" />
+                        <input type="content" name="description" value={description} onChange={this.onChange} placeholder="Krótki" />
                     </div>
 
                     <div>
-                        <Button variant="primary" type="submit" className="ml-0">
+                        {/* <Button type="submit" className="ml-0">
+                            <IoIosSave />
+                        </Button> */}
+                        <Button onClick={this.onSubmit} type="submit" className="ml-0">
                             <IoIosSave />
                         </Button>
                     </div>
                 </form>
+
             </div >
         )
     }

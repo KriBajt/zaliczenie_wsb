@@ -32,7 +32,7 @@ export default class Registration extends Component {
     handleSuccessfulAuth(data) {
         //Todo update parent componen
         this.props.handleLogin(data);
-        this.props.history.push("/MainBoard");
+        this.props.history.push("/");
     }
 
     handleSubmit(event) {
@@ -91,7 +91,6 @@ export default class Registration extends Component {
                                     <input type={'password'} name="Password" className={"inputS"} placeholder={'Hasło'} value={this.state.Password} onChange={this.handleChange} required />
                                 </div>
 
-                                {/* <Link to={'/MainBoard'}> */}
                                 <button className={'btnAuth'} type="submit">Zarejestruj się</button>
                                 {/* </Link> */}
 
