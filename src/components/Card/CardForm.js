@@ -7,25 +7,35 @@ import PropTypes from 'prop-types';
 import { userActions } from '../../actions/user.actions'
 import { connect } from 'react-redux';
 import ShowTable from '../Card/ShowCard'
+import { withRouter } from 'react-router'
 
 export default class CardForm extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            id: null,
+            // id: null,
             title: '',
             content: '',
             priority: '',
             cards: []
 
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    // handleChange = (e) => {
+    //     e.preventDefault();
+    //     this.setState({ [e.target.name]: e.target.value });
+    // }
 
+    handleChange = (e) => {
+        e.preventDefault();
+        this.setState({ [e.target.name]: e.target.value });
+    }
 
-    onSubmit = (e) => {
+    handleSubmit(e) {
         const userID = this.props.user.id;
         const token = this.props.user.token;
 
@@ -33,7 +43,13 @@ export default class CardForm extends Component {
             headers: { Authorization: `Bearer ${token}` }
         };
 
-        axios.put(`http://localhost:1028/users/${userID}/taskboards/1/cards`, config, this.state)
+        const bodyParameters = {
+            title: this.state.title,
+            content: this.state.content,
+            priority: this.state.priority
+        };
+
+        axios.post(`http://localhost:1028/users/${userID}/taskboards/1/cards`, bodyParameters, config)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
@@ -51,15 +67,15 @@ export default class CardForm extends Component {
         const { id, title, content, priority, state, cards } = this.state
         return (
             <div className="formContainer">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <div className="formItem">
-                        <input type="title" name="title" value={this.state.title} onChange={this.onChange} placeholder="Wpisz tytuł zadania" />
+                        <input type="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                     </div>
                     <div className="formItem">
-                        <input type="content" name="content" value={this.state.content} onChange={this.onChange} placeholder="Wpisz treść zadania" />
+                        <input type="content" name="content" value={this.state.content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
                     </div>
                     <div className="formItem">
-                        <input type="priority" name="priority" value={this.state.priority} onChange={this.onChange} placeholder="Prioritet" />
+                        <input type="priority" name="priority" value={this.state.priority} onChange={this.handleChange} placeholder="Prioritet" />
                     </div>
                     <div>
                         <Button variant="primary" type="submit" className="ml-0">
@@ -76,3 +92,15 @@ export default class CardForm extends Component {
 CardForm.propTypes = {
     cards: PropTypes.func.isRequired
 }
+
+function mapStateToProps(state) {
+    const { users, authentication } = state;
+    const { user } = authentication;
+    return {
+        user,
+        users,
+    };
+}
+
+const connectedCardForm = connect(mapStateToProps)(CardForm);
+export { connectedCardForm as CardForm };

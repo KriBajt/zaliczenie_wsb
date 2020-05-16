@@ -30,15 +30,16 @@ export default class TableForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleChange(e) {
-        e.preventDefault();
-        window.location.reload(false);
-        this.setState({
-            tables: []
-        });
-    }
+    // handleChange(e) {
+    //     e.preventDefault();
+    //     window.location.reload(false);
+    //     this.setState({
+    //         tables: []
+    //     });
+    // }
 
     handleSubmit(e) {
+
         const token = this.props.user.token;
         const userID = this.props.user.id;
 
@@ -59,28 +60,7 @@ export default class TableForm extends Component {
             })
             .catch(error => {
             })
-
     }
-
-    // sub = (e) => {
-    //     const token = this.props.user.token;
-    //     const config = {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     };
-
-    //     const userID = this.props.user.id;
-
-    //     const body = {
-    //         title: "dfsdfsd",
-    //         description: "sfsdfs"
-    //     }
-
-    //     const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config).then(res =>
-    //         this.setState({
-    //             tables: [...this.state.tables]
-    //         })
-    //     );
-    // };
 
 
     render() {

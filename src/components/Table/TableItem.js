@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import './TableDetail.css';
-import BtnCardDetails from '../Button/BtnCardDetails';
+import BtnCardDetails from '../Button/BtnCardList';
 import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 // import CardList from '../CardList';
 import FlipMove from 'react-flip-move';
 import { users } from '../../reducers/users.reducer';
+import BtnCardList from '../Button/BtnCardList';
 
 
 export default class TableItem extends Component {
     render() {
         const { id, title, description, cardsID } = this.props.table;
         const userID = this.props.user.id;
+        const tableID = this.props.table.id;
 
         return (
             <div>
@@ -31,10 +33,9 @@ export default class TableItem extends Component {
                     </div>
                     <div className="card-footer">
                         <p></p>
-                        <Link to={`/cardlists/users/${userID}/taskboards/${id}/cards/`} > Lista zadań </Link>
+                        <Link to={`/cardboard/${tableID}`} tableID={tableID}> Lista zadań </Link>
                         <div className="btnDetails d-flex ">
                         </div>
-
                     </div>
                 </div>
             </div >

@@ -20,6 +20,7 @@ export default class ShowCard extends Component {
                 key={card.id}
                 markComplete={this.props.markComplete}
                 deleteCard={this.props.deleteCard}
+                onChange={this.handleChange}
                 card={card}
                 user={this.props.user}
 
@@ -33,7 +34,9 @@ export default class ShowCard extends Component {
 ShowCard.propTypes = {
     cards: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired
+    deleteCard: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+
 };
 
 

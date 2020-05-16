@@ -10,31 +10,36 @@ import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
 import Menu from '../components/Menu/Menu';
 import Footer from '../components/Footer/Footer';
-import BtnCardDetails from '../components/Button/BtnCardList'
+import BtnCardDetails from '../components/Button/BtnCardDetails'
 import CardDetail from '../components/Table/TableDetail'
-import ShowTable from '../components/Table/ShowTable';
+import ShowCard from '../components/Card/ShowCard';
 // coś modal psuje
 import Modal from '../components/Modal/Modal';
 import '../App.css';
 
 import TableForm from '../components/Table/TableForm';
+import TableItem from '../components/Table/TableItem';
 import axios from "axios";
 import { Button } from 'react-bootstrap';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
 
-class HomePage extends React.Component {
+class CardBoard extends React.Component {
 
     constructor(props) {
         super(props);
     }
     state = {
-        tables: [],
+        cards: []
+
 
     };
 
-    componentDidMount() {
-        this.props.dispatch(userActions.getAll());
+    componentDidMount(tableID) {
+        const pathID = this.props.location.pathname;
+        var str = pathID;
+        var n = str.lastIndexOf('/');
+        var tableID = str.substring(n + 1);
 
         const token = this.props.user.token;
         const config = {
@@ -42,12 +47,13 @@ class HomePage extends React.Component {
         };
         const userID = this.props.user.id;
 
+
         axios.get(
-            `http://localhost:1028/users/${userID}/taskboards/`,
+            `http://localhost:1028/users/${userID}/taskboards/${tableID}/cards`,
             config
         ).then(res =>
             this.setState({
-                tables: res.data
+                cards: res.data
             })
         )
     }
@@ -62,10 +68,14 @@ class HomePage extends React.Component {
         };
 
         const userID = this.props.user.id;
+        const pathID = this.props.location.pathname;
+        var str = pathID;
+        var n = str.lastIndexOf('/');
+        var tableID = str.substring(n + 1);
 
-        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
+        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, config).then(res =>
             this.setState({
-                tables: [...this.state.tables.filter(table => table.id !== id)]
+                cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
     };
@@ -110,7 +120,7 @@ class HomePage extends React.Component {
     //toggle complete
     markComplete = id => {
         this.setState({
-            tables: this.state.tables.map(table => {
+            cards: this.state.cards.map(table => {
                 if (table.id === id) {
                     table.completed = !table.completed;
                 }
@@ -126,6 +136,8 @@ class HomePage extends React.Component {
     render() {
         const { user, users, title } = this.props;
 
+
+
         return (
             <>
                 <Menu user={user} />
@@ -139,10 +151,11 @@ class HomePage extends React.Component {
                     </div>
                     <div className="container cardCustom">
 
-                        <ShowTable
-                            tables={this.state.tables}
+                        <ShowCard
+                            key={this.props.card}
+                            cards={this.state.cards}
                             markComplete={this.markComplete}
-                            deleteTable={this.deleteTable}
+                            deleteCard={this.deleteCard}
                             setUpdate={this.setUpdate}
                             onChange={this.handleChange}
                             user={user}
@@ -170,5 +183,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedHomePage = connect(mapStateToProps)(HomePage);
-export { connectedHomePage as HomePage };
+const connectedCardBoard = connect(mapStateToProps)(CardBoard);
+export { connectedCardBoard as CardBoard };

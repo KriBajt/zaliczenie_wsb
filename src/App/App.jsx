@@ -6,9 +6,10 @@ import { history } from '../helpers';
 import { alertActions } from '../actions';
 import { PrivateRoute } from '../components';
 import { HomePage } from '../HomePage'
+import { CardBoard } from '../CardBoard'
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
-import CardList from '../components/CardLists';
+import CardLists from '../components/CardLists';
 
 class App extends React.Component {
     constructor(props) {
@@ -29,10 +30,11 @@ class App extends React.Component {
                     <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }
                 <Switch>
-                    <Router history={history}>
+                    <Router history={history} >
                         <div>
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/cardlists" component={CardList} />
+                            <PrivateRoute path="/cardboard" component={CardBoard} table={this.table} />
+                            <Route path="/cardlists" component={CardLists} user={this.user} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
 

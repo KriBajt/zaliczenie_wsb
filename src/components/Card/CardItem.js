@@ -5,6 +5,10 @@ import BtnCardDetails from '../Button/BtnCardDetails';
 import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
 import { users } from '../../reducers/users.reducer';
+import { Link } from 'react-router-dom';
+import FlipMove from 'react-flip-move';
+
+
 
 
 export default class CardItem extends Component {
@@ -18,7 +22,7 @@ export default class CardItem extends Component {
                     <div className="card-header">
                         <h5 className="card-title" onChange={this.props.markComplete.bind(this, id)} key={title}>{title}</h5>
                         <div className="btnDetails btnDelete">
-                            <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} />
+                            {/* <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} /> */}
                         </div>
                     </div>
                     <div className="card-body">

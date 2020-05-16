@@ -14,22 +14,37 @@ import ShowCard from './Card/ShowCard';
 // import SendDataToApi from './Card/SendDataToApi';
 import CardForm from './Card/CardForm';
 import axios from "axios";
+import { userActions } from '../actions';
+import { HomePage } from '../HomePage/index'
+import TableItem from '../components/Table/TableItem'
 
-
-class CardLists extends Component {
+export default class CardLists extends Component {
+    constructor(props) {
+        super(props);
+    }
     state = {
         cards: []
+
+
     };
 
     componentDidMount() {
-        axios
-            .get(`http://localhost:1028/users/1005/taskboards/1/cards`)
-            .then(res =>
-                this.setState({
-                    cards: res.data
-                })
-            );
+        // const token = this.props.user.token;
+        // const config = {
+        //     headers: { Authorization: `Bearer ${token}` }
+        // };
+        // const userID = this.props.user.id;
+        console.log(this.props);
+        axios.get(
+            `http://localhost:1028/users/1005/taskboards/1148/cards/`,
+            // config
+        ).then(res =>
+            this.setState({
+                tables: res.data
+            })
+        )
     }
+
 
     //toggle complete
     markComplete = id => {
@@ -43,14 +58,30 @@ class CardLists extends Component {
         });
     };
 
+    // // Usuwanie karty
+    // deleteCard = id => {
+    //     axios.delete(`http://localhost:1028/users/1/taskboards/1/cards/${id}`).then(res =>
+    //         this.setState({
+    //             cards: [...this.state.cards.filter(card => card.id !== id)]
+    //         })
+    //     );
+    // };
+
     // Usuwanie karty
     deleteCard = id => {
-        axios.delete(`http://localhost:1028/users/1/taskboards/1/cards/${id}`).then(res =>
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        const userID = this.props.user.id;
+        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
     };
+
+
 
     render() {
         return (
@@ -63,8 +94,6 @@ class CardLists extends Component {
                         cards={this.state.cards}
                         markComplete={this.markComplete}
                         deleteCard={this.deleteCard}
-
-
                     />
                 </div>
                 <Footer />
@@ -73,8 +102,14 @@ class CardLists extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    lists: state.lists
-});
+function mapStateToProps(state) {
+    const { users, authentication } = state;
+    const { user } = authentication;
+    return {
+        user,
+        users,
+    };
+}
 
-export default connect(mapStateToProps)(CardLists);
+const connectedCardLists = connect(mapStateToProps)(CardLists);
+export { connectedCardLists as CardLists };
