@@ -27,6 +27,8 @@ export default class Menu extends Component {
                                 addCard={this.props.addTable}
                                 onSubmit={this.props.onSubmit}
                                 user={this.props.user}
+                                onChange={this.handleChange}
+
                             />
 
                             {/* <Nav.Link href="#pricing">Pricing</Nav.Link>

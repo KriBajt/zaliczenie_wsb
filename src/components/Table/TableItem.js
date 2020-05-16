@@ -17,14 +17,11 @@ export default class TableItem extends Component {
 
         return (
             <div>
-
                 <div className="cardCustomList text-white mb-3">
                     <div className="card-header">
                         <FlipMove duration={300} easing="ease-in-out">
-
                             <input type="text" className="card-title" onChange={this.handleChange} key={title} value={title}></input>
                         </FlipMove>
-
                         <div className="btnDetails btnDelete">
                             <BsFillTrashFill onClick={this.props.deleteTable.bind(this, id)} />
                         </div>
@@ -37,6 +34,7 @@ export default class TableItem extends Component {
                         <Link to={`/showcard/users/${userID}/taskboards/${id}/cards/`} > Lista zadań </Link>
                         <div className="btnDetails d-flex ">
                         </div>
+
                     </div>
                 </div>
             </div >
