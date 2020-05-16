@@ -142,9 +142,7 @@ class HomePage extends React.Component {
 
         return (
             <>
-
                 <Menu user={user} />
-
                 <div className="cardCustom">
                 </div>
 
@@ -160,7 +158,7 @@ class HomePage extends React.Component {
                             markComplete={this.markComplete}
                             deleteTable={this.deleteTable}
                             setUpdate={this.setUpdate}
-                            onChange={this.onChange}
+                            onChange={this.handleChange}
                             user={user}
                         />
 

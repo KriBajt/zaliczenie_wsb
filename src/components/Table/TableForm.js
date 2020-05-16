@@ -13,18 +13,28 @@ export default class TableForm extends Component {
         super(props)
 
         this.state = {
-            id: null,
             title: '',
             description: '',
             tables: []
 
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    handleChange(e) {
+        this.setState({
+            tables: []
+        });
+    }
 
-    onSubmit = (e) => {
+    handleSubmit(e) {
+
+        e.preventDefault();
+
         const token = this.props.user.token;
         const userID = this.props.user.id;
 
@@ -32,8 +42,8 @@ export default class TableForm extends Component {
             headers: { Authorization: `Bearer ${token}` }
         };
         const bodyParameters = {
-            title: "sdadsa",
-            description: "asdasd"
+            title: this.state.title,
+            description: this.state.description
         };
         axios.post(`http://localhost:1028/users/${userID}/taskboards/`, bodyParameters, config)
             .then(response => {
@@ -71,19 +81,19 @@ export default class TableForm extends Component {
 
         return (
             <div className="formContainer">
-                <form >
+                <form onSubmit={this.handleSubmit} >
                     <div className="formItem">
-                        <input type="title" name="title" value={title} onChange={this.onChange} placeholder="Wpisz tytuł tablicy" />
+                        <input type="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Wpisz tytuł tablicy" />
                     </div>
                     <div className="formItem">
-                        <input type="content" name="description" value={description} onChange={this.onChange} placeholder="Krótki" />
+                        <input type="content" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Krótki" />
                     </div>
-
                     <div>
                         {/* <Button type="submit" className="ml-0">
                             <IoIosSave />
                         </Button> */}
-                        <Button onClick={this.onSubmit} type="submit" className="ml-0">
+                        <Button type="submit" className="ml-0">
+                            {/* <Button onClick={this.onSubmit} type="submit" className="ml-0"> */}
                             <IoIosSave />
                         </Button>
                     </div>
