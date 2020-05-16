@@ -105,7 +105,7 @@ class HomePage extends React.Component {
 
         return (
             <>
-                <Menu />
+                <Menu user={user} />
                 <div className="cardCustom">
                 </div>
 

@@ -21,14 +21,13 @@ export default class TableForm extends Component {
         }
     }
 
+
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
 
-    onSubmit = (e) => {
-        this.props.dispatch(userActions.getAll());
+    onSubmit = (id, token) => {
 
-        const userID = this.props.user.id;
-        const token = this.props.user.token;
+        this.props.dispatch(userActions.getAll());
 
         const config = {
             headers: { Authorization: `Bearer ${token}` }
@@ -38,7 +37,7 @@ export default class TableForm extends Component {
             key: "value"
         };
 
-        axios.post(`http://localhost:1028/users/${userID}/taskboards/`, config, bodyParameters, this.state)
+        axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, bodyParameters, this.state)
             .then(response => {
                 let tables = response.data;
                 this.setState({ tables: tables });
@@ -55,6 +54,7 @@ export default class TableForm extends Component {
 
     render() {
         const { id, title, description, tables } = this.state
+
         return (
             <div className="formContainer">
                 <form onSubmit={this.onSubmit}>

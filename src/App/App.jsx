@@ -9,7 +9,7 @@ import { HomePage } from '../HomePage'
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import MainBoard from '../components/MainBoard';
-import SchowCard from '../components/Card/ShowCard';
+import ShowCard from '../components/Card/ShowCard';
 
 class App extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class App extends React.Component {
                 <Router history={history}>
                     <div>
                         <PrivateRoute exact path="/" component={HomePage} />
-                        <Route path="/SchowCard" component={SchowCard} />
+                        <Route path="/showcard" component={ShowCard} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
 
