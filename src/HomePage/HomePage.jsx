@@ -50,21 +50,21 @@ class HomePage extends React.Component {
         )
     }
 
-    sub = (e) => {
-        const token = this.props.user.token;
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
+    // sub = (e) => {
+    //     const token = this.props.user.token;
+    //     const config = {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     };
 
-        const userID = this.props.user.id;
+    //     const userID = this.props.user.id;
 
-        const body = {
-            title: "Tytuł tablicy",
-            description: "Opis tablicy"
-        }
+    //     const body = {
+    //         title: "Tytuł tablicy",
+    //         description: "Opis tablicy"
+    //     }
 
-        const res = axios.post('http://localhost:1028/users/1/taskboards/', body, config);
-    };
+    //     const res = axios.post('http://localhost:1028/users/1/taskboards/', body, config);
+    // };
 
 
     // Usuwanie karty

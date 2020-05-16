@@ -6,6 +6,8 @@ import SchowTable from './ShowTable';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/user.actions'
+import { withRouter } from 'react-router'
+
 
 export default class TableForm extends Component {
 
@@ -23,18 +25,20 @@ export default class TableForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    handleChange = (e) => {
+        e.preventDefault();
+        this.setState({ [e.target.name]: e.target.value });
+    }
 
     handleChange(e) {
+        e.preventDefault();
+        window.location.reload(false);
         this.setState({
             tables: []
         });
     }
 
     handleSubmit(e) {
-
-        e.preventDefault();
-
         const token = this.props.user.token;
         const userID = this.props.user.id;
 
@@ -45,37 +49,38 @@ export default class TableForm extends Component {
             title: this.state.title,
             description: this.state.description
         };
+
         axios.post(`http://localhost:1028/users/${userID}/taskboards/`, bodyParameters, config)
             .then(response => {
-                // let tables = response.data;
-                // this.setState({ tables: tables });
+                let tables = response.data;
+                this.setState({ tables: tables });
                 //   this.setState({user:user});
-                console.log(response);
+                e.preventDefault()
             })
             .catch(error => {
-                console.log(error);
             })
+
     }
 
+    // sub = (e) => {
+    //     const token = this.props.user.token;
+    //     const config = {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     };
 
-    sub = (e) => {
-        const token = this.props.user.token;
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
+    //     const userID = this.props.user.id;
 
-        const userID = this.props.user.id;
+    //     const body = {
+    //         title: "dfsdfsd",
+    //         description: "sfsdfs"
+    //     }
 
-        const body = {
-            title: "dfsdfsd",
-            description: "sfsdfs"
-        }
-
-        const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config);
-        window.location.reload(false);
-
-    };
-
+    //     const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config).then(res =>
+    //         this.setState({
+    //             tables: [...this.state.tables]
+    //         })
+    //     );
+    // };
 
 
     render() {
