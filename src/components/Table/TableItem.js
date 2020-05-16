@@ -7,14 +7,17 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 // import CardList from '../CardList';
 import FlipMove from 'react-flip-move';
+import { users } from '../../reducers/users.reducer';
+
 
 export default class TableItem extends Component {
     render() {
-        const { id, title, description } = this.props.table;
-
+        const { id, title, description, cardsID } = this.props.table;
+        const userID = this.props.user.id;
 
         return (
             <div>
+
                 <div className="cardCustomList text-white mb-3">
                     <div className="card-header">
                         <FlipMove duration={300} easing="ease-in-out">
@@ -31,7 +34,7 @@ export default class TableItem extends Component {
                     </div>
                     <div className="card-footer">
                         <p></p>
-                        <Link to={`/cards/${id}`} > Lista zadań </Link>
+                        <Link to={`/users/${userID}/taskboards/${id}/cards/`} > Lista zadań </Link>
                         <div className="btnDetails d-flex ">
                         </div>
                     </div>
@@ -49,3 +52,4 @@ TableItem.propTypes = {
     setUpdate: PropTypes.func.isRequired,
 
 }
+

@@ -15,7 +15,7 @@ import CardDetail from '../components/Table/TableDetail'
 import ShowTable from '../components/Table/ShowTable';
 // coś modal psuje
 import Modal from '../components/Modal/Modal';
-
+import '../App.css';
 
 import TableForm from '../components/Table/TableForm';
 import axios from "axios";
@@ -28,29 +28,39 @@ class HomePage extends React.Component {
     }
     state = {
         tables: [],
-        id: 1
 
     };
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
 
-        const { id } = this.state;
-        axios
-            .get(`http://localhost:1028/users/1003/taskboards/`)
-            .then(res =>
-                this.setState({
-                    tables: res.data
-                })
-            );
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        const userID = this.props.user.id;
+        axios.get(
+            `http://localhost:1028/users/${userID}/taskboards/`,
+            config
+        ).then(res =>
+            this.setState({
+                tables: res.data
+            })
+        )
     }
-
-
 
 
 
     // Usuwanie karty
     deleteTable = id => {
-        axios.delete(`http://localhost:1028/users/1003/taskboards/${id}`).then(res =>
+        this.props.dispatch(userActions.getAll());
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        const userID = this.props.user.id;
+
+        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
             this.setState({
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
@@ -58,11 +68,17 @@ class HomePage extends React.Component {
     };
 
     setUpdate = (title, id) => {
-        axios.put(`http://localhost:1028/users/1003/taskboards/${id}`, {
-            Title: 'dupa',
-        }).then(response => {
-            console.log(response);
-        })
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        const userID = this.props.user.id;
+
+        axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
+            .then(response => {
+                console.log(response);
+            })
             .catch(error => {
                 console.log(error);
             });
@@ -85,24 +101,35 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const { user, users } = this.props;
+        const { user, users, title } = this.props;
 
         return (
             <>
-                <Menu />
-                <div className="container cardCustom">
+                <Menu user={user} />
+                <div className="cardCustom">
                 </div>
-                {user.id}
 
-                <div className="container cardCustom">
-                    <ShowTable
-                        tables={this.state.tables}
-                        markComplete={this.markComplete}
-                        deleteTable={this.deleteTable}
-                        setUpdate={this.setUpdate}
-                        onChange={this.handleChange}
-                    />
+                <div className="tablica">
+                    <div className="hello">
+                        <p>Cześć!<br></br> {user.firstName} {title}  </p>
+                    </div>
+                    <div className="container cardCustom">
+                        <ShowTable
+                            tables={this.state.tables}
+                            markComplete={this.markComplete}
+                            deleteTable={this.deleteTable}
+                            setUpdate={this.setUpdate}
+                            onChange={this.handleChange}
+                            user={user}
+                        />
+
+
+                    </div>
                 </div>
+                <div className="container cardCustom">
+
+                </div>
+
                 <Footer />
 
             </>
@@ -115,7 +142,7 @@ function mapStateToProps(state) {
     const { user } = authentication;
     return {
         user,
-        users
+        users,
     };
 }
 

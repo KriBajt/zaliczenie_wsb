@@ -6,6 +6,10 @@ import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
 import './Menu.css';
 import TableForm from './../Table/TableForm';
+import { connect } from 'react-redux';
+import { userActions } from '../../actions/user.actions'
+
+
 export default class Menu extends Component {
     render() {
         return (
@@ -19,7 +23,7 @@ export default class Menu extends Component {
                             {/* <Nav.Link href="/dane">
                             </Nav.Link> */}
 
-                            <TableForm addCard={this.props.addTable} />
+                            <TableForm addCard={this.props.addTable} user={this.props.user} />
 
                             {/* <Nav.Link href="#pricing">Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
@@ -43,3 +47,16 @@ export default class Menu extends Component {
         )
     }
 }
+
+
+function mapStateToProps(state) {
+    const { users, authentication } = state;
+    const { user } = authentication;
+    return {
+        user,
+        users,
+    };
+}
+
+const connectedMenu = connect(mapStateToProps)(Menu);
+export { connectedMenu as Menu };

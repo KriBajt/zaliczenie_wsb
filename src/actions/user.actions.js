@@ -47,7 +47,7 @@ function register(user) {
                 () => {
                     dispatch(success());
                     history.push('/login');
-                    dispatch(alertActions.success('Registration successful'));
+                    dispatch(alertActions.success('Zarejestrowałeś się do NingaTask!'));
                 },
                 error => {
                     dispatch(failure(error));
@@ -77,7 +77,6 @@ function getAll() {
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return dispatch => {
         dispatch(request(id));

@@ -5,13 +5,16 @@ import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
 import TableItem from './TableItem';
 import PropTypes from 'prop-types';
+import { userActions } from '../../actions/user.actions';
+import { connect } from 'react-redux';
 
 
-export default class showTable extends Component {
+export default class ShowTable extends Component {
 
     // const fetchItems = async ()=>{
     //     const data =  await fetch()
     // }
+
     render() {
         return this.props.tables.map(table => (
 
@@ -21,17 +24,18 @@ export default class showTable extends Component {
                 deleteTable={this.props.deleteTable}
                 setUpdate={this.props.setUpdate}
                 onChange={this.handleChange}
-
                 table={table}
+                user={this.props.user}
 
             />
+
         ));
     }
 }
 
 //PropTypes
 
-showTable.propTypes = {
+ShowTable.propTypes = {
     tables: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
     deleteTable: PropTypes.func.isRequired,
@@ -41,5 +45,14 @@ showTable.propTypes = {
 
 };
 
+function mapStateToProps(state) {
+    const { loggingIn } = state.authentication;
+    return {
+        loggingIn
+    };
+}
+
+const connectedShowTable = connect(mapStateToProps)(ShowTable);
+export { connectedShowTable as ShowTable };
 
 
