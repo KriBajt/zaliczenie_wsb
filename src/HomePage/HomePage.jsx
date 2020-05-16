@@ -84,6 +84,28 @@ class HomePage extends React.Component {
             });
     }
 
+    onSubmit = (id, token) => {
+        this.props.dispatch(userActions.getAll());
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        const bodyParameters = {
+            key: "value"
+        };
+        axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, bodyParameters, this.state)
+            .then(response => {
+                let tables = response.data;
+                this.setState({ tables: tables });
+                //   this.setState({user:user});
+                console.log(response);
+
+            })
+            .catch(error => {
+            })
+    }
+
+
+
     //toggle complete
     markComplete = id => {
         this.setState({
@@ -105,7 +127,7 @@ class HomePage extends React.Component {
 
         return (
             <>
-                <Menu user={user} />
+                <Menu user={user} onSubmit={this.onSubmit} />
                 <div className="cardCustom">
                 </div>
 

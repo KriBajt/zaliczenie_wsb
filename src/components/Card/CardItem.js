@@ -4,10 +4,13 @@ import './CardDetail.css';
 import BtnCardDetails from '../Button/BtnCardDetails';
 import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
+import { users } from '../../reducers/users.reducer';
+
 
 export default class CardItem extends Component {
     render() {
         const { id, title, content, priority, state } = this.props.card;
+        const userID = this.props.user.id;
 
         return (
             <div>

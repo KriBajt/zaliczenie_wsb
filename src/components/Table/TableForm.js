@@ -26,17 +26,13 @@ export default class TableForm extends Component {
 
 
     onSubmit = (id, token) => {
-
         this.props.dispatch(userActions.getAll());
-
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-
         const bodyParameters = {
             key: "value"
         };
-
         axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, bodyParameters, this.state)
             .then(response => {
                 let tables = response.data;
@@ -46,9 +42,7 @@ export default class TableForm extends Component {
 
             })
             .catch(error => {
-
             })
-
     }
 
 

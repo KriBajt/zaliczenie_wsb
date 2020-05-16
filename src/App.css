@@ -104,6 +104,7 @@ contentTrelloBox {
   margin: 200px auto;
 
 
+
 }
 
 .leftBox {
@@ -453,7 +454,7 @@ contentTrelloBox {
   background-color: rgb(255, 255, 255);
   width: 97vw;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: px;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
