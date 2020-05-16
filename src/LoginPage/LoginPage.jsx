@@ -5,7 +5,6 @@ import '../App.css';
 import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { GiNinjaHead } from 'react-icons/gi';
-import MainBoard from '../components/MainBoard'
 
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import axios from 'axios';
@@ -69,16 +68,16 @@ class LoginPage extends React.Component {
                             <div className={'inputSBox form-group' + (submitted && !username ? ' has-error' : '')}>
                                 <input type="text" className="inputS" placeholder="Użytkownik" name="username" value={username} onChange={this.handleChange} />
                                 {submitted && !username &&
-                                    <div className="help-block">Username is required</div>
+                                    <div className="help-block">Nazwa użytkownika jest wymagana</div>
                                 }
                             </div>
                             {/* <div className={'inputSBox'}>
                                 <Input type="password" name="Password" value={this.state.Password} onChange={this.handleChange} required placeholder="Enter Password" />
                             </div> */}
                             <div className={'inputSBox form-group' + (submitted && !password ? ' has-error' : '')}>
-                                <input type="password" className="inputS" placeholder="Użytkownik" name="password" value={password} onChange={this.handleChange} />
+                                <input type="password" className="inputS" placeholder="Hasło" name="password" value={password} onChange={this.handleChange} />
                                 {submitted && !password &&
-                                    <div className="help-block">Password is required</div>
+                                    <div className="help-block">Hasło jest wymagane</div>
                                 }
                             </div>
 

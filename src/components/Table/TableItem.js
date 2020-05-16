@@ -34,7 +34,7 @@ export default class TableItem extends Component {
                     </div>
                     <div className="card-footer">
                         <p></p>
-                        <Link to={`/users/${userID}/taskboards/${id}/cards/`} > Lista zadań </Link>
+                        <Link to={`/showcard/users/${userID}/taskboards/${id}/cards/`} > Lista zadań </Link>
                         <div className="btnDetails d-flex ">
                         </div>
                     </div>

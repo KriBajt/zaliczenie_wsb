@@ -23,7 +23,11 @@ export default class Menu extends Component {
                             {/* <Nav.Link href="/dane">
                             </Nav.Link> */}
 
-                            <TableForm addCard={this.props.addTable} user={this.props.user} />
+                            <TableForm
+                                addCard={this.props.addTable}
+                                onSubmit={this.props.onSubmit}
+                                user={this.props.user}
+                            />
 
                             {/* <Nav.Link href="#pricing">Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

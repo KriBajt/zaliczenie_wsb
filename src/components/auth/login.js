@@ -4,7 +4,6 @@ import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { GiNinjaHead } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
-import MainBoard from './../MainBoard';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import axios from 'axios';
 
@@ -83,7 +82,7 @@ export default class login extends Component {
                                 </div>
                                 <div className={'text1'}>Zapomniałeś hasło?</div>
                             </div>
-                            <Link to={'/MainBoard'}>
+                            <Link to={'/'}>
                                 <div className={'btnAuth'} type="submit" >Zaloguj</div>
                             </Link>
                             <div className={'borderBox'}>

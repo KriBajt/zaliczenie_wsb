@@ -13,43 +13,69 @@ export default class TableForm extends Component {
         super(props)
 
         this.state = {
-            id: null,
             title: '',
             description: '',
             tables: []
 
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    handleChange(e) {
+        this.setState({
+            tables: []
+        });
+    }
 
+    handleSubmit(e) {
 
-    onSubmit = (id, token) => {
+        e.preventDefault();
 
-        this.props.dispatch(userActions.getAll());
+        const token = this.props.user.token;
+        const userID = this.props.user.id;
 
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-
         const bodyParameters = {
-            key: "value"
+            title: this.state.title,
+            description: this.state.description
         };
-
-        axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, bodyParameters, this.state)
+        axios.post(`http://localhost:1028/users/${userID}/taskboards/`, bodyParameters, config)
             .then(response => {
-                let tables = response.data;
-                this.setState({ tables: tables });
+                // let tables = response.data;
+                // this.setState({ tables: tables });
                 //   this.setState({user:user});
                 console.log(response);
-
             })
             .catch(error => {
-
+                console.log(error);
             })
-
     }
+
+
+    sub = (e) => {
+        const token = this.props.user.token;
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        const userID = this.props.user.id;
+
+        const body = {
+            title: "dfsdfsd",
+            description: "sfsdfs"
+        }
+
+        const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config);
+        window.location.reload(false);
+
+    };
+
 
 
     render() {
@@ -57,20 +83,24 @@ export default class TableForm extends Component {
 
         return (
             <div className="formContainer">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.handleSubmit} >
                     <div className="formItem">
-                        <input type="title" name="title" value={this.state.title} onChange={this.onChange} placeholder="Wpisz tytuł tablicy" />
+                        <input type="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Wpisz tytuł tablicy" />
                     </div>
                     <div className="formItem">
-                        <input type="content" name="description" value={this.state.description} onChange={this.onChange} placeholder="Krótki" />
+                        <input type="content" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Krótki" />
                     </div>
-
                     <div>
-                        <Button variant="primary" type="submit" className="ml-0">
+                        {/* <Button type="submit" className="ml-0">
+                            <IoIosSave />
+                        </Button> */}
+                        <Button type=" submit" className="ml-0">
+                            {/* <Button onClick={this.onSubmit} type="submit" className="ml-0"> */}
                             <IoIosSave />
                         </Button>
                     </div>
                 </form>
+
             </div >
         )
     }
