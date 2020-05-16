@@ -72,6 +72,8 @@ export default class TableForm extends Component {
         }
 
         const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config);
+        window.location.reload(false);
+
     };
 
 
@@ -92,7 +94,7 @@ export default class TableForm extends Component {
                         {/* <Button type="submit" className="ml-0">
                             <IoIosSave />
                         </Button> */}
-                        <Button type="submit" className="ml-0">
+                        <Button type=" submit" className="ml-0">
                             {/* <Button onClick={this.onSubmit} type="submit" className="ml-0"> */}
                             <IoIosSave />
                         </Button>
