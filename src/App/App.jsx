@@ -8,7 +8,7 @@ import { PrivateRoute } from '../components';
 import { HomePage } from '../HomePage'
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
-import { ShowCard } from '../components/Card/ShowCard';
+import CardList from '../components/CardLists';
 
 class App extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class App extends React.Component {
                     <Router history={history}>
                         <div>
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/showcard" component={ShowCard} />
+                            <Route path="/cardlists" component={CardList} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
 

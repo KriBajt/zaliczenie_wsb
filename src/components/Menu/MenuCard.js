@@ -6,9 +6,9 @@ import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
 import './Menu.css';
 import CardForm from '../Card/CardForm';
-import { userActions } from '../actions';
+import { userActions } from '../../actions/user.actions';
 import { connect } from 'react-redux';
-import ShowTable from '../components/Table/ShowTable';
+// import ShowTable from '../components/Table/ShowTable';
 
 
 export default class Menu extends Component {

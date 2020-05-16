@@ -4,9 +4,9 @@ import { Button } from 'react-bootstrap';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 import SchowCard from './ShowCard';
 import PropTypes from 'prop-types';
-import { userActions } from '../actions';
+import { userActions } from '../../actions/user.actions'
 import { connect } from 'react-redux';
-import ShowTable from '../components/Table/ShowTable';
+import ShowTable from '../Card/ShowCard'
 
 export default class CardForm extends Component {
     constructor(props) {
