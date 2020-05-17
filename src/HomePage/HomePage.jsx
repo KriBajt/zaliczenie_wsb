@@ -68,6 +68,7 @@ class HomePage extends React.Component {
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
         );
+
     };
 
     setUpdate = (title, id) => {
@@ -134,7 +135,6 @@ class HomePage extends React.Component {
                         <h4>Stwórz swoją pierwszą tablicę !</h4>
                     </div>
                 </section>
-
 
                 <div className="tablica">
                     <div className=" col-12 d-flex justify-content-start flex-wrap cardCustom">

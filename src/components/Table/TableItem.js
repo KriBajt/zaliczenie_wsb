@@ -17,6 +17,7 @@ export default class TableItem extends Component {
         const userID = this.props.user.id;
         const tableID = this.props.table.id;
 
+
         return (
             <div>
                 <div className="cardCustomList text-white mb-3">

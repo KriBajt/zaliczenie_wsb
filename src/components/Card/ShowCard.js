@@ -17,7 +17,7 @@ export default class ShowCard extends Component {
 
         return this.props.cards.map(card => (
             <CardItem
-                key={card.id}
+                key={this.props.card}
                 markComplete={this.props.markComplete}
                 deleteCard={this.props.deleteCard}
                 onChange={this.handleChange}
@@ -42,13 +42,8 @@ ShowCard.propTypes = {
 
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
     const { loggingIn } = state.authentication;
-
-    const { user } = authentication;
     return {
-        user,
-        users,
         loggingIn
     };
 }

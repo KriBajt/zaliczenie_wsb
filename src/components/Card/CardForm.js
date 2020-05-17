@@ -76,7 +76,6 @@ export default class CardForm extends Component {
     }
 
 
-
     render() {
         const { id, title, content, priority, state, cards } = this.state
 

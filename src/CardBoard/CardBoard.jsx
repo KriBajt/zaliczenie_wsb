@@ -55,13 +55,18 @@ class CardBoard extends React.Component {
         ).then(res =>
             this.setState({
                 cards: res.data
-            })
+            }
+            )
+
         )
+        // console.log(this.state);
+
     }
 
     // Usuwanie karty
-    deleteTable = id => {
+    deleteCard = id => {
         this.props.dispatch(userActions.getAll());
+
         const token = this.props.user.token;
         const config = {
             headers: { Authorization: `Bearer ${token}` }
@@ -69,6 +74,8 @@ class CardBoard extends React.Component {
 
         const userID = this.props.user.id;
         const pathID = this.props.location.pathname;
+
+        console.log(this.props);
         var str = pathID;
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
@@ -78,6 +85,9 @@ class CardBoard extends React.Component {
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
+
+        console.log(this.state)
+        console.log("dua")
     };
 
     setUpdate = (title, id) => {
