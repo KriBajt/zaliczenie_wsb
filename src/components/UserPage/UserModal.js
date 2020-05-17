@@ -4,7 +4,6 @@ import { userActions } from '../../actions'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
 
-
 export default class UserModal extends Component {
 
     constructor(props) {
@@ -16,9 +15,7 @@ export default class UserModal extends Component {
     }
 
 
-
     componentDidMount() {
-
         const token = this.props.user.token;
         const config = {
             headers: { Authorization: `Bearer ${token}` }

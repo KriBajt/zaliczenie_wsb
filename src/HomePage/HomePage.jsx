@@ -136,9 +136,9 @@ class HomePage extends React.Component {
                     </div>
                 </section>
 
-                <div className="tablica">
+                <div className="newTaskTitle"><h4>Aktywne tablice</h4></div>
+                <div className="tablica ">
                     <div className="d-flex justify-content-start flex-wrap cardCustom">
-
                         <ShowTable
                             tables={this.state.tables}
                             markComplete={this.markComplete}
@@ -147,9 +147,10 @@ class HomePage extends React.Component {
                             onChange={this.handleChange}
                             user={user}
                         />
-
                     </div>
                 </div>
+
+
 
                 {/* <div className="col-2 hello">
                     <p>Cześć!<br></br> {user.firstName} {title}  </p>
