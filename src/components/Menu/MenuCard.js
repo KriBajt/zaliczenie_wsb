@@ -20,7 +20,17 @@ export default class Menu extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <CardForm addCard={this.props.addCard} />
+                            {/* <CardForm addCard={this.props.addCard} /> */}
+
+                            <CardForm
+                                addCard={this.props.addTable}
+                                onSubmit={this.props.onSubmit}
+                                user={this.props.user}
+                                onChange={this.handleChange}
+                                cards={this.props.tableID}
+
+                            />
+
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>

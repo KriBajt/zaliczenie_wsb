@@ -35,7 +35,7 @@ export default class CardItem extends Component {
                     <div className="card-footer">
                         <p></p>
                         <div className="btnDetails d-flex ">
-                            <BtnCardDetails />
+                            {/* <BtnCardDetails /> */}
                         </div>
                     </div>
 

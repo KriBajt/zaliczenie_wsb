@@ -33,9 +33,17 @@ export default class CardForm extends Component {
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
+
+
+
     }
 
     handleSubmit(e) {
+        const pathID = this.props.location.pathname;
+        var str = pathID;
+        var n = str.lastIndexOf('/');
+        var tableID = str.substring(n + 1);
+
         const userID = this.props.user.id;
         const token = this.props.user.token;
 
@@ -49,7 +57,8 @@ export default class CardForm extends Component {
             priority: this.state.priority
         };
 
-        axios.post(`http://localhost:1028/users/${userID}/taskboards/1/cards`, bodyParameters, config)
+
+        axios.post(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
@@ -58,8 +67,6 @@ export default class CardForm extends Component {
             .catch(error => {
             })
     }
-
-
 
 
 

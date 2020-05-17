@@ -22,7 +22,6 @@ import axios from "axios";
 import { Button } from 'react-bootstrap';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
-
 class HomePage extends React.Component {
 
     constructor(props) {
@@ -129,15 +128,15 @@ class HomePage extends React.Component {
         return (
             <>
                 <Menu user={user} />
-                <div className="cardCustom">
-                </div>
+                <section className="sectionText">
+                    <div className="textNewBoard">
+                        <h4>Stwórz swoją pierwszą tablicę !</h4>
+                    </div>
+                </section>
+
 
                 <div className="tablica">
-                    <div className="hello">
-
-                        <p>Cześć!<br></br> {user.firstName} {title}  </p>
-                    </div>
-                    <div className="container cardCustom">
+                    <div className=" col-12 d-flex justify-content-start flex-wrap cardCustom">
 
                         <ShowTable
                             tables={this.state.tables}
@@ -150,10 +149,10 @@ class HomePage extends React.Component {
 
                     </div>
                 </div>
-                <div className="container cardCustom">
 
-                </div>
-
+                {/* <div className="col-2 hello">
+                    <p>Cześć!<br></br> {user.firstName} {title}  </p>
+                </div> */}
                 <Footer />
 
             </>

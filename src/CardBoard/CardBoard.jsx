@@ -8,7 +8,7 @@ import TrelloActionButton from "../components/Button/TrelloActionButton";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { sort } from "../actions";
 import { GiNinjaHead } from 'react-icons/gi';
-import Menu from '../components/Menu/Menu';
+import MenuCard from '../components/Menu/MenuCard';
 import Footer from '../components/Footer/Footer';
 import BtnCardDetails from '../components/Button/BtnCardDetails'
 import CardDetail from '../components/Table/TableDetail'
@@ -35,7 +35,9 @@ class CardBoard extends React.Component {
 
     };
 
-    componentDidMount(tableID) {
+    componentDidMount() {
+        this.props.dispatch(userActions.getAll());
+
         const pathID = this.props.location.pathname;
         var str = pathID;
         var n = str.lastIndexOf('/');
@@ -140,15 +142,11 @@ class CardBoard extends React.Component {
 
         return (
             <>
-                <Menu user={user} />
+                <MenuCard user={user} />
                 <div className="cardCustom">
                 </div>
 
                 <div className="tablica">
-                    <div className="hello">
-
-                        <p>Cześć!<br></br> {user.firstName} {title}  </p>
-                    </div>
                     <div className="container cardCustom">
 
                         <ShowCard
@@ -159,6 +157,8 @@ class CardBoard extends React.Component {
                             setUpdate={this.setUpdate}
                             onChange={this.handleChange}
                             user={user}
+                            tables={this.state.tables}
+
                         />
 
                     </div>

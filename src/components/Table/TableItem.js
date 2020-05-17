@@ -33,7 +33,7 @@ export default class TableItem extends Component {
                     </div>
                     <div className="card-footer">
                         <p></p>
-                        <Link to={`/cardboard/${tableID}`} tableID={tableID}> Lista zadań </Link>
+                        <Link to={`/cardboard/${tableID}`} tableID={this.props.table}> Lista zadań </Link>
                         <div className="btnDetails d-flex ">
                         </div>
                     </div>

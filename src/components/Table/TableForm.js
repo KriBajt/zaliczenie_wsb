@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/user.actions'
 import { withRouter } from 'react-router'
+import $ from 'jquery';
 
 
 export default class TableForm extends Component {
@@ -28,6 +29,7 @@ export default class TableForm extends Component {
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
+
     }
 
     // handleChange(e) {
@@ -39,6 +41,7 @@ export default class TableForm extends Component {
     // }
 
     handleSubmit(e) {
+        // $('.textNewBoard').remove();
 
         const token = this.props.user.token;
         const userID = this.props.user.id;
@@ -60,7 +63,11 @@ export default class TableForm extends Component {
             })
             .catch(error => {
             })
+
+
     }
+
+
 
 
     render() {
@@ -68,7 +75,7 @@ export default class TableForm extends Component {
 
         return (
             <div className="formContainer">
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={this.handleSubmit}  >
                     <div className="formItem">
                         <input type="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Wpisz tytuł tablicy" />
                     </div>

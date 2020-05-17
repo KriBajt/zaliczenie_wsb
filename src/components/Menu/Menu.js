@@ -42,10 +42,15 @@ export default class Menu extends Component {
 
                         </Nav>
                         <Nav>
+
+                            <Nav.Link  >
+                                Cześć! {this.props.user.firstName}
+                            </Nav.Link>
+
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj
-                    </Nav.Link>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

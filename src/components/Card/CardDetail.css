@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
 
+
+@media (max-width:1600px) {
+    .cardCustomList {
+        width: 200px !important;
+        font-size: 12px;
+    }
+
+    .card-title {
+        font-size: 12px;
+    }
+
+
+
+}
+
+
+
 .formContainer {
     display: flex;
     justify-content: center;
@@ -50,6 +67,7 @@
     -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
+
 
 .cardDetailNav {
     display: flex;
