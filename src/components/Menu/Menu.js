@@ -11,6 +11,8 @@ import { userActions } from '../../actions/user.actions'
 
 
 export default class Menu extends Component {
+
+
     render() {
         return (
             <div >
@@ -24,8 +26,8 @@ export default class Menu extends Component {
                             </Nav.Link> */}
 
                             <TableForm
-                                addCard={this.props.addTable}
-                                onSubmit={this.props.onSubmit}
+                                // addCard={this.props.addTable}
+                                // onSubmit={this.props.onSubmit}
                                 user={this.props.user}
                                 onChange={this.handleChange}
 

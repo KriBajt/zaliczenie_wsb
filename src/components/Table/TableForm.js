@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/user.actions'
 import { withRouter } from 'react-router'
-import $ from 'jquery';
+// import $ from 'jquery';
 
 
 export default class TableForm extends Component {
@@ -40,6 +40,7 @@ export default class TableForm extends Component {
     //     });
     // }
 
+
     handleSubmit(e) {
         // $('.textNewBoard').remove();
 
@@ -64,9 +65,7 @@ export default class TableForm extends Component {
             .catch(error => {
             })
 
-
     }
-
 
 
 
@@ -112,5 +111,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedTableForme = connect(mapStateToProps)(TableForm);
-export { connectedTableForme as TableForm };
+const connectedTableForm = connect(mapStateToProps)(TableForm);
+export { connectedTableForm as TableForm };

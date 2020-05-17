@@ -32,9 +32,10 @@ class App extends React.Component {
                 <Switch>
                     <Router history={history} >
                         <div>
+                            {/* {console.log(this.props)} */}
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <PrivateRoute path="/cardboard" component={CardBoard} table={this.table} />
-                            <Route path="/cardlists" component={CardLists} user={this.user} table={this.table} />
+                            <PrivateRoute path="/:tableID" component={CardBoard} user={this.user} tableID={this.tableID} />
+                            {/* <Route path="/cardlists" component={CardLists} user={this.user} table={this.table} /> */}
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
 

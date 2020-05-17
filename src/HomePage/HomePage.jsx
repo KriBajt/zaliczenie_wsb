@@ -26,11 +26,12 @@ class HomePage extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-    state = {
-        tables: [],
+        this.state = {
+            tables: [],
 
-    };
+        };
+    }
+
 
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
@@ -79,10 +80,10 @@ class HomePage extends React.Component {
 
         axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
             .then(response => {
-                console.log(response);
+                // console.log(response);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             });
     }
 

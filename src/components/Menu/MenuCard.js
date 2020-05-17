@@ -13,6 +13,9 @@ import { connect } from 'react-redux';
 
 export default class Menu extends Component {
     render() {
+
+        // console.log(this.props);
+
         return (
             <div >
                 <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
@@ -23,16 +26,21 @@ export default class Menu extends Component {
                             {/* <CardForm addCard={this.props.addCard} /> */}
 
                             <CardForm
-                                addCard={this.props.addTable}
-                                onSubmit={this.props.onSubmit}
+                                // addCard={this.props.addTable}
+                                // onSubmit={this.props.onSubmit}
                                 user={this.props.user}
                                 onChange={this.handleChange}
                                 cards={this.props.tableID}
-
+                                key={this.props.card}
+                                tables={this.props.user.taskboards}
+                                history={this.props.history}
                             />
 
                         </Nav>
                         <Nav>
+                            <Nav.Link  >
+                                Cześć! {this.props.user.firstName}
+                            </Nav.Link>
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj

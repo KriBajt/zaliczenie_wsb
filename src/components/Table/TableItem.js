@@ -32,9 +32,9 @@ export default class TableItem extends Component {
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Opis: {description}</p>
                     </div>
                     <div className="card-footer">
-                        <p></p>
-                        <Link to={`/cardboard/${tableID}`} tableID={this.props.table}> Lista zadań </Link>
+                        <Link to={`/${tableID}`} tableID={tableID}> Lista zadań </Link>
                         <div className="btnDetails d-flex ">
+
                         </div>
                     </div>
                 </div>

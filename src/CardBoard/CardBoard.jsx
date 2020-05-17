@@ -49,7 +49,6 @@ class CardBoard extends React.Component {
         };
         const userID = this.props.user.id;
 
-
         axios.get(
             `http://localhost:1028/users/${userID}/taskboards/${tableID}/cards`,
             config
@@ -59,7 +58,6 @@ class CardBoard extends React.Component {
             })
         )
     }
-
 
     // Usuwanie karty
     deleteTable = id => {
@@ -92,7 +90,7 @@ class CardBoard extends React.Component {
 
         axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
             .then(response => {
-                console.log(response);
+                // console.log(response);
             })
             .catch(error => {
                 console.log(error);
@@ -136,13 +134,13 @@ class CardBoard extends React.Component {
     }
 
     render() {
-        const { user, users, title } = this.props;
+        const { user, users, title, pathID } = this.props;
 
 
 
         return (
             <>
-                <MenuCard user={user} />
+                <MenuCard user={user} tables={this.state.tables} key={this.props.card} history={this.props.history} />
                 <div className="cardCustom">
                 </div>
 
@@ -157,7 +155,7 @@ class CardBoard extends React.Component {
                             setUpdate={this.setUpdate}
                             onChange={this.handleChange}
                             user={user}
-                            tables={this.state.tables}
+                            tables={this.props.tables}
 
                         />
 

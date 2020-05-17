@@ -18,7 +18,8 @@ export default class CardForm extends Component {
             title: '',
             content: '',
             priority: '',
-            cards: []
+            cards: [],
+
 
         }
         this.handleChange = this.handleChange.bind(this);
@@ -33,13 +34,18 @@ export default class CardForm extends Component {
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
+        // const token = this.props.user.token;
+        // console.log(token);
 
+        const pathID = this.props.history.location.pathname;
 
 
     }
 
     handleSubmit(e) {
-        const pathID = this.props.location.pathname;
+        e.preventDefault();
+
+        const pathID = this.props.history.location.pathname;
         var str = pathID;
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
@@ -57,35 +63,38 @@ export default class CardForm extends Component {
             priority: this.state.priority
         };
 
-
         axios.post(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
                 //   this.setState({user:user});
+
             })
             .catch(error => {
             })
+
     }
 
 
 
     render() {
         const { id, title, content, priority, state, cards } = this.state
+
         return (
             <div className="formContainer">
-                <form onSubmit={this.handleSubmit}>
+
+                <form onSubmit={this.handleSubmit} >
                     <div className="formItem">
-                        <input type="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
+                        <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                     </div>
                     <div className="formItem">
-                        <input type="content" name="content" value={this.state.content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
+                        <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
                     </div>
                     <div className="formItem">
-                        <input type="priority" name="priority" value={this.state.priority} onChange={this.handleChange} placeholder="Prioritet" />
+                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Prioritet" />
                     </div>
                     <div>
-                        <Button variant="primary" type="submit" className="ml-0">
+                        <Button type="submit" className="ml-0">
                             <IoIosSave />
                         </Button>
                     </div>

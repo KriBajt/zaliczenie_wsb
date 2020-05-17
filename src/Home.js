@@ -14,6 +14,8 @@ export default class Home extends Component {
         //Todo update parent componen
         this.props.handleLogin(data);
         this.props.history.push("/HomePage");
+        this.props.history.push("/CardBoard");
+
         // this.props.history.push("/CardsLists");
     }
 
