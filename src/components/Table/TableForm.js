@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/user.actions'
 import { withRouter } from 'react-router'
+// import $ from 'jquery';
 
 
 export default class TableForm extends Component {
@@ -28,17 +29,21 @@ export default class TableForm extends Component {
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
+
     }
 
-    handleChange(e) {
-        e.preventDefault();
-        window.location.reload(false);
-        this.setState({
-            tables: []
-        });
-    }
+    // handleChange(e) {
+    //     e.preventDefault();
+    //     window.location.reload(false);
+    //     this.setState({
+    //         tables: []
+    //     });
+    // }
+
 
     handleSubmit(e) {
+        // $('.textNewBoard').remove();
+
         const token = this.props.user.token;
         const userID = this.props.user.id;
 
@@ -62,25 +67,6 @@ export default class TableForm extends Component {
 
     }
 
-    // sub = (e) => {
-    //     const token = this.props.user.token;
-    //     const config = {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     };
-
-    //     const userID = this.props.user.id;
-
-    //     const body = {
-    //         title: "dfsdfsd",
-    //         description: "sfsdfs"
-    //     }
-
-    //     const res = axios.post(`http://localhost:1028/users/${userID}/taskboards/`, body, config).then(res =>
-    //         this.setState({
-    //             tables: [...this.state.tables]
-    //         })
-    //     );
-    // };
 
 
     render() {
@@ -88,7 +74,7 @@ export default class TableForm extends Component {
 
         return (
             <div className="formContainer">
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={this.handleSubmit}  >
                     <div className="formItem">
                         <input type="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Wpisz tytuł tablicy" />
                     </div>
@@ -125,5 +111,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedTableForme = connect(mapStateToProps)(TableForm);
-export { connectedTableForme as TableForm };
+const connectedTableForm = connect(mapStateToProps)(TableForm);
+export { connectedTableForm as TableForm };

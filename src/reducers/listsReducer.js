@@ -82,7 +82,7 @@ const listsReducer = (state = initialState, action) => {
             };
             cardID += 1;
 
-            console.log("action received", action);
+            // console.log("action received", action);
 
             const newState = state.map(list => {
                 if (list.id === action.payload.listID) {

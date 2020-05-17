@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 body {
   background: #c31432;
@@ -70,6 +71,27 @@ contentTrelloBox {
   }
 }
 
+.sectionText {
+  position: absolute;
+  left: 50%;
+}
+
+.textNewBoard {
+  position: relative;
+  left: -50%;
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+  padding-top: 8px;
+  color: #fff;
+}
+
+.textNewBoard {
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
+
+
+}
 
 /* end styli do list */
 
@@ -428,13 +450,30 @@ contentTrelloBox {
   /* color: white; */
 }
 
+@media (max-width:1600px) {
+  .hello {
+    height: 200px !important;
+    width: 200px !important;
+    background-size: cover;
+  }
+
+  .hello p {
+    top: 70px !important;
+    left: 120px !important;
+    font-size: 12px;
+  }
+}
+
 .hello {
+
   background-image: url("assets/images/hello.png");
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   display: flex;
   position: relative;
   margin-left: 20px;
+  background-size: cover;
+
 }
 
 .hello p {
@@ -442,11 +481,12 @@ contentTrelloBox {
   font-weight: 600;
   text-align: center;
   position: relative;
-  top: 150px;
-  left: 240px;
+  top: 108px;
+  left: 165px;
   color: black !important;
-
 }
+
+
 
 .tablica {
   display: flex;

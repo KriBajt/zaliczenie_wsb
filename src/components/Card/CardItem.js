@@ -5,6 +5,10 @@ import BtnCardDetails from '../Button/BtnCardDetails';
 import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
 import { users } from '../../reducers/users.reducer';
+import { Link } from 'react-router-dom';
+import FlipMove from 'react-flip-move';
+
+
 
 
 export default class CardItem extends Component {
@@ -31,7 +35,7 @@ export default class CardItem extends Component {
                     <div className="card-footer">
                         <p></p>
                         <div className="btnDetails d-flex ">
-                            <BtnCardDetails />
+                            {/* <BtnCardDetails /> */}
                         </div>
                     </div>
 

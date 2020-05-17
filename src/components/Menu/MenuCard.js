@@ -6,13 +6,16 @@ import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
 import './Menu.css';
 import CardForm from '../Card/CardForm';
-import { userActions } from '../actions';
+import { userActions } from '../../actions/user.actions';
 import { connect } from 'react-redux';
-import ShowTable from '../components/Table/ShowTable';
+// import ShowTable from '../components/Table/ShowTable';
 
 
 export default class Menu extends Component {
     render() {
+
+        // console.log(this.props);
+
         return (
             <div >
                 <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
@@ -20,12 +23,24 @@ export default class Menu extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
+                            {/* <CardForm addCard={this.props.addCard} /> */}
 
-                            <CardForm addCard={this.props.addCard} />
-
+                            <CardForm
+                                // addCard={this.props.addTable}
+                                // onSubmit={this.props.onSubmit}
+                                user={this.props.user}
+                                onChange={this.handleChange}
+                                cards={this.props.tableID}
+                                key={this.props.card}
+                                tables={this.props.user.taskboards}
+                                history={this.props.history}
+                            />
 
                         </Nav>
                         <Nav>
+                            <Nav.Link  >
+                                Cześć! {this.props.user.firstName}
+                            </Nav.Link>
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj
