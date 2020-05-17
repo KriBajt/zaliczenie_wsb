@@ -8,12 +8,17 @@ import './Menu.css';
 import TableForm from './../Table/TableForm';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/user.actions'
-
+import UserModal from '../../components/UserPage/UserModal'
 
 export default class Menu extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = { addModalShow: false }
+    }
 
     render() {
+        let addModalClose = () => this.setState({ addModalShow: false });
+
         return (
             <div >
                 <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
@@ -45,9 +50,15 @@ export default class Menu extends Component {
                         </Nav>
                         <Nav>
 
-                            <Nav.Link  >
-                                Cześć! {this.props.user.firstName}
+                            <Nav.Link
+                                onClick={() => this.setState({ addModalShow: true })}>Cześć! {this.props.user.firstName}
+
                             </Nav.Link>
+                            <UserModal
+                                user={this.props.user}
+                                show={this.state.addModalShow}
+                                onHide={addModalClose}
+                            />
 
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">

@@ -9,12 +9,18 @@ import CardForm from '../Card/CardForm';
 import { userActions } from '../../actions/user.actions';
 import { connect } from 'react-redux';
 // import ShowTable from '../components/Table/ShowTable';
-
+import UserModal from '../UserPage/UserModal'
 
 export default class Menu extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = { addModalShow: false }
+    }
 
+
+    render() {
         // console.log(this.props);
+        let addModalClose = () => this.setState({ addModalShow: false });
 
         return (
             <div >
@@ -38,9 +44,17 @@ export default class Menu extends Component {
 
                         </Nav>
                         <Nav>
-                            <Nav.Link  >
-                                Cześć! {this.props.user.firstName}
+
+                            <Nav.Link
+                                onClick={() => this.setState({ addModalShow: true })}>Cześć! {this.props.user.firstName}
+
                             </Nav.Link>
+                            <UserModal
+                                user={this.props.user}
+                                show={this.state.addModalShow}
+                                onHide={addModalClose}
+                            />
+
                             <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj

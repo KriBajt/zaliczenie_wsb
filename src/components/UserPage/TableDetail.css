@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto&display=swap');
+
+.formContainer form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formItem {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.formItem input {
+    height: 35px;
+    border-radius: 30px;
+    border: none;
+    text-indent: 10px;
+}
+
+.formItem input:hover {
+    outline: none;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.cardCustom {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-body {
+    height: 100%;
+}
+
+.cardCustomList {
+    width: 350px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #2e2e2e;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.cardDetailNav {
+    display: flex;
+    background-color: #ffff;
+
+
+}
+
+.cardDetailNav p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cardDetailNav p:first-child {
+    padding-left: 0px;
+}
+
+.cardDetailAction {
+    background-color: #ffff;
+
+}
+
+.cardDetailNav h4 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cardDetailCommentContent {
+    background-color: #ffff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 3rem;
+
+}
+
+.modalBodyCustom {
+    background-color: #ffff;
+    border-radius: 8px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.modal-content {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.cardDetailDescription {
+    color: black;
+}
+
+
+
+.btnDelete svg:hover {
+    color: red !important;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.card-title {
+    background-color: #2e2e2e;
+    color: #fff;
+    border: 0;
+    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card-title:focus {
+    outline: none;
+}

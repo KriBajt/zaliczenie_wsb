@@ -32,7 +32,6 @@ class CardBoard extends React.Component {
     state = {
         cards: []
 
-
     };
 
     componentDidMount() {
@@ -75,7 +74,6 @@ class CardBoard extends React.Component {
         const userID = this.props.user.id;
         const pathID = this.props.location.pathname;
 
-        console.log(this.props);
         var str = pathID;
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
@@ -86,8 +84,7 @@ class CardBoard extends React.Component {
             })
         );
 
-        console.log(this.state)
-        console.log("dua")
+
     };
 
     setUpdate = (title, id) => {
@@ -150,25 +147,33 @@ class CardBoard extends React.Component {
 
         return (
             <>
-                <MenuCard user={user} tables={this.state.tables} key={this.props.card} history={this.props.history} />
+                <MenuCard
+                    user={user}
+                    tables={this.state.tables}
+                    key={this.props.card}
+                    history={this.props.history}
+                    cards={this.state.cards}
+
+                />
+
                 <div className="cardCustom">
                 </div>
 
                 <div className="tablica">
-                    <div className="container cardCustom">
+                    <div className=" cardCustom">
+                        <div className="d-flex justify-content-start flex-wrap cardCustom">
+                            <ShowCard
+                                key={this.props.card}
+                                cards={this.state.cards}
+                                markComplete={this.markComplete}
+                                deleteCard={this.deleteCard}
+                                setUpdate={this.setUpdate}
+                                onChange={this.handleChange}
+                                user={user}
+                                tables={this.props.tables}
+                            />
 
-                        <ShowCard
-                            key={this.props.card}
-                            cards={this.state.cards}
-                            markComplete={this.markComplete}
-                            deleteCard={this.deleteCard}
-                            setUpdate={this.setUpdate}
-                            onChange={this.handleChange}
-                            user={user}
-                            tables={this.props.tables}
-
-                        />
-
+                        </div>
                     </div>
                 </div>
                 <div className="container cardCustom">

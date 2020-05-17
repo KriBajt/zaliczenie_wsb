@@ -132,12 +132,12 @@ class HomePage extends React.Component {
                 <Menu user={user} />
                 <section className="sectionText">
                     <div className="textNewBoard">
-                        <h4>Stwórz swoją pierwszą tablicę !</h4>
+                        {/* <h4>Stwórz swoją pierwszą tablicę !</h4> */}
                     </div>
                 </section>
 
                 <div className="tablica">
-                    <div className=" col-12 d-flex justify-content-start flex-wrap cardCustom">
+                    <div className="d-flex justify-content-start flex-wrap cardCustom">
 
                         <ShowTable
                             tables={this.state.tables}
