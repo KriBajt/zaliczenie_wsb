@@ -43,7 +43,6 @@ export default class CardForm extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
 
         const pathID = this.props.history.location.pathname;
         var str = pathID;
@@ -68,6 +67,7 @@ export default class CardForm extends Component {
                 let cards = response.data;
                 this.setState({ cards: cards });
                 //   this.setState({user:user});
+                e.preventDefault()
 
             })
             .catch(error => {
