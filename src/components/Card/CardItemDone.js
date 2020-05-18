@@ -28,8 +28,7 @@ export default class CardItemDone extends Component {
                     <div className="card-body">
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>{content}</p>
 
-                        <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
-                        <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
+
                     </div>
 
                     <div className="card-footer">
@@ -37,6 +36,8 @@ export default class CardItemDone extends Component {
                         <div className="btnDetails d-flex ">
                             {/* <BtnCardDetails /> */}
                         </div>
+                        <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
+                        <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
                     </div>
 
                 </div>

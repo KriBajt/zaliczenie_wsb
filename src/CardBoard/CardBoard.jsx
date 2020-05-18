@@ -29,11 +29,12 @@ class CardBoard extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-    state = {
-        cards: []
+        this.state = {
+            cards: []
 
-    };
+        };
+
+    }
 
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
@@ -112,6 +113,11 @@ class CardBoard extends React.Component {
             headers: { Authorization: `Bearer ${token}` }
         };
 
+        const bodyParameters = {
+            title: this.state.title,
+            description: this.state.description
+        };
+
         const userID = this.props.user.id;
         const pathID = this.props.location.pathname;
 
@@ -119,7 +125,9 @@ class CardBoard extends React.Component {
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
 
-        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, config).then(res =>
+        console.log(this.props.card)
+
+        axios.patch(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
@@ -180,7 +188,7 @@ class CardBoard extends React.Component {
 
                 <div className="cardCustom">
                 </div>
-
+                <div className="newTaskTitle "><h4>Zadania wykonane</h4></div>
                 <div className="tablica">
                     <div className=" cardCustom">
                         <div className="d-flex justify-content-start flex-wrap cardCustom">
