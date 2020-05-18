@@ -20,7 +20,7 @@ class RegisterPage extends React.Component {
                 lastName: '',
                 username: '',
                 numberOfTaskboards: '',
-                password: ''
+                password: '',
             },
             submitted: false
         };

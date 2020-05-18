@@ -85,7 +85,7 @@ export default class TableForm extends Component {
                         {/* <Button type="submit" className="ml-0">
                             <IoIosSave />
                         </Button> */}
-                        <Button type=" submit" className="ml-0">
+                        <Button type=" submit" className="ml-2">
                             {/* <Button onClick={this.onSubmit} type="submit" className="ml-0"> */}
                             <IoIosSave />
                         </Button>

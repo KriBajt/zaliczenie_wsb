@@ -23,7 +23,6 @@ export default class ShowCard extends Component {
                 setUpdate={this.props.setUpdate}
                 card={card}
                 user={this.props.user}
-
             />
         ));
     }

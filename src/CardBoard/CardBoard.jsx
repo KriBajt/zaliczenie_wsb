@@ -30,15 +30,14 @@ class CardBoard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: []
-
+            cards: [],
+            state: ''
         };
 
     }
 
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
-
         const pathID = this.props.location.pathname;
         var str = pathID;
         var n = str.lastIndexOf('/');
@@ -56,11 +55,14 @@ class CardBoard extends React.Component {
         ).then(res =>
             this.setState({
                 cards: res.data
-            }
-            )
+            })
+
 
         )
-        // console.log(this.state);
+        console.log(this.state);
+        document.getElementsByClassName(2)
+
+
 
     }
 
@@ -87,26 +89,10 @@ class CardBoard extends React.Component {
         );
     };
 
-    // setUpdate = (title, id) => {
-    //     const token = this.props.user.token;
-    //     const config = {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     };
 
-    //     const userID = this.props.user.id;
-
-    //     axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
-    //         .then(response => {
-    //             // console.log(response);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
 
     // Usuwanie karty
     setUpdate = id => {
-        this.props.dispatch(userActions.getAll());
 
         const token = this.props.user.token;
         const config = {
@@ -114,8 +100,7 @@ class CardBoard extends React.Component {
         };
 
         const bodyParameters = {
-            title: this.state.title,
-            description: this.state.description
+            state: 1
         };
 
         const userID = this.props.user.id;
@@ -125,11 +110,10 @@ class CardBoard extends React.Component {
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
 
-        console.log(this.props.card)
 
         axios.patch(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
             this.setState({
-                cards: [...this.state.cards.filter(card => card.id !== id)]
+                cards: []
             })
         );
     };
@@ -171,9 +155,7 @@ class CardBoard extends React.Component {
     }
 
     render() {
-        const { user, users, title, pathID } = this.props;
-
-
+        const { user, users, title, pathID, state } = this.props;
 
         return (
             <>
@@ -188,7 +170,7 @@ class CardBoard extends React.Component {
 
                 <div className="cardCustom">
                 </div>
-                <div className="newTaskTitle "><h4>Zadania wykonane</h4></div>
+                <div className="newTaskTitle "><h4>Zadania do wykonania</h4></div>
                 <div className="tablica">
                     <div className=" cardCustom">
                         <div className="d-flex justify-content-start flex-wrap cardCustom">
@@ -209,6 +191,7 @@ class CardBoard extends React.Component {
                 <div className="newTaskTitle mt-5"><h4>Zadania wykonane</h4></div>
                 <div className="tablicaArch ">
                     <div className="d-flex justify-content-start flex-wrap cardCustom">
+
                         <ShowCardDone
                             key={this.props.card}
                             cards={this.state.cards}

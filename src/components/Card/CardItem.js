@@ -14,13 +14,14 @@ import Button from '@material-ui/core/Button';
 
 export default class CardItem extends Component {
     render() {
-        const { id, title, content, priority, state } = this.props.card;
+        const { id, title, content, priority, state, niski } = this.props.card;
         const userID = this.props.user.id;
 
+
         return (
-            <div>
+            <div id={id}>
                 <div className="cardCustomList text-white mb-3">
-                    <div className="card-header">
+                    <div className="card-header" >
                         <h5 className="card-title" onChange={this.props.markComplete.bind(this, id)} key={title}>{title}</h5>
                         <div className="btnDetails btnDelete">
                             <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} />
@@ -31,7 +32,6 @@ export default class CardItem extends Component {
 
 
                     </div>
-
                     <div className="card-footer">
                         <p></p>
                         <div className="btnDetails d-flex ">
@@ -43,7 +43,7 @@ export default class CardItem extends Component {
 
                     </div>
 
-                </div>
+                </div >
             </div >
         )
     }

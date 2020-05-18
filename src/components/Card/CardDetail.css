@@ -9,6 +9,7 @@
 
     .card-title {
         font-size: 12px;
+
     }
 
 
@@ -68,13 +69,16 @@
     box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
+.arch {
+    background: transparent;
+}
 
 .cardDetailNav {
     display: flex;
     background-color: #ffff;
 
-
 }
+
 
 .cardDetailNav p {
     padding-left: 10px;

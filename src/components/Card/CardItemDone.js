@@ -18,7 +18,7 @@ export default class CardItemDone extends Component {
 
         return (
             <div>
-                <div className="cardCustomList text-white mb-3">
+                <div className="cardCustomList arch text-white mb-3">
                     <div className="card-header">
                         <h5 className="card-title" onChange={this.props.markComplete.bind(this, id)} key={title}>{title}</h5>
                         <div className="btnDetails btnDelete">

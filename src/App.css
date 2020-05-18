@@ -522,3 +522,26 @@ hr {
   border: 1px solid rgba(255, 255, 255, .2);
 
 }
+
+.selectBoxCus {
+  border-radius: 30px !important;
+  border: 0;
+  font-size: 14px;
+  outline: none !important;
+}
+
+.selectBoxCus option {
+  width: 100px;
+}
+
+
+
+
+.selectBoxCus:hover {
+  outline: none !important;
+
+}
+
+.selectBoxCustS:focus {
+  outline: none;
+}

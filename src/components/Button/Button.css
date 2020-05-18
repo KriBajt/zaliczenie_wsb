@@ -52,6 +52,14 @@
 .btn-primary:hover {
     background-color: rgb(8, 167, 61) !important;
     color: white !important;
+    outline: none !important;
+    border: none !important;
+
+}
+
+.btn-primary:focus {
+    outline: none !important;
+    border: none !important;
 }
 
 .btnDanger {

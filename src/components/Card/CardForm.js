@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Button, Dropdown, Form, Col } from 'react-bootstrap';
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 import SchowCard from './ShowCard';
 import PropTypes from 'prop-types';
@@ -18,6 +18,7 @@ export default class CardForm extends Component {
             title: '',
             content: '',
             priority: '',
+            state: 1,
             cards: [],
 
 
@@ -26,6 +27,11 @@ export default class CardForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    onChange(e) {
+        this.setState({
+            priority: e.target.value
+        })
+    }
     // handleChange = (e) => {
     //     e.preventDefault();
     //     this.setState({ [e.target.name]: e.target.value });
@@ -38,7 +44,6 @@ export default class CardForm extends Component {
         // console.log(token);
 
         const pathID = this.props.history.location.pathname;
-
 
     }
 
@@ -59,7 +64,8 @@ export default class CardForm extends Component {
         const bodyParameters = {
             title: this.state.title,
             content: this.state.content,
-            priority: this.state.priority
+            priority: this.state.priority,
+            state: this.state.state
         };
 
         axios.post(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
@@ -67,8 +73,6 @@ export default class CardForm extends Component {
                 let cards = response.data;
                 this.setState({ cards: cards });
                 //   this.setState({user:user});
-                e.preventDefault()
-
             })
             .catch(error => {
             })
@@ -89,15 +93,21 @@ export default class CardForm extends Component {
                     <div className="formItem">
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
                     </div>
-                    <div className="formItem">
-                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Prioritet" />
+                    <div className="formItem mr-2 selectBoxCus">
+                        <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control selectBoxCus">
+                            <option>Prioritet..</option>
+                            <option value="0">Niski</option>
+                            <option value="1">Średni</option>
+                            <option value="2">Wysoki</option>
+                        </select>
                     </div>
                     <div>
-                        <Button type="submit" className="ml-0">
+                        <Button type="submit" className="ml-2">
                             <IoIosSave />
                         </Button>
                     </div>
                 </form>
+
             </div >
         )
     }
