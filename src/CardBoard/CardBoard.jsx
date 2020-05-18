@@ -31,13 +31,14 @@ class CardBoard extends React.Component {
         super(props);
         this.state = {
             cards: [],
-            state: ''
+            state: '',
+            showing: true,
         };
 
     }
 
     componentDidMount() {
-        this.props.dispatch(userActions.getAll());
+
         const pathID = this.props.location.pathname;
         var str = pathID;
         var n = str.lastIndexOf('/');
@@ -57,10 +58,7 @@ class CardBoard extends React.Component {
                 cards: res.data
             })
 
-
         )
-        console.log(this.state);
-        document.getElementsByClassName(2)
 
 
 
@@ -91,7 +89,7 @@ class CardBoard extends React.Component {
 
 
 
-    // Usuwanie karty
+
     setUpdate = id => {
 
         const token = this.props.user.token;
@@ -100,7 +98,7 @@ class CardBoard extends React.Component {
         };
 
         const bodyParameters = {
-            state: 1
+            state: 2
         };
 
         const userID = this.props.user.id;
@@ -113,7 +111,7 @@ class CardBoard extends React.Component {
 
         axios.patch(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
             this.setState({
-                cards: []
+                cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
     };
@@ -137,7 +135,6 @@ class CardBoard extends React.Component {
     // }
 
 
-
     //toggle complete
     markComplete = id => {
         this.setState({
@@ -156,7 +153,7 @@ class CardBoard extends React.Component {
 
     render() {
         const { user, users, title, pathID, state } = this.props;
-
+        const { showing } = this.state;
         return (
             <>
                 <MenuCard
@@ -183,6 +180,8 @@ class CardBoard extends React.Component {
                                 user={user}
                                 tables={this.props.tables}
                             />
+                            {/* <button onClick={() => this.setState({ showing: !showing })}>toggle</button>
+                            <div style={{ display: (showing ? 'block' : 'none') }}>This is visible</div> */}
                         </div>
                     </div>
                 </div>

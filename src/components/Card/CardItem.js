@@ -30,7 +30,6 @@ export default class CardItem extends Component {
                     <div className="card-body">
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>{content}</p>
 
-
                     </div>
                     <div className="card-footer">
                         <p></p>
@@ -39,7 +38,7 @@ export default class CardItem extends Component {
                         </div>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
-                        <button className="btn-primary" onClick={this.props.setUpdate.bind(this, id)}> ✓ </button>
+                        <button className="btn-primary" onClick={this.props.setUpdate.bind(this, id)} > ✓ </button>
 
                     </div>
 
