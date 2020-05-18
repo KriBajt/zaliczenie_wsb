@@ -8,11 +8,10 @@ import { users } from '../../reducers/users.reducer';
 import { Link } from 'react-router-dom';
 import FlipMove from 'react-flip-move';
 
-import Button from '@material-ui/core/Button';
 
 
 
-export default class CardItem extends Component {
+export default class CardItemDone extends Component {
     render() {
         const { id, title, content, priority, state } = this.props.card;
         const userID = this.props.user.id;
@@ -39,20 +38,17 @@ export default class CardItem extends Component {
                         </div>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
-                        <button className="btn-primary" onClick={this.props.setUpdate.bind(this, id)}> ✓ </button>
-
                     </div>
 
                 </div>
-            </div >
+            </div>
         )
     }
 }
 
 // PropTypes
-CardItem.propTypes = {
+CardItemDone.propTypes = {
     card: PropTypes.object.isRequired,
     markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired,
-    setUpdate: PropTypes.func.isRequired
+    deleteCard: PropTypes.func.isRequired
 }

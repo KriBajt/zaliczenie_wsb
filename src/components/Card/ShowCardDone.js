@@ -3,12 +3,12 @@ import './CardDetail.css';
 import BtnCardDetails from '../Button/BtnCardDetails';
 import { BsFillTrashFill } from 'react-icons/bs';
 import axios from "axios";
-import CardItem from './CardItem';
+import CardItemDone from './CardItemDone';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/user.actions';
 
-export default class ShowCard extends Component {
+export default class ShowCardDone extends Component {
 
     // const fetchItems = async ()=>{
     //     const data =  await fetch()
@@ -16,14 +16,13 @@ export default class ShowCard extends Component {
     render() {
 
         return this.props.cards.map(card => (
-            <CardItem
+            <CardItemDone
                 key={this.props.card}
                 markComplete={this.props.markComplete}
                 deleteCard={this.props.deleteCard}
-                setUpdate={this.props.setUpdate}
+                setUpdate={this.setUpdate}
                 card={card}
                 user={this.props.user}
-
             />
         ));
     }
@@ -31,12 +30,11 @@ export default class ShowCard extends Component {
 
 //PropTypes
 
-ShowCard.propTypes = {
+ShowCardDone.propTypes = {
     cards: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
     deleteCard: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
-    setUpdate: PropTypes.func.isRequired,
 
 };
 
@@ -49,5 +47,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedShowCard = connect(mapStateToProps)(ShowCard);
-export { connectedShowCard as ShowCard };
+const connectedShowCardDone = connect(mapStateToProps)(ShowCardDone);
+export { connectedShowCardDone as ShowCardDone };

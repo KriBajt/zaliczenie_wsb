@@ -10,6 +10,7 @@ import { CardBoard } from '../CardBoard'
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import CardLists from '../components/CardLists';
+import UserPage from '../components/UserPage/UserModal'
 
 class App extends React.Component {
     constructor(props) {
@@ -34,10 +35,11 @@ class App extends React.Component {
                         <div>
                             {/* {console.log(this.props)} */}
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <PrivateRoute path="/:tableID" component={CardBoard} user={this.user} tableID={this.tableID} />
+                            <Route path="/cards" component={CardBoard} user={this.user} tableID={this.tableID} />
                             {/* <Route path="/cardlists" component={CardLists} user={this.user} table={this.table} /> */}
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
+                            <Route path="/userpage" component={UserPage} user={this.user} tableID={this.tableID} />
 
                         </div>
                     </Router>

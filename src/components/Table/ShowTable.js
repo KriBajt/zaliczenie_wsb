@@ -27,9 +27,7 @@ export default class ShowTable extends Component {
                 table={table}
                 user={this.props.user}
             />
-
         ));
-
     }
 }
 

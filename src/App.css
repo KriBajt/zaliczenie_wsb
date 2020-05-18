@@ -52,6 +52,11 @@ contentTrelloBox {
 }
 
 /* end stylów kontenera home */
+.newTaskTitle {
+  font-family: 'Carter One', cursive;
+  text-align: center;
+  color: #fff;
+}
 
 /* start styli do list */
 
@@ -491,11 +496,29 @@ contentTrelloBox {
 .tablica {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-color: transparent;
+
+  width: 97vw;
+  padding-top: 20px;
+  margin: 0 auto;
+  /* -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); */
+  margin-bottom: 100px;
+  border-radius: 8px;
+}
+
+.tablicaArch {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
   width: 97vw;
   margin: 0 auto;
-  border-radius: px;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+
+}
+
+hr {
+  border: 1px solid rgba(255, 255, 255, .2);
+
 }
