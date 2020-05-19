@@ -73,8 +73,35 @@
     border: none !important;
 }
 
+.acceptBtnEdit button {
+    background-color: rgb(7, 96, 212) !important;
+
+    border: none !important;
+    border-radius: 10px !important;
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 15px !important;
+    padding-top: 0 !important;
+    padding-left: 10px !important;
+    color: black !important;
+}
+
+.acceptBtnEdit button:hover {
+    background-color: rgb(7, 96, 212) !important;
+    color: white !important;
+    outline: none !important;
+    border: none !important;
+
+}
+
+.acceptBtnEdit button:focus {
+    outline: none !important;
+    border: none !important;
+}
+
 .btn-primary:hover {
-    background-color: rgb(8, 167, 61) !important;
+    background-color: rgb(7, 96, 212) !important;
+
     color: white !important;
     outline: none !important;
     border: none !important;

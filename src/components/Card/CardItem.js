@@ -8,24 +8,38 @@ import { users } from '../../reducers/users.reducer';
 import { Link } from 'react-router-dom';
 import FlipMove from 'react-flip-move';
 
+import { AiFillEdit } from 'react-icons/ai';
+
 import Button from '@material-ui/core/Button';
 import { GiThompsonM1 } from 'react-icons/gi';
-
+import CardModal from './CardModal'
+import Nav from 'react-bootstrap/Nav';
 
 export default class CardItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+            addModalShow: false
 
-
+        };
+    }
 
 
     render() {
-        const { id, title, content, priority, state, niski, card, user } = this.props;
+        const { id, title, content, priority, state, niski, card, user } = this.props.card;
         const userID = this.props.user.id;
 
+
+        let addModalClose = () => this.setState({ addModalShow: false });
+
+
         return (
-            <div id={id}>
+            <div id={this.props.card.id}>
                 <div className="cardCustomList text-white mb-3">
                     <div className="card-header" >
                         <h5 className="card-title" onChange={this.props.markComplete.bind(this, id)} key={title}>{title}</h5>
+
                         <div className="btnDetails btnDelete">
                             <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} />
                         </div>
@@ -37,22 +51,41 @@ export default class CardItem extends Component {
                     <div className="card-footer">
                         <p></p>
                         <div className="btnDetails d-flex ">
-                            <BtnCardDetails
+                            {/* <BtnCardDetails
                                 user={user}
                                 key={card}
-                                id={this.props.id}
+                                card={this.props.card}
 
-                            />
+                            /> */}
+
                         </div>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
+                        <Nav className="acceptBtnEdit">
+                            <button
+                                onClick={() => this.setState({ addModalShow: true })}> ✎
+                            </button>
+                            <CardModal
+                                user={this.props.user}
+                                show={this.state.addModalShow}
+                                onHide={addModalClose}
+                                key={this.props.card}
+                                markComplete={this.props.markComplete}
+                                deleteCard={this.props.deleteCard}
+                                setUpdate={this.props.setUpdate}
+                                card={this.props.card.id}
+                                id={this.props.id}
+                            />
+                        </Nav>
                         <div className="acceptBtn">
                             <button onClick={this.props.setUpdate.bind(this, id)} > ✓ </button>
                         </div>
+
+
                     </div>
 
                 </div>
-            </div>
+            </div >
         )
     }
 }

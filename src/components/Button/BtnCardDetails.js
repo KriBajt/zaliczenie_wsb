@@ -10,12 +10,31 @@ export default class BtnCardDetails extends Component {
         this.state = { deps: [], addModalShow: false }
     }
 
+    componentDidMount() {
+        console.log(this.props)
 
+        fetch("http://localhost:1028/users/1/taskboards/1/cards/")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        cards: result
+                    });
+                },
+
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
 
     render() {
         const { deps } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
-        console.log(this.props)
 
         return (
             <div>
@@ -28,9 +47,10 @@ export default class BtnCardDetails extends Component {
                         markComplete={this.props.markComplete}
                         deleteCard={this.props.deleteCard}
                         setUpdate={this.props.setUpdate}
-                        card={this.props.card}
+                        card={this.props.card.id}
                         user={this.props.user}
                         id={this.props.id}
+
                     />
                 </ButtonToolbar>
 
