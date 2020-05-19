@@ -9,14 +9,17 @@ import { Link } from 'react-router-dom';
 import FlipMove from 'react-flip-move';
 
 import Button from '@material-ui/core/Button';
-
+import { GiThompsonM1 } from 'react-icons/gi';
 
 
 export default class CardItem extends Component {
-    render() {
-        const { id, title, content, priority, state, niski } = this.props.card;
-        const userID = this.props.user.id;
 
+
+
+
+    render() {
+        const { id, title, content, priority, state, niski, card, user } = this.props;
+        const userID = this.props.user.id;
 
         return (
             <div id={id}>
@@ -34,7 +37,12 @@ export default class CardItem extends Component {
                     <div className="card-footer">
                         <p></p>
                         <div className="btnDetails d-flex ">
-                            {/* <BtnCardDetails /> */}
+                            <BtnCardDetails
+                                user={user}
+                                key={card}
+                                id={this.props.id}
+
+                            />
                         </div>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
@@ -43,8 +51,8 @@ export default class CardItem extends Component {
                         </div>
                     </div>
 
-                </div >
-            </div >
+                </div>
+            </div>
         )
     }
 }

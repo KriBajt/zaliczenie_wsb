@@ -29,7 +29,6 @@ export default class ShowCard extends Component {
 }
 
 //PropTypes
-
 ShowCard.propTypes = {
     cards: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,

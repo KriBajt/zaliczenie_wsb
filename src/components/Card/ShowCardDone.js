@@ -15,7 +15,6 @@ export default class ShowCardDone extends Component {
     // }
     render() {
 
-
         return this.props.cards.filter(card => card.state > 1).map(card => (
             <CardItemDone
                 key={this.props.card}

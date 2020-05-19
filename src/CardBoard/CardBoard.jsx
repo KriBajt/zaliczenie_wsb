@@ -60,8 +60,6 @@ class CardBoard extends React.Component {
 
         )
 
-
-
     }
 
     // Usuwanie karty
@@ -108,12 +106,12 @@ class CardBoard extends React.Component {
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
 
-
         axios.patch(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
+        window.location.reload(false);
     };
 
     // onSubmit = (id, token) => {

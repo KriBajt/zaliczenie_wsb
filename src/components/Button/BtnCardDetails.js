@@ -11,9 +11,12 @@ export default class BtnCardDetails extends Component {
     }
 
 
+
     render() {
         const { deps } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
+        console.log(this.props)
+
         return (
             <div>
                 <ButtonToolbar>
@@ -21,9 +24,14 @@ export default class BtnCardDetails extends Component {
                         <IoMdInformationCircleOutline onClick={() => this.setState({ addModalShow: true })} />
                     </div>
                     <CardDetail
-                        show={this.state.addModalShow}
-                        onHide={addModalClose} />
-
+                        key={this.props.card}
+                        markComplete={this.props.markComplete}
+                        deleteCard={this.props.deleteCard}
+                        setUpdate={this.props.setUpdate}
+                        card={this.props.card}
+                        user={this.props.user}
+                        id={this.props.id}
+                    />
                 </ButtonToolbar>
 
             </div>
