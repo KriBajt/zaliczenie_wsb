@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { userActions } from '../../actions'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
+import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
 export default class CardModal extends Component {
 
@@ -10,9 +11,15 @@ export default class CardModal extends Component {
         super(props);
         this.state = {
             users: [],
-            card: []
+            card: [],
+            title: '',
+            content: '',
+            priority: '',
+            state: 1,
+            cards: [],
 
         };
+
     }
 
 
@@ -36,8 +43,41 @@ export default class CardModal extends Component {
         )
     }
 
+    // handleSubmit(e) {
+    //     const pathID = this.props.history.location.pathname;
+    //     var str = pathID;
+    //     var n = str.lastIndexOf('/');
+    //     var tableID = str.substring(n + 1);
+
+    //     const userID = this.props.user.id;
+    //     const token = this.props.user.token;
+
+    //     const config = {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     };
+
+    //     const bodyParameters = {
+    //         title: this.state.title,
+    //         content: this.state.content,
+    //         priority: this.state.priority,
+    //         state: this.state.state
+    //     };
+
+    //     axios.post(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
+    //         .then(response => {
+    //             let cards = response.data;
+    //             this.setState({ cards: cards });
+    //             //   this.setState({user:user});
+    //         })
+    //         .catch(error => {
+    //         })
+
+    // }
+
 
     render() {
+        console.log(this.props)
+        const { id, title, content, priority, state, cards } = this.state
 
         return (
             <Modal
@@ -52,8 +92,20 @@ export default class CardModal extends Component {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <input>Liczba aktywnych tablic:  </input>
-                    <p>Liczba aktywnych zadań: </p>
+                    <form onSubmit={this.handleSubmit} >
+                        <div className="formItem">
+                            <input type="title" name="title" value={title} placeholder="Wpisz tytuł zadania" />
+                        </div>
+                        <div className="formItem">
+                            <input type="content" name="content" value={content} placeholder="Wpisz treść zadania" />
+                        </div>
+
+                        <div>
+                            <Button type="submit" className="ml-2">
+                                <IoIosSave />
+                            </Button>
+                        </div>
+                    </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="danger" onClick={this.props.onHide}>Zamknij</Button>
