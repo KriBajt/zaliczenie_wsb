@@ -38,8 +38,9 @@ export default class CardItem extends Component {
                         </div>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Prioritet: {priority}</p>
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Status: {state}</p>
-                        <button className="btn-primary" onClick={this.props.setUpdate.bind(this, id)} > ✓ </button>
-
+                        <div className="acceptBtn">
+                            <button onClick={this.props.setUpdate.bind(this, id)} > ✓ </button>
+                        </div>
                     </div>
 
                 </div >
