@@ -15,7 +15,7 @@ export default class CardDetail extends Component {
         };
     }
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
 
         fetch("http://localhost:1028/users/1/taskboards/1/cards/")
             .then(res => res.json())

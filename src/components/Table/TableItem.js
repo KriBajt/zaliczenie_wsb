@@ -16,6 +16,7 @@ export default class TableItem extends Component {
         const { id, title, description, cardsID } = this.props.table;
         const userID = this.props.user.id;
         const tableID = this.props.table.id;
+        console.log(this.props)
 
 
         return (
@@ -33,7 +34,7 @@ export default class TableItem extends Component {
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Opis: {description}</p>
                     </div>
                     <div className="card-footer">
-                        <Link to={`/cards/${tableID}`} tableID={tableID}> Lista zadań </Link>
+                        <Link to={`/taskboards/${tableID}`} tableID={tableID}> Lista zadań </Link>
                         <div className="btnDetails d-flex ">
 
                         </div>

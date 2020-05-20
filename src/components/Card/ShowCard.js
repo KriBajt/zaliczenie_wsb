@@ -23,6 +23,7 @@ export default class ShowCard extends Component {
                 setUpdate={this.props.setUpdate}
                 card={card}
                 user={this.props.user}
+                tables={this.props.table}
             />
         ));
     }
@@ -31,6 +32,7 @@ export default class ShowCard extends Component {
 //PropTypes
 ShowCard.propTypes = {
     cards: PropTypes.array.isRequired,
+    tables: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
     deleteCard: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,

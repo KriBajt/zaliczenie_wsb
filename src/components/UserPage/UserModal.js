@@ -37,7 +37,7 @@ export default class UserModal extends Component {
 
 
     render() {
-        console.log(this.state.users);
+        // console.log(this.state.users);
         return (
             <Modal
                 {...this.props}

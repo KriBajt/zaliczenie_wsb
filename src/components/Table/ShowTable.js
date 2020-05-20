@@ -16,6 +16,8 @@ export default class ShowTable extends Component {
     // }
 
     render() {
+        // console.log(this.props);
+
         return this.props.tables.map(table => (
 
             <TableItem

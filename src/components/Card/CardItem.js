@@ -29,7 +29,7 @@ export default class CardItem extends Component {
     render() {
         const { id, title, content, priority, state, niski, card, user } = this.props.card;
         const userID = this.props.user.id;
-
+        // const tableID = this.props.user.table.id;
 
         let addModalClose = () => this.setState({ addModalShow: false });
 
@@ -70,6 +70,7 @@ export default class CardItem extends Component {
                                 show={this.state.addModalShow}
                                 onHide={addModalClose}
                                 key={this.props.card}
+                                table={this.props.table}
                                 markComplete={this.props.markComplete}
                                 deleteCard={this.props.deleteCard}
                                 setUpdate={this.props.setUpdate}
@@ -93,6 +94,7 @@ export default class CardItem extends Component {
 // PropTypes
 CardItem.propTypes = {
     card: PropTypes.object.isRequired,
+    table:PropTypes.object.isRequired,
     markComplete: PropTypes.func.isRequired,
     deleteCard: PropTypes.func.isRequired,
     setUpdate: PropTypes.func.isRequired

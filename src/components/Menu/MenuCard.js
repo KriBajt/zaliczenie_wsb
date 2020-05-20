@@ -40,6 +40,7 @@ export default class Menu extends Component {
                                 key={this.props.card}
                                 tables={this.props.user.taskboards}
                                 history={this.props.history}
+                                table={this.props.table}
                             />
 
                         </Nav>

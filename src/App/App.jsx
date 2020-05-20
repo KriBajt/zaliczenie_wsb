@@ -35,7 +35,7 @@ class App extends React.Component {
                         <div>
                             {/* {console.log(this.props)} */}
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/cards" component={CardBoard} user={this.user} tableID={this.tableID} />
+                            <Route path="/taskboards" component={CardBoard} user={this.user} tableID={this.tableID} />
                             {/* <Route path="/cardlists" component={CardLists} user={this.user} table={this.table} /> */}
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />

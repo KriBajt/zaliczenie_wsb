@@ -129,7 +129,14 @@ class HomePage extends React.Component {
 
         return (
             <>
-                <Menu user={user} />
+                <Menu
+                    tables={this.state.tables}
+                    markComplete={this.markComplete}
+                    deleteTable={this.deleteTable}
+                    setUpdate={this.setUpdate}
+                    onChange={this.handleChange}
+                    user={user} />
+
                 <section className="sectionText">
                     <div className="textNewBoard">
                         {/* <h4>Stwórz swoją pierwszą tablicę !</h4> */}
@@ -146,6 +153,7 @@ class HomePage extends React.Component {
                             setUpdate={this.setUpdate}
                             onChange={this.handleChange}
                             user={user}
+                            table={this.state.table}
                         />
                     </div>
                 </div>

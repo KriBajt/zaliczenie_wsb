@@ -49,6 +49,27 @@
     box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
+.cardModalEdit {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.cardModalEdit input {
+    height: 35px;
+    border-radius: 30px;
+    border: none;
+    text-indent: 10px;
+    width: 98%;
+    margin: 10px;
+}
+
+.cardModalEdit input:hover {
+    outline: none;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
 .cardCustom {
     display: flex;
     flex-wrap: wrap;
