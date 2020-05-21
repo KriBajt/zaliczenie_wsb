@@ -44,7 +44,7 @@ export default class Registration extends Component {
             Password
         } = this.state
 
-        axios.post("http://localhost:1028/users/register", {
+        axios.post("https://ninjaorganizer.azurewebsites.net/users/register", {
 
             FirstName: FirstName,
             LastName: LastName,

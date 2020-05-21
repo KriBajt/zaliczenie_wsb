@@ -10,11 +10,9 @@ import { userActions } from '../../actions/user.actions';
 
 export default class ShowCard extends Component {
 
-    // const fetchItems = async ()=>{
-    //     const data =  await fetch()
-    // }
-    render() {
 
+    render() {
+        // console.log(this.props.tableID)
         return this.props.cards.filter(card => card.state < 2).map(card => (
             <CardItem
                 key={this.props.card}
@@ -23,7 +21,8 @@ export default class ShowCard extends Component {
                 setUpdate={this.props.setUpdate}
                 card={card}
                 user={this.props.user}
-                tables={this.props.table}
+                tables={this.props.tableID}
+
             />
         ));
     }

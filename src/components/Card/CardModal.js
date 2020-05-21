@@ -4,6 +4,9 @@ import { userActions } from '../../actions'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
 import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
+import { history } from '../../helpers/history';
+import { sort } from "../../actions";
+
 
 export default class CardModal extends Component {
 
@@ -23,25 +26,13 @@ export default class CardModal extends Component {
 
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-    }
-
-    handleInputChange = (event) => {
-        event.preventDefault()
-
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-
-
-    }
     componentDidMount() {
 
-        // const pathID = this.props.location.pathname;
+        // const pathID = this.props.history.location.pathname;
         // var str = pathID;
         // var n = str.lastIndexOf('/');
         // var tableID = str.substring(n + 1);
+        var tableID = this.props.table;
 
         const token = this.props.user.token;
         const config = {
@@ -50,7 +41,7 @@ export default class CardModal extends Component {
         const userID = this.props.user.id;
 
         axios.get(
-            `http://localhost:1028/users/${userID}/taskboards/5206/cards`,
+            `https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards`,
             config
         ).then(res =>
             this.setState({
@@ -62,54 +53,33 @@ export default class CardModal extends Component {
     }
 
 
-    // componentDidMount() {
-    //     // console.log(this.props)
-
-    //     const token = this.props.user.token;
-    //     const config = {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     };
-    //     const userID = this.props.user.id;
-
-    //     axios.get(
-    //         `http://localhost:1028/users/${userID}/`,
-    //         config
-    //     ).then(res =>
-    //         this.setState({
-    //             users: res.data
-    //         })
-
-    //     )
-    // }
-
     handleSubmit = (e) => {
-
-        const pathID = this.props.history.location.pathname;
-        var str = pathID;
-        var n = str.lastIndexOf('/');
-        var tableID = str.substring(n + 1);
-
+        e.preventDefault()
+        var tableID = this.props.table;
         const userID = this.props.user.id;
         const token = this.props.user.token;
 
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-
         const bodyParameters = {
             title: this.state.title,
             content: this.state.content,
-
         };
 
+        const cardID = this.props.id;
 
-        axios.patch(`http://localhost:1028/users/${userID}/taskboards/2194/cards/`, bodyParameters, config)
+        axios.patch(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${cardID}`, bodyParameters, config)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
             })
             .catch(error => {
             })
+    }
+
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     render() {
@@ -127,10 +97,10 @@ export default class CardModal extends Component {
                         Edycja zadania:
                     </Modal.Title>
                 </Modal.Header>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} >
                     <div className="cardModalEdit">
-                        <input type="title" name="title" onChange={this.handleInputChange} placeholder="Wpisz tytuł zadania" />
-                        <input type="content" name="content" onChange={this.handleInputChange} placeholder="Wpisz treść zadania" />
+                        <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
+                        <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
                     </div>
                     <Modal.Footer>
                         <Button type="submit" className="ml-2" >
@@ -142,3 +112,15 @@ export default class CardModal extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    const { users, authentication } = state;
+    const { user } = authentication;
+    return {
+        user,
+        users,
+    };
+}
+
+const connectedCardModal = connect(mapStateToProps)(CardModal);
+export { connectedCardModal as CardModal };

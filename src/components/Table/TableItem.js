@@ -16,9 +16,6 @@ export default class TableItem extends Component {
         const { id, title, description, cardsID } = this.props.table;
         const userID = this.props.user.id;
         const tableID = this.props.table.id;
-        console.log(this.props)
-
-
         return (
             <div>
                 <div className="cardCustomList text-white mb-3">

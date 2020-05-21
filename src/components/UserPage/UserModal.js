@@ -23,7 +23,7 @@ export default class UserModal extends Component {
         const userID = this.props.user.id;
 
         axios.get(
-            `http://localhost:1028/users/${userID}/`,
+            `https://ninjaorganizer.azurewebsites.net/users/${userID}/`,
             config
         ).then(res =>
             this.setState({

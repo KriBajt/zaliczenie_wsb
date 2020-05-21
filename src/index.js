@@ -11,14 +11,16 @@ import './components/Button/Button.css';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import { CookiesProvider } from 'react-cookie'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider >,
+  <CookiesProvider>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider >
+  </CookiesProvider>,
   document.getElementById('root')
 );
 

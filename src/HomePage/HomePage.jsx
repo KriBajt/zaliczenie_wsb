@@ -43,7 +43,7 @@ class HomePage extends React.Component {
         const userID = this.props.user.id;
 
         axios.get(
-            `http://localhost:1028/users/${userID}/taskboards/`,
+            `https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/`,
             config
         ).then(res =>
             this.setState({
@@ -63,7 +63,7 @@ class HomePage extends React.Component {
 
         const userID = this.props.user.id;
 
-        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
+        axios.delete(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config).then(res =>
             this.setState({
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
@@ -79,7 +79,7 @@ class HomePage extends React.Component {
 
         const userID = this.props.user.id;
 
-        axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
+        axios.put(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config)
             .then(response => {
                 // console.log(response);
             })
@@ -94,7 +94,7 @@ class HomePage extends React.Component {
     //         headers: { Authorization: `Bearer ${token}` }
     //     };
 
-    //     axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, this.state)
+    //     axios.post(`https://ninjaorganizer.azurewebsites.net/users/${id}/taskboards/`, config, this.state)
     //         .then(response => {
     //             let tables = response.data;
     //             this.setState({ tables: tables });

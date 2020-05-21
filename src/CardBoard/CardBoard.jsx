@@ -51,11 +51,13 @@ class CardBoard extends React.Component {
         const userID = this.props.user.id;
 
         axios.get(
-            `http://localhost:1028/users/${userID}/taskboards/${tableID}/cards`,
+            `https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards`,
             config
         ).then(res =>
             this.setState({
-                cards: res.data
+                cards: res.data,
+                tables: tableID
+
             })
 
         )
@@ -78,7 +80,7 @@ class CardBoard extends React.Component {
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
 
-        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, config).then(res =>
+        axios.delete(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${id}`, config).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
@@ -106,7 +108,7 @@ class CardBoard extends React.Component {
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
 
-        axios.patch(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
+        axios.patch(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
@@ -120,7 +122,7 @@ class CardBoard extends React.Component {
     //         headers: { Authorization: `Bearer ${token}` }
     //     };
 
-    //     axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, this.state)
+    //     axios.post(`https://ninjaorganizer.azurewebsites.net/users/${id}/taskboards/`, config, this.state)
     //         .then(response => {
     //             let tables = response.data;
     //             this.setState({ tables: tables });
@@ -176,7 +178,8 @@ class CardBoard extends React.Component {
                                 deleteCard={this.deleteCard}
                                 setUpdate={this.setUpdate}
                                 user={user}
-                                tables={this.props.tables}
+                                history={this.props.history}
+                                tableID={this.state.tables}
                             />
                             {/* <button onClick={() => this.setState({ showing: !showing })}>toggle</button>
                             <div style={{ display: (showing ? 'block' : 'none') }}>This is visible</div> */}

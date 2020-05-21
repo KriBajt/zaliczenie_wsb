@@ -54,7 +54,7 @@ export default class TableForm extends Component {
             description: this.state.description
         };
 
-        axios.post(`http://localhost:1028/users/${userID}/taskboards/`, bodyParameters, config)
+        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/`, bodyParameters, config)
             .then(response => {
                 let tables = response.data;
                 this.setState({ tables: tables });

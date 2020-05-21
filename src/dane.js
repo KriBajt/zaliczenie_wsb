@@ -10,7 +10,7 @@
 //     }
 
 //     componentDidMount() {
-//         fetch("http://localhost:1028/taskboards/3/cards")
+//         fetch("https://ninjaorganizer.azurewebsites.net/taskboards/3/cards")
 //             .then(res => res.json())
 //             .then(
 //                 (result) => {

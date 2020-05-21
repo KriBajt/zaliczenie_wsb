@@ -21,7 +21,6 @@ export default class CardForm extends Component {
             state: 1,
             cards: [],
 
-
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -68,7 +67,7 @@ export default class CardForm extends Component {
             state: this.state.state
         };
 
-        axios.post(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
+        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
@@ -101,7 +100,7 @@ export default class CardForm extends Component {
                         </select>
                     </div>
                     <div>
-                        <Button type="submit" className="ml-2">
+                        <Button type="submit" className="ml-2" onClick={this.props.onHide}>
                             <IoIosSave />
                         </Button>
                     </div>

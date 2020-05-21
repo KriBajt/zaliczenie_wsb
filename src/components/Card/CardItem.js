@@ -70,12 +70,12 @@ export default class CardItem extends Component {
                                 show={this.state.addModalShow}
                                 onHide={addModalClose}
                                 key={this.props.card}
-                                table={this.props.table}
                                 markComplete={this.props.markComplete}
                                 deleteCard={this.props.deleteCard}
                                 setUpdate={this.props.setUpdate}
                                 card={this.props.card.id}
-                                id={this.props.id}
+                                id={this.props.card.id}
+                                table={this.props.tables}
                             />
                         </Nav>
                         <div className="acceptBtn">
@@ -94,7 +94,7 @@ export default class CardItem extends Component {
 // PropTypes
 CardItem.propTypes = {
     card: PropTypes.object.isRequired,
-    table:PropTypes.object.isRequired,
+    table: PropTypes.object.isRequired,
     markComplete: PropTypes.func.isRequired,
     deleteCard: PropTypes.func.isRequired,
     setUpdate: PropTypes.func.isRequired

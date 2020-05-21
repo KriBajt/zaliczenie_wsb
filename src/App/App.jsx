@@ -11,6 +11,7 @@ import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import CardLists from '../components/CardLists';
 import UserPage from '../components/UserPage/UserModal'
+import { withCookies } from 'react-cookie'
 
 class App extends React.Component {
     constructor(props) {
@@ -25,6 +26,7 @@ class App extends React.Component {
 
     render() {
         const { alert } = this.props;
+
         return (
             <>
                 {alert.message &&
@@ -34,8 +36,11 @@ class App extends React.Component {
                     <Router history={history} >
                         <div>
                             {/* {console.log(this.props)} */}
+                            {/* <Route path="/" render={() => (<HomePage cookies={this.props.cookies} />)} /> */}
+
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/taskboards" component={CardBoard} user={this.user} tableID={this.tableID} />
+                            <Route path="/taskboards" component={CardBoard} user={this.user} tableID={this.tableID} history={this.props.history} />
+                            {/* <Route path="/taskboards" render={() => (<CardBoard cookies={this.props.cookies} user={this.user} tableID={this.tableID} />)} /> */}
                             {/* <Route path="/cardlists" component={CardLists} user={this.user} table={this.table} /> */}
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />

@@ -17,9 +17,7 @@ export default class ShowTable extends Component {
 
     render() {
         // console.log(this.props);
-
         return this.props.tables.map(table => (
-
             <TableItem
                 key={this.props.table}
                 markComplete={this.props.markComplete}
@@ -28,7 +26,10 @@ export default class ShowTable extends Component {
                 onChange={this.handleChange}
                 table={table}
                 user={this.props.user}
+                history={this.props.history}
             />
+
+
         ));
     }
 }
