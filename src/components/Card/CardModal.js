@@ -53,7 +53,6 @@ export default class CardModal extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
         var tableID = this.props.table;
         const userID = this.props.user.id;
         const token = this.props.user.token;
@@ -74,10 +73,14 @@ export default class CardModal extends Component {
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
-                console.log(this.props)
+
             })
             .catch(error => {
+                console.log(this.props)
+
             })
+
+
     }
 
     handleChange = (e) => {
@@ -86,7 +89,7 @@ export default class CardModal extends Component {
     }
 
     render() {
-        const { title, content, state } = this.state
+        const { title, content, state, priority } = this.state
 
         return (
             <Modal
@@ -104,17 +107,19 @@ export default class CardModal extends Component {
                     <div className="cardModalEdit ">
 
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
-
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
 
-                        <select name="state" value={state} onChange={this.handleChange} className="selectBoxCus-2 col-4">
+                        {/* <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan ( 0, 1, 2)" />
+                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (0, 1, 2)" /> */}
+
+                        <select name="state" type="number" value={state} onChange={this.handleChange} className="selectBoxCus-2 col-4">
                             <option>Status...</option>
-                            <option state="0">Niski</option>
-                            <option state="1">Średni</option>
-                            <option state="2">Wysoki</option>
+                            <option value="0">Niski</option>
+                            <option value="1">Średni</option>
+                            <option value="2">Wysoki</option>
                         </select>
 
-                        <select name="prioritet" value={this.state.value} onChange={this.handleChange} className="selectBoxCus-2 col-4">
+                        <select name="priority" type="number" onChange={this.handleChange} className="selectBoxCus-2 col-4">
                             <option>Prioritet..</option>
                             <option value="0">Niski</option>
                             <option value="1">Średni</option>

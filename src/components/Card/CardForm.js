@@ -13,12 +13,12 @@ export default class CardForm extends Component {
             title: '',
             content: '',
             priority: '',
-            state: 1,
+            state: '',
             cards: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        //     this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     onChange(e) {
@@ -33,7 +33,7 @@ export default class CardForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
 
         const pathID = this.props.history.location.pathname;
         var str = pathID;
@@ -56,6 +56,7 @@ export default class CardForm extends Component {
 
         axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
             .then(response => {
+
                 let cards = response.data;
                 this.setState({ cards: cards });
             })
@@ -71,7 +72,7 @@ export default class CardForm extends Component {
 
         return (
             <div className="formContainer">
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={this.handleSubmit}>
                     <div className="formItem ">
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                     </div>

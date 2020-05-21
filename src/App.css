@@ -120,18 +120,18 @@ contentTrelloBox {
 }
 
 
-
-/* end style do kart  */
-
-
-/* style do strony rejestracji */
 .authBox {
   width: 700px;
+  height: 100%;
   overflow: hidden;
-  margin: 200px auto;
+  margin: 100px auto;
 
+}
 
-
+.help-block {
+  color: red;
+  margin-top: -18px;
+  margin-left: 40px;
 }
 
 .leftBox {

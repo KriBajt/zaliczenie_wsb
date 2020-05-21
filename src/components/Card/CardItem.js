@@ -19,13 +19,10 @@ export default class CardItem extends Component {
 
     render() {
         const { id, title, content, priority, state } = this.props.card;
-        // const tableID = this.props.user.table.id;
 
         let addModalClose = () => {
             this.setState({ addModalShow: false });
             window.location.reload(false);
-
-
         }
 
 
@@ -45,8 +42,8 @@ export default class CardItem extends Component {
                         <p></p>
                         <div className="btnDetails d-flex "></div>
 
-                        <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Prioritet: {priority}</p>
-                        <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Status: {state}</p>
+                        <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Prioritet {priority}</p>
+                        <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Status {state}</p>
                         <Nav className="acceptBtnEdit">
                             <button
                                 onClick={() => this.setState({ addModalShow: true })}> ✎
@@ -56,9 +53,6 @@ export default class CardItem extends Component {
                                 show={this.state.addModalShow}
                                 onHide={addModalClose}
                                 key={this.props.card}
-                                markcomplete={this.props.markcomplete}
-                                deleteCard={this.props.deleteCard}
-                                setUpdate={this.props.setUpdate}
                                 card={this.props.card.id}
                                 id={this.props.card.id}
                                 table={this.props.tables}
