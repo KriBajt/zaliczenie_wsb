@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { userActions } from '../../actions'
-import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import axios from "axios";
 
 export default class UserModal extends Component {

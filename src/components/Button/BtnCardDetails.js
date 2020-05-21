@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { ButtonToolbar } from 'react-bootstrap';
 import CardDetail from '../Card/CardDetail'
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import './Button.css';
@@ -33,9 +33,6 @@ export default class BtnCardDetails extends Component {
     }
 
     render() {
-        const { deps } = this.state;
-        let addModalClose = () => this.setState({ addModalShow: false });
-
         return (
             <div>
                 <ButtonToolbar>
@@ -44,7 +41,7 @@ export default class BtnCardDetails extends Component {
                     </div>
                     <CardDetail
                         key={this.props.card}
-                        markComplete={this.props.markComplete}
+                        markcomplete={this.props.markcomplete}
                         deleteCard={this.props.deleteCard}
                         setUpdate={this.props.setUpdate}
                         card={this.props.card.id}

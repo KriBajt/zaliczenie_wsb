@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
-import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
 import './Menu.css';
 import TableForm from './../Table/TableForm';
 import { connect } from 'react-redux';
-import { userActions } from '../../actions/user.actions'
 import UserModal from '../../components/UserPage/UserModal'
 
 export default class Menu extends Component {

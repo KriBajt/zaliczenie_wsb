@@ -1,29 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../actions';
-
-import TrelloList from '../components/TrelloList';
-import TrelloActionButton from "../components/Button/TrelloActionButton";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { sort } from "../actions";
-import { GiNinjaHead } from 'react-icons/gi';
 import MenuCard from '../components/Menu/MenuCard';
 import Footer from '../components/Footer/Footer';
-import BtnCardDetails from '../components/Button/BtnCardDetails'
-import CardDetail from '../components/Table/TableDetail'
 import ShowCard from '../components/Card/ShowCard';
 import ShowCardDone from '../components/Card/ShowCardDone';
-// coś modal psuje
-import Modal from '../components/Modal/Modal';
 import '../App.css';
-
-import TableForm from '../components/Table/TableForm';
-import TableItem from '../components/Table/TableItem';
 import axios from "axios";
 import { Button } from 'react-bootstrap';
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
-
 
 class CardBoard extends React.Component {
 
@@ -38,7 +24,6 @@ class CardBoard extends React.Component {
     }
 
     componentDidMount() {
-
         const pathID = this.props.location.pathname;
         var str = pathID;
         var n = str.lastIndexOf('/');
@@ -116,27 +101,7 @@ class CardBoard extends React.Component {
         window.location.reload(false);
     };
 
-    // onSubmit = (id, token) => {
-    //     this.props.dispatch(userActions.getAll());
-    //     const config = {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     };
-
-    //     axios.post(`https://ninjaorganizer.azurewebsites.net/users/${id}/taskboards/`, config, this.state)
-    //         .then(response => {
-    //             let tables = response.data;
-    //             this.setState({ tables: tables });
-    //             //   this.setState({user:user});
-    //             console.log(response);
-    //         })
-    //         .catch(error => {
-    //             console.log('erere')
-    //         })
-    // }
-
-
-    //toggle complete
-    markComplete = id => {
+    markcomplete = id => {
         this.setState({
             cards: this.state.cards.map(table => {
                 if (table.id === id) {
@@ -152,8 +117,7 @@ class CardBoard extends React.Component {
     }
 
     render() {
-        const { user, users, title, pathID, state } = this.props;
-        const { showing } = this.state;
+        const { user } = this.props;
         return (
             <>
                 <MenuCard
@@ -174,7 +138,7 @@ class CardBoard extends React.Component {
                             <ShowCard
                                 key={this.props.card}
                                 cards={this.state.cards}
-                                markComplete={this.markComplete}
+                                markcomplete={this.markcomplete}
                                 deleteCard={this.deleteCard}
                                 setUpdate={this.setUpdate}
                                 user={user}
@@ -195,7 +159,7 @@ class CardBoard extends React.Component {
                         <ShowCardDone
                             key={this.props.card}
                             cards={this.state.cards}
-                            markComplete={this.markComplete}
+                            markcomplete={this.markcomplete}
                             deleteCard={this.deleteCard}
                             setUpdate={this.setUpdate}
                             onChange={this.handleChange}

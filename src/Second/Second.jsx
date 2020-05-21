@@ -66,7 +66,7 @@
 //     }
 
 //     //toggle complete
-//     markComplete = id => {
+//     markcomplete = id => {
 //         this.setState({
 //             tables: this.state.tables.map(table => {
 //                 if (table.id === id) {
@@ -98,7 +98,7 @@
 //                         <div className="container cardCustom">
 //                             <ShowTable
 //                                 tables={this.state.tables}
-//                                 markComplete={this.markComplete}
+//                                 markcomplete={this.markcomplete}
 //                                 deleteTable={this.deleteTable}
 //                                 setUpdate={this.setUpdate}
 //                                 onChange={this.handleChange}
@@ -112,7 +112,7 @@
 //                 <div className="container cardCustom">
 //                     <ShowTable
 //                         tables={this.state.tables}
-//                         markComplete={this.markComplete}
+//                         markcomplete={this.markcomplete}
 //                         deleteTable={this.deleteTable}
 //                         setUpdate={this.setUpdate}
 //                         onChange={this.handleChange}

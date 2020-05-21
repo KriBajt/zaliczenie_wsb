@@ -1,13 +1,8 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios';
-import { Button, Dropdown, Form, Col } from 'react-bootstrap';
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
-import SchowCard from './ShowCard';
-import PropTypes from 'prop-types';
-import { userActions } from '../../actions/user.actions'
+import { Button } from 'react-bootstrap';
+import { IoIosSave } from 'react-icons/io';
 import { connect } from 'react-redux';
-import ShowTable from '../Card/ShowCard'
-import { withRouter } from 'react-router'
 
 export default class CardForm extends Component {
     constructor(props) {
@@ -20,8 +15,8 @@ export default class CardForm extends Component {
             priority: '',
             state: 1,
             cards: [],
-
         }
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -31,19 +26,11 @@ export default class CardForm extends Component {
             priority: e.target.value
         })
     }
-    // handleChange = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ [e.target.name]: e.target.value });
-    // }
+
 
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
-        // const token = this.props.user.token;
-        // console.log(token);
-
-        const pathID = this.props.history.location.pathname;
-
     }
 
     handleSubmit(e) {
@@ -71,16 +58,16 @@ export default class CardForm extends Component {
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
-                //   this.setState({user:user});
             })
             .catch(error => {
+                console.log(error)
             })
 
     }
 
 
     render() {
-        const { id, title, content, priority, state, cards } = this.state
+        const { title, content } = this.state
 
         return (
             <div className="formContainer">
@@ -110,11 +97,6 @@ export default class CardForm extends Component {
         )
     }
 }
-
-// // PropTypes
-// CardForm.propTypes = {
-//     cards: PropTypes.func.isRequired
-// }
 
 function mapStateToProps(state) {
     const { users, authentication } = state;

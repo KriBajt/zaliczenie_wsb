@@ -47,7 +47,7 @@
 
 
 //     //toggle complete
-//     markComplete = id => {
+//     markcomplete = id => {
 //         this.setState({
 //             cards: this.state.cards.map(card => {
 //                 if (card.id === id) {
@@ -92,7 +92,7 @@
 //                 <div className="container cardCustom">
 //                     <ShowCard
 //                         cards={this.state.cards}
-//                         markComplete={this.markComplete}
+//                         markcomplete={this.markcomplete}
 //                         deleteCard={this.deleteCard}
 //                     />
 //                 </div>

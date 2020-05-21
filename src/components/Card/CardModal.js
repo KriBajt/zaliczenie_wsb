@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { userActions } from '../../actions'
-import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import axios from "axios";
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
-import { history } from '../../helpers/history';
-import { sort } from "../../actions";
+import { IoIosSave } from 'react-icons/io';
 
 
 export default class CardModal extends Component {
@@ -89,7 +86,7 @@ export default class CardModal extends Component {
     }
 
     render() {
-        const { id, title, content, priority, state, cards } = this.state
+        const { title, content, state } = this.state
 
         return (
             <Modal

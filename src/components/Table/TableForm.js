@@ -1,13 +1,8 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
-import SchowTable from './ShowTable';
-import PropTypes from 'prop-types';
+import { IoIosSave } from 'react-icons/io';
 import { connect } from 'react-redux';
-import { userActions } from '../../actions/user.actions'
-import { withRouter } from 'react-router'
-// import $ from 'jquery';
 
 
 export default class TableForm extends Component {
@@ -31,18 +26,7 @@ export default class TableForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    // handleChange(e) {
-    //     e.preventDefault();
-    //     window.location.reload(false);
-    //     this.setState({
-    //         tables: []
-    //     });
-    // }
-
-
     handleSubmit(e) {
-        // $('.textNewBoard').remove();
-
         const token = this.props.user.token;
         const userID = this.props.user.id;
 
@@ -58,7 +42,6 @@ export default class TableForm extends Component {
             .then(response => {
                 let tables = response.data;
                 this.setState({ tables: tables });
-                //   this.setState({user:user});
                 e.preventDefault()
             })
             .catch(error => {
@@ -69,7 +52,6 @@ export default class TableForm extends Component {
 
 
     render() {
-        const { id, title, description, tables } = this.state
 
         return (
             <div className="formContainer">
@@ -81,11 +63,7 @@ export default class TableForm extends Component {
                         <input type="content" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Krótki" />
                     </div>
                     <div>
-                        {/* <Button type="submit" className="ml-0">
-                            <IoIosSave />
-                        </Button> */}
                         <Button type=" submit" className="ml-2">
-                            {/* <Button onClick={this.onSubmit} type="submit" className="ml-0"> */}
                             <IoIosSave />
                         </Button>
                     </div>
@@ -94,11 +72,6 @@ export default class TableForm extends Component {
             </div >
         )
     }
-}
-
-// PropTypes
-TableForm.propTypes = {
-    tables: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
