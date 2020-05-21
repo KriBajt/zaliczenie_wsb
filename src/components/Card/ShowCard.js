@@ -10,7 +10,6 @@ import { userActions } from '../../actions/user.actions';
 
 export default class ShowCard extends Component {
 
-
     render() {
         // console.log(this.props.tableID)
         return this.props.cards.filter(card => card.state < 2).map(card => (
@@ -28,16 +27,16 @@ export default class ShowCard extends Component {
     }
 }
 
-//PropTypes
-ShowCard.propTypes = {
-    cards: PropTypes.array.isRequired,
-    tables: PropTypes.array.isRequired,
-    markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    setUpdate: PropTypes.func.isRequired,
+// //PropTypes
+// ShowCard.propTypes = {
+//     cards: PropTypes.array.isRequired,
+//     // tables: PropTypes.array.isRequired,
+//     // markComplete: PropTypes.func.isRequired,
+//     deleteCard: PropTypes.func.isRequired,
+//     onChange: PropTypes.func.isRequired,
+//     setUpdate: PropTypes.func.isRequired,
 
-};
+// };
 
 
 

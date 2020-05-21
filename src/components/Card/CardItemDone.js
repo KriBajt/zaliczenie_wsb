@@ -46,9 +46,9 @@ export default class CardItemDone extends Component {
     }
 }
 
-// PropTypes
-CardItemDone.propTypes = {
-    card: PropTypes.object.isRequired,
-    markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired
-}
+// // PropTypes
+// CardItemDone.propTypes = {
+//     card: PropTypes.object.isRequired,
+//     markComplete: PropTypes.func.isRequired,
+//     deleteCard: PropTypes.func.isRequired
+// }

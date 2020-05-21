@@ -19,19 +19,16 @@ export default class CardModal extends Component {
             title: '',
             content: '',
             priority: '',
-            state: 1,
+            state: '',
             cards: [],
 
         };
-
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
 
-        // const pathID = this.props.history.location.pathname;
-        // var str = pathID;
-        // var n = str.lastIndexOf('/');
-        // var tableID = str.substring(n + 1);
         var tableID = this.props.table;
 
         const token = this.props.user.token;
@@ -52,6 +49,11 @@ export default class CardModal extends Component {
 
     }
 
+    onChange(e) {
+        this.setState({
+            priority: e.target.value
+        })
+    }
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -65,6 +67,8 @@ export default class CardModal extends Component {
         const bodyParameters = {
             title: this.state.title,
             content: this.state.content,
+            priority: this.state.priority,
+            state: this.state.state,
         };
 
         const cardID = this.props.id;
@@ -73,6 +77,7 @@ export default class CardModal extends Component {
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
+                console.log(this.props)
             })
             .catch(error => {
             })
@@ -80,6 +85,7 @@ export default class CardModal extends Component {
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
+
     }
 
     render() {
@@ -98,12 +104,31 @@ export default class CardModal extends Component {
                     </Modal.Title>
                 </Modal.Header>
                 <form onSubmit={this.handleSubmit} >
-                    <div className="cardModalEdit">
+                    <div className="cardModalEdit ">
+
+
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
+
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
+
+                        <select name="state" value={state} onChange={this.handleChange} className="selectBoxCus col-4">
+                            <option>Status...</option>
+                            <option state="0">Niski</option>
+                            <option state="1">Średni</option>
+                            <option state="2">Wysoki</option>
+                        </select>
+
+                        <select value={this.state.value} onChange={this.onChange.bind(this)} className="selectBoxCus col-4">
+                            <option>Prioritet..</option>
+                            <option value="0">Niski</option>
+                            <option value="1">Średni</option>
+                            <option value="2">Wysoki</option>
+                        </select>
                     </div>
+
+
                     <Modal.Footer>
-                        <Button type="submit" className="ml-2" >
+                        <Button type="submit" className="ml-2" onClick={this.props.onHide}>
                             <IoIosSave />
                         </Button>
                     </Modal.Footer>

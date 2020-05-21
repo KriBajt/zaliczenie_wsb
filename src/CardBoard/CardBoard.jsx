@@ -206,6 +206,11 @@ class CardBoard extends React.Component {
                 </div>
 
                 <div className="container cardCustom">
+                    <div className="retunButton">
+                        <Button >
+                            <Link to={'/'}> ← </Link>
+                        </Button>
+                    </div>
                 </div>
 
                 <Footer />

@@ -528,6 +528,8 @@ hr {
   border: 0;
   font-size: 14px;
   outline: none !important;
+  height: 35px;
+  margin-left: 10px;
 }
 
 .selectBoxCus option {
@@ -544,4 +546,19 @@ hr {
 
 .selectBoxCustS:focus {
   outline: none;
+}
+
+
+.retunButton {
+  width: 100%;
+
+}
+
+.retunButton a {
+  text-decoration: none;
+}
+
+.retunButton a:hover {
+  text-decoration: none;
+  color: #fff;
 }

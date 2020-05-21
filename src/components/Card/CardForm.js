@@ -94,7 +94,9 @@ export default class CardForm extends Component {
                     </div>
                     <div className="formItem mr-2 selectBoxCus selectpicker">
                         <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control selectBoxCus">
+
                             <option>Prioritet..</option>
+                            <option value="0">Niski</option>
                             <option value="1">Średni</option>
                             <option value="2">Wysoki</option>
                         </select>
@@ -105,16 +107,15 @@ export default class CardForm extends Component {
                         </Button>
                     </div>
                 </form>
-
             </div >
         )
     }
 }
 
-// PropTypes
-CardForm.propTypes = {
-    cards: PropTypes.func.isRequired
-}
+// // PropTypes
+// CardForm.propTypes = {
+//     cards: PropTypes.func.isRequired
+// }
 
 function mapStateToProps(state) {
     const { users, authentication } = state;

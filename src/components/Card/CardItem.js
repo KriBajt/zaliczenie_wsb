@@ -31,7 +31,12 @@ export default class CardItem extends Component {
         const userID = this.props.user.id;
         // const tableID = this.props.user.table.id;
 
-        let addModalClose = () => this.setState({ addModalShow: false });
+        let addModalClose = () => {
+            this.setState({ addModalShow: false });
+            window.location.reload(false);
+
+
+        }
 
 
         return (
@@ -76,6 +81,7 @@ export default class CardItem extends Component {
                                 card={this.props.card.id}
                                 id={this.props.card.id}
                                 table={this.props.tables}
+                                onHide={addModalClose}
                             />
                         </Nav>
                         <div className="acceptBtn">
@@ -91,11 +97,11 @@ export default class CardItem extends Component {
     }
 }
 
-// PropTypes
-CardItem.propTypes = {
-    card: PropTypes.object.isRequired,
-    table: PropTypes.object.isRequired,
-    markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired,
-    setUpdate: PropTypes.func.isRequired
-}
+// // PropTypes
+// CardItem.propTypes = {
+//     // card: PropTypes.object.isRequired,
+//     table: PropTypes.object.isRequired,
+//     markComplete: PropTypes.func.isRequired,
+//     deleteCard: PropTypes.func.isRequired,
+//     setUpdate: PropTypes.func.isRequired
+// }

@@ -36,15 +36,13 @@ export default class ShowTable extends Component {
 
 //PropTypes
 
-ShowTable.propTypes = {
-    tables: PropTypes.array.isRequired,
-    markComplete: PropTypes.func.isRequired,
-    deleteTable: PropTypes.func.isRequired,
-    setUpdate: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-
-
-};
+// ShowTable.propTypes = {
+//     tables: PropTypes.array.isRequired,
+//     markComplete: PropTypes.func.isRequired,
+//     deleteTable: PropTypes.func.isRequired,
+//     setUpdate: PropTypes.func.isRequired,
+//     onChange: PropTypes.func.isRequired,
+// };
 
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;

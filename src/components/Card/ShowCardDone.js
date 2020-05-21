@@ -30,13 +30,13 @@ export default class ShowCardDone extends Component {
 
 //PropTypes
 
-ShowCardDone.propTypes = {
-    cards: PropTypes.array.isRequired,
-    markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
+// ShowCardDone.propTypes = {
+//     cards: PropTypes.array.isRequired,
+//     markComplete: PropTypes.func.isRequired,
+//     deleteCard: PropTypes.func.isRequired,
+//     onChange: PropTypes.func.isRequired,
 
-};
+// };
 
 
 
