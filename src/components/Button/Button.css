@@ -39,9 +39,7 @@
     }
 }
 
-.btnDetails svg:hover {
-    color: aquamarine !important;
-}
+.btnDetails svg:hover {}
 
 .btn-primary {
     background-color: rgb(255, 255, 255) !important;
