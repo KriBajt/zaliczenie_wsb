@@ -170,7 +170,7 @@ class CardBoard extends React.Component {
                 <div className="newTaskTitle "><h4>Zadania do wykonania</h4></div>
                 <div className="tablica">
                     <div className=" cardCustom">
-                        <div className="d-flex justify-content-start flex-wrap cardCustom">
+                        <div className="col-12 cardCustom">
                             <ShowCard
                                 key={this.props.card}
                                 cards={this.state.cards}
@@ -190,7 +190,7 @@ class CardBoard extends React.Component {
 
                 <div className="newTaskTitle mt-5"><h4>Zadania wykonane</h4></div>
                 <div className="tablicaArch ">
-                    <div className="d-flex justify-content-start flex-wrap cardCustom">
+                    <div className="cardCustom col-12">
 
                         <ShowCardDone
                             key={this.props.card}
@@ -205,12 +205,12 @@ class CardBoard extends React.Component {
                     </div>
                 </div>
 
-                <div className="container cardCustom">
-                    <div className="retunButton">
+                <div className="retunButton">
+                    <Link to={'/'}>
                         <Button >
-                            <Link to={'/'}> ← </Link>
-                        </Button>
-                    </div>
+                            ←
+                    </Button>
+                    </Link>
                 </div>
 
                 <Footer />

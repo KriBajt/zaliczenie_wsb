@@ -26,41 +26,26 @@ export default class Menu extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            {/* <Nav.Link href="/dane">Dane</Nav.Link> */}
-                            {/* <Nav.Link href="/dane">
-                            </Nav.Link> */}
-
                             <TableForm
-                                // addCard={this.props.addTable}
-                                // onSubmit={this.props.onSubmit}
                                 user={this.props.user}
                                 onChange={this.handleChange}
-
                             />
-
-                            {/* <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown> */}
-
                         </Nav>
                         <Nav>
 
                             <Nav.Link
+                                id="login-name"
                                 onClick={() => this.setState({ addModalShow: true })}>Cześć! {this.props.user.firstName}
 
                             </Nav.Link>
                             <UserModal
+
                                 user={this.props.user}
                                 show={this.state.addModalShow}
                                 onHide={addModalClose}
                             />
 
-                            <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
+                            <Nav.Link href="#deets" id="ikona-ninja"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj
                             </Nav.Link>

@@ -529,6 +529,14 @@ hr {
   font-size: 14px;
   outline: none !important;
   height: 35px;
+}
+
+.selectBoxCus-2 {
+  border-radius: 30px !important;
+  border: 0;
+  font-size: 14px;
+  outline: none !important;
+  height: 35px;
   margin-left: 10px;
 }
 
@@ -551,7 +559,10 @@ hr {
 
 .retunButton {
   width: 100%;
-
+  text-align: right;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 .retunButton a {

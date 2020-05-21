@@ -26,9 +26,17 @@
 .btnDetails svg {
     color: rgb(219, 219, 219);
     font-weight: 400;
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom: 10px;
 
+}
+
+@media (max-width:768px) {
+
+    .btnDetails svg {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .btnDetails svg:hover {

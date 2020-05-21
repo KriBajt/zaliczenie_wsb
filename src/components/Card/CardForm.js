@@ -84,9 +84,8 @@ export default class CardForm extends Component {
 
         return (
             <div className="formContainer">
-
                 <form onSubmit={this.handleSubmit} >
-                    <div className="formItem">
+                    <div className="formItem ">
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                     </div>
                     <div className="formItem">

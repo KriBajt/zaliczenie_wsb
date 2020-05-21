@@ -23,17 +23,14 @@ export default class TableItem extends Component {
                         <FlipMove duration={300} easing="ease-in-out">
                             <input type="text" className="card-title" onChange={this.handleChange} key={title} value={title}></input>
                         </FlipMove>
-                        <div className="btnDetails btnDelete">
-                            <BsFillTrashFill onClick={this.props.deleteTable.bind(this, id)} />
-                        </div>
                     </div>
                     <div className="card-body">
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>Opis: {description}</p>
                     </div>
                     <div className="card-footer">
                         <Link to={`/taskboards/${tableID}`} tableID={tableID}> Lista zadań </Link>
-                        <div className="btnDetails d-flex ">
-
+                        <div className="btnDetails btnDelete">
+                            <BsFillTrashFill onClick={this.props.deleteTable.bind(this, id)} />
                         </div>
                     </div>
                 </div>

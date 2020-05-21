@@ -106,19 +106,18 @@ export default class CardModal extends Component {
                 <form onSubmit={this.handleSubmit} >
                     <div className="cardModalEdit ">
 
-
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
 
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
 
-                        <select name="state" value={state} onChange={this.handleChange} className="selectBoxCus col-4">
+                        <select name="state" value={state} onChange={this.handleChange} className="selectBoxCus-2 col-4">
                             <option>Status...</option>
                             <option state="0">Niski</option>
                             <option state="1">Średni</option>
                             <option state="2">Wysoki</option>
                         </select>
 
-                        <select value={this.state.value} onChange={this.onChange.bind(this)} className="selectBoxCus col-4">
+                        <select name="prioritet" value={this.state.value} onChange={this.handleChange} className="selectBoxCus-2 col-4">
                             <option>Prioritet..</option>
                             <option value="0">Niski</option>
                             <option value="1">Średni</option>

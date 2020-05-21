@@ -47,6 +47,8 @@ export default class Menu extends Component {
                         <Nav>
 
                             <Nav.Link
+                                id="login-name"
+
                                 onClick={() => this.setState({ addModalShow: true })}>Cześć! {this.props.user.firstName}
 
                             </Nav.Link>
@@ -56,7 +58,7 @@ export default class Menu extends Component {
                                 onHide={addModalClose}
                             />
 
-                            <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
+                            <Nav.Link href="#deets" id="ikona-ninja"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj
                     </Nav.Link>

@@ -45,9 +45,7 @@ export default class CardItem extends Component {
                     <div className="card-header" >
                         <h5 className="card-title" onChange={this.props.markComplete.bind(this, id)} key={title}>{title}</h5>
 
-                        <div className="btnDetails btnDelete">
-                            <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} />
-                        </div>
+
                     </div>
                     <div className="card-body">
                         <p className="card-text" onChange={this.props.markComplete.bind(this, id)}>{content}</p>
@@ -86,6 +84,9 @@ export default class CardItem extends Component {
                         </Nav>
                         <div className="acceptBtn">
                             <button onClick={this.props.setUpdate.bind(this, id)} > ✓ </button>
+                        </div>
+                        <div className="btnDetails btnDelete">
+                            <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} />
                         </div>
 
 
