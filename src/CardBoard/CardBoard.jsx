@@ -146,7 +146,7 @@ class CardBoard extends React.Component {
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
-        // window.location.reload(false);
+        window.location.reload(false);
     };
 
     markcomplete = id => {

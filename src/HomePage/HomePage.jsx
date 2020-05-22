@@ -163,6 +163,8 @@ class HomePage extends React.Component {
     }
 }
 
+// z reduxa  przekazanie danych z rejestacji
+
 function mapStateToProps(state) {
     const { users, authentication } = state;
     const { user } = authentication;
