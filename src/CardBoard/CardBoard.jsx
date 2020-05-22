@@ -83,7 +83,7 @@ class CardBoard extends React.Component {
         };
 
         const bodyParameters = {
-            state: 2
+            state: 3
         };
 
         const userID = this.props.user.id;
