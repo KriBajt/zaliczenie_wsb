@@ -14,6 +14,7 @@ export default class UserModal extends Component {
 
 
     componentDidMount() {
+
         const token = this.props.user.token;
         const config = {
             headers: { Authorization: `Bearer ${token}` }
@@ -35,7 +36,6 @@ export default class UserModal extends Component {
 
 
     render() {
-        // console.log(this.state.users);
         return (
             <Modal
                 {...this.props}
@@ -51,6 +51,7 @@ export default class UserModal extends Component {
                 <Modal.Body>
                     <p>Liczba aktywnych tablic:  {this.state.users.numberOfTaskboards} </p>
                     <p>Liczba aktywnych zadań:  {this.state.users.numberOfTaskboards} </p>
+
 
                 </Modal.Body>
                 <Modal.Footer>

@@ -10,6 +10,8 @@ import ShowCardDone from '../components/Card/ShowCardDone';
 import '../App.css';
 import axios from "axios";
 import { Button } from 'react-bootstrap';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 class CardBoard extends React.Component {
 
@@ -21,9 +23,34 @@ class CardBoard extends React.Component {
             showing: true,
         };
 
+        const options = {
+            title: 'Title',
+            message: 'Message',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => alert('Click Yes')
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ],
+            childrenElement: () => <div />,
+            customUI: ({ onClose }) => <div>Custom UI</div>,
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            willUnmount: () => { },
+            afterClose: () => { },
+            onClickOutside: () => { },
+            onKeypressEscape: () => { }
+        };
+
+
     }
 
     componentDidMount() {
+
         const pathID = this.props.location.pathname;
         var str = pathID;
         var n = str.lastIndexOf('/');
@@ -49,8 +76,30 @@ class CardBoard extends React.Component {
 
     }
 
-    // Usuwanie karty
     deleteCard = id => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+                return (
+                    <div className='custom-ui'>
+                        <h1>Czy na pewno chcesz usunąć zadanie ?</h1>
+                        <button className="delete-confirm-no" onClick={onClose}>Nie</button>
+                        <button className="delete-confirm"
+                            onClick={() => {
+                                this.handleClickDelete();
+                                onClose();
+                            }}
+                        >
+                            O tak, usuń to !
+                        </button>
+                    </div>
+                );
+            }
+        });
+    }
+
+
+    // Usuwanie karty
+    deleteCardConfirmed = id => {
         this.props.dispatch(userActions.getAll());
 
         const token = this.props.user.token;
@@ -70,8 +119,8 @@ class CardBoard extends React.Component {
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
-    };
 
+    };
 
 
 
@@ -140,6 +189,7 @@ class CardBoard extends React.Component {
                                 cards={this.state.cards}
                                 markcomplete={this.markcomplete}
                                 deleteCard={this.deleteCard}
+                                deleteCardConfirmed={this.deleteCardConfirmed}
                                 setUpdate={this.setUpdate}
                                 user={user}
                                 history={this.props.history}

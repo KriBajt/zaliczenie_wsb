@@ -128,6 +128,69 @@ contentTrelloBox {
 
 }
 
+
+
+@media (max-width:768px) {
+  .custom-ui h1 {
+    font-size: 14px;
+  }
+
+  button.delete-confirm-no {
+    height: 35px;
+    width: 8em;
+    font-size: 14px;
+
+  }
+
+  button.delete-confirm {
+    height: 35px;
+    width: 8em;
+    font-size: 14px;
+
+  }
+}
+
+
+
+.delete-confirm {
+  border-radius: 30px;
+  color: #fff;
+  background-color: #710f35;
+  height: 50px;
+  width: 10em;
+  border: none;
+  outline: none;
+}
+
+.delete-confirm-no {
+  margin-left: 0px;
+  margin-right: 10px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #2e2e2e;
+  height: 50px;
+  width: 8em;
+  border: none;
+  outline: none;
+}
+
+.delete-confirm:hover {
+  transform: scale(1.1);
+  -webkit-box-shadow: 2px 7px 18px 1px rgba(113, 15, 53, 1);
+  -moz-box-shadow: 2px 7px 18px 1px rgba(113, 15, 53, 1);
+  box-shadow: 2px 7px 18px 1px rgba(113, 15, 53, 1);
+}
+
+.delete-confirm-no:hover {
+  transform: scale(1.1);
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 2px 7px 13px 1px rgba(46, 46, 46, 1);
+  -moz-box-shadow: 2px 7px 13px 1px rgba(46, 46, 46, 1);
+  box-shadow: 2px 7px 13px 1px rgba(46, 46, 46, 1);
+}
+
+
 .help-block {
   color: red;
   margin-top: -18px;

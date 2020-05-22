@@ -26,11 +26,13 @@ export default class CardItem extends Component {
         }
 
 
+
         return (
             <div id={this.props.card.id}>
                 <div className="cardCustomList text-white mb-3">
                     <div className="card-header" >
                         <h5 className="card-title" onChange={this.props.markcomplete.bind(this, id)} key={title}>{title}</h5>
+
 
                     </div>
                     <div className="card-body">
@@ -44,9 +46,11 @@ export default class CardItem extends Component {
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Prioritet {priority}</p>
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Status {state}</p>
                         <Nav className="acceptBtnEdit">
+
                             <button
                                 onClick={() => this.setState({ addModalShow: true })}> ✎
                             </button>
+
                             <CardModal
                                 user={this.props.user}
                                 show={this.state.addModalShow}
