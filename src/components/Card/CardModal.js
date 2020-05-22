@@ -117,8 +117,8 @@ export default class CardModal extends Component {
 
                         {/* <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan (1 -> do zrobienia , 2 -> w procesie 3 -> wykonane)" />
                         <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (1 -> niski, 2 -> średni, 3-> wysoki)" /> */}
-                        <div className="formItem mr-2  selectBoxCus selectpicker">
-                            <select name="state" value={state} onChange={this.handleChange} className="form-control ">
+                        <div className="formItem selectBoxCusModal">
+                            <select name="state" value={state} onChange={this.handleChange} >
                                 <option>Status..</option>
                                 <option value="1">Do zrobienia</option>
                                 <option value="2">W procesie</option>
@@ -126,8 +126,8 @@ export default class CardModal extends Component {
                             </select>
                         </div>
 
-                        <div className="formItem mr-2  selectBoxCus selectpicker">
-                            <select name="priority" value={priority} onChange={this.handleChange} className="form-control ">
+                        <div className="formItem mr-2 selectpicker selectBoxCusModal ">
+                            <select name="priority" value={priority} onChange={this.handleChange} >
                                 <option>Prioritet..</option>
                                 <option value="1">Niski</option>
                                 <option value="2">Średni</option>

@@ -603,8 +603,11 @@ hr {
 
 .form-control:focus {
   border-radius: 30px 30px 0 0;
-  border: 0;
-  outline: 0;
+}
+
+.form-control option {
+  border-radius: 30px 30px 0 0;
+  transition: .5s;
 }
 
 .selectBoxCus {
@@ -614,6 +617,8 @@ hr {
   outline: none !important;
   height: 35px;
 }
+
+
 
 .selectBoxCus-2 {
   border-radius: 30px !important;
@@ -664,4 +669,46 @@ input:focus {
   -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
   -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
   box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+select:focus {
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+select.form-control:focus {
+  border: 0 !important;
+  outline: 0 !important
+}
+
+select:focus {
+  border: 0 !important;
+  outline: 0 !important;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+.selectBoxCusModal select {
+  margin-bottom: 10px;
+  border-radius: 20px;
+  width: 100%;
+  height: 35px;
+  border: 0;
+  outline: 0;
+  text-indent: 10px;
+  color: #6c757d;
+}
+
+.selectBoxCusModal select:focus {
+  border-radius: 20px 20px 0px 0;
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+
 }
