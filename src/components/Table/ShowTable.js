@@ -8,7 +8,6 @@ export default class ShowTable extends Component {
 
     constructor(props) {
         super(props);
-
         this.keyCount = 0;
         this.getKey = this.getKey.bind(this);
     }
