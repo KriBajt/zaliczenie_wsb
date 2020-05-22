@@ -17,7 +17,7 @@ export default class ShowTable extends Component {
         return this.keyCount++;
     }
     render() {
-        // console.log(this.props);
+
         return this.props.tables.map((table) => (
             <TableItem
                 key={this.getKey()}
@@ -29,7 +29,6 @@ export default class ShowTable extends Component {
                 user={this.props.user}
                 history={this.props.history}
             />
-
         ));
     }
 }

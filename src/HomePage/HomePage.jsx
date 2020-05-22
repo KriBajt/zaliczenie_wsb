@@ -16,20 +16,18 @@ class HomePage extends React.Component {
         super(props);
         this.state = {
             tables: [],
-
         };
-
         const options = {
             title: 'Title',
             message: 'Message',
             buttons: [
                 {
                     label: 'Yes',
-                    onClick: () => alert('Click Yes')
+                    onClick: () => alert('Tak')
                 },
                 {
                     label: 'No',
-                    onClick: () => alert('Click No')
+                    onClick: () => alert('Nie')
                 }
             ],
             childrenElement: () => <div />,
@@ -48,7 +46,7 @@ class HomePage extends React.Component {
             customUI: ({ onClose }) => {
                 return (
                     <div className='custom-ui'>
-                        <h1>Czy na pewno chcesz usunąć tablice ?</h1>
+                        <h1>Czy na pewno chcesz usunąć tablice?</h1>
                         <button className="delete-confirm-no" onClick={onClose}>Nie</button>
                         <button className="delete-confirm"
                             onClick={() => {
@@ -65,6 +63,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
+
         this.props.dispatch(userActions.getAll());
 
         const token = this.props.user.token;

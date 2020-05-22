@@ -36,6 +36,7 @@ export default class UserModal extends Component {
 
 
     render() {
+
         return (
             <Modal
                 {...this.props}
@@ -51,7 +52,6 @@ export default class UserModal extends Component {
                 <Modal.Body>
                     <p>Liczba aktywnych tablic:  {this.state.users.numberOfTaskboards} </p>
                     <p>Liczba aktywnych zadań:  {this.state.users.numberOfTaskboards} </p>
-
 
                 </Modal.Body>
                 <Modal.Footer>
