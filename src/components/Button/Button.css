@@ -159,5 +159,30 @@
 
 }
 
+.button-delete-item {
+    background-color: rgb(95, 6, 6);
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: #fff;
+    padding: .2em .5em .2em .5em;
+    border: none;
+    outline: 0;
+}
+
+.button-delete-item:hover {
+    transform: scale(1.1);
+    -webkit-box-shadow: 0px 0px 27px 8px rgba(167, 19, 51, 1);
+    -moz-box-shadow: 0px 0px 27px 8px rgba(167, 19, 51, 1);
+    box-shadow: 0px 0px 27px 8px rgba(167, 19, 51, 1);
+    border: 0;
+    outline: 0;
+}
+
+.button-delete-item:focus {
+    border: 0;
+    outline: 0;
+}
+
 
 /*  Koniec stylów dla Przyciski - buttony */

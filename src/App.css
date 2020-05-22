@@ -162,6 +162,11 @@ contentTrelloBox {
   outline: none;
 }
 
+.delete-confirm:focus {
+  border: 0;
+  outline: 0;
+}
+
 .delete-confirm-no {
   margin-left: 0px;
   margin-right: 10px;
@@ -172,6 +177,11 @@ contentTrelloBox {
   width: 8em;
   border: none;
   outline: none;
+}
+
+.delete-confirm-no:focus {
+  border: 0;
+  outline: 0;
 }
 
 .delete-confirm:hover {

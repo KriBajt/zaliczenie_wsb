@@ -45,8 +45,6 @@ class CardBoard extends React.Component {
             onClickOutside: () => { },
             onKeypressEscape: () => { }
         };
-
-
     }
 
     componentDidMount() {
@@ -85,7 +83,7 @@ class CardBoard extends React.Component {
                         <button className="delete-confirm-no" onClick={onClose}>Nie</button>
                         <button className="delete-confirm"
                             onClick={() => {
-                                this.handleClickDelete();
+                                this.deleteCardConfirmed(id);
                                 onClose();
                             }}
                         >

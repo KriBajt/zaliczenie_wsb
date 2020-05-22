@@ -7,6 +7,8 @@ import Footer from '../components/Footer/Footer';
 import ShowTable from '../components/Table/ShowTable';
 import '../App.css';
 import axios from "axios";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 class HomePage extends React.Component {
 
@@ -16,8 +18,51 @@ class HomePage extends React.Component {
             tables: [],
 
         };
+
+        const options = {
+            title: 'Title',
+            message: 'Message',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => alert('Click Yes')
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ],
+            childrenElement: () => <div />,
+            customUI: ({ onClose }) => <div>Custom UI</div>,
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            willUnmount: () => { },
+            afterClose: () => { },
+            onClickOutside: () => { },
+            onKeypressEscape: () => { }
+        };
     }
 
+    deleteTable = id => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+                return (
+                    <div className='custom-ui'>
+                        <h1>Czy na pewno chcesz usunąć tablice ?</h1>
+                        <button className="delete-confirm-no" onClick={onClose}>Nie</button>
+                        <button className="delete-confirm"
+                            onClick={() => {
+                                this.deleteTableConfirmed(id);
+                                onClose();
+                            }}
+                        >
+                            O tak, usuń to !
+                        </button>
+                    </div>
+                );
+            }
+        });
+    }
 
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
@@ -40,7 +85,7 @@ class HomePage extends React.Component {
 
 
     // Usuwanie karty
-    deleteTable = id => {
+    deleteTableConfirmed = id => {
         this.props.dispatch(userActions.getAll());
         const token = this.props.user.token;
         const config = {

@@ -24,7 +24,7 @@ export default class TableItem extends Component {
                     <div className="card-footer">
                         <Link to={`/taskboards/${tableID}`} > Lista zadań </Link>
                         <div className="btnDetails btnDelete">
-                            <BsFillTrashFill onClick={this.props.deleteTable.bind(this, id)} />
+                            <button className="button-delete-item" onClick={this.props.deleteTable.bind(this, id)}>Usuń ✗</button>
                         </div>
                     </div>
                 </div>
