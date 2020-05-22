@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import axios from "axios";
 import { IoIosSave } from 'react-icons/io';
-
+import RRS from 'react-responsive-select';
 
 export default class CardModal extends Component {
 
@@ -22,6 +22,9 @@ export default class CardModal extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+
+
     }
 
     componentDidMount() {
@@ -48,7 +51,8 @@ export default class CardModal extends Component {
 
     onChange(e) {
         this.setState({
-            priority: e.target.value
+            priority: e.target.name.priority,
+            state: e.target.name.state,
         })
     }
 
@@ -83,6 +87,7 @@ export default class CardModal extends Component {
 
     }
 
+
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
 
@@ -92,6 +97,7 @@ export default class CardModal extends Component {
         const { title, content, state, priority } = this.state
 
         return (
+
             <Modal
                 {...this.props}
                 size="lg"
@@ -109,8 +115,25 @@ export default class CardModal extends Component {
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
 
-                        <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan (1 -> do zrobienia , 2 -> w procesie 3 -> wykonane)" />
-                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (1 -> niski, 2 -> średni, 3-> wysoki)" />
+                        {/* <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan (1 -> do zrobienia , 2 -> w procesie 3 -> wykonane)" />
+                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (1 -> niski, 2 -> średni, 3-> wysoki)" /> */}
+                        <div className="formItem mr-2  selectBoxCus selectpicker">
+                            <select name="state" value={state} onChange={this.handleChange} className="form-control ">
+                                <option>Status..</option>
+                                <option value="1">Do zrobienia</option>
+                                <option value="2">W procesie</option>
+                                <option value="3">Zakończone</option>
+                            </select>
+                        </div>
+
+                        <div className="formItem mr-2  selectBoxCus selectpicker">
+                            <select name="priority" value={priority} onChange={this.handleChange} className="form-control ">
+                                <option>Prioritet..</option>
+                                <option value="1">Niski</option>
+                                <option value="2">Średni</option>
+                                <option value="3">Wysoki</option>
+                            </select>
+                        </div>
 
                         {/* <select name="state" type="number" value={state} onChange={this.handleChange} className="selectBoxCus-2 col-4">
                             <option>Status...</option>
@@ -133,8 +156,8 @@ export default class CardModal extends Component {
                             <IoIosSave />
                         </Button>
                     </Modal.Footer>
-                </form>
-            </Modal>
+                </form >
+            </Modal >
         )
     }
 }

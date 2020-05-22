@@ -25,8 +25,6 @@ export default class CardItem extends Component {
             window.location.reload(false);
         }
 
-
-
         return (
             <div id={this.props.card.id}>
                 <div className="cardCustomList text-white mb-3">
