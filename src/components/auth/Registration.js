@@ -6,7 +6,7 @@ import { GiNinjaHead } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
+// rejestacja użytkownika
 export default class Registration extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +30,6 @@ export default class Registration extends Component {
         })
     }
     handleSuccessfulAuth(data) {
-        //Todo update parent componen
         this.props.handleLogin(data);
         this.props.history.push("/");
     }
@@ -66,6 +65,7 @@ export default class Registration extends Component {
     render() {
         return (
             <>
+                {/* formularz rejestracyjny */}
                 <form onSubmit={this.handleSubmit}>
                     <div className={'authBox'}>
                         <div className={'leftBox leftBoxregister'}>

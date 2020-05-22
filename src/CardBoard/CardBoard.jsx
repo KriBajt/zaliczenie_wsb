@@ -15,6 +15,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 class CardBoard extends React.Component {
 
+    // ustawianie stanów kart
     constructor(props) {
         super(props);
         this.state = {
@@ -47,6 +48,7 @@ class CardBoard extends React.Component {
         };
     }
 
+    // montowanie komponentów
     componentDidMount() {
 
         const pathID = this.props.location.pathname;
@@ -74,6 +76,7 @@ class CardBoard extends React.Component {
 
     }
 
+    // usuwanie karty
     deleteCard = id => {
         confirmAlert({
             customUI: ({ onClose }) => {
@@ -119,8 +122,6 @@ class CardBoard extends React.Component {
         );
 
     };
-
-
 
     setUpdate = id => {
 

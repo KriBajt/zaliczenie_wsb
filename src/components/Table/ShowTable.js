@@ -18,6 +18,7 @@ export default class ShowTable extends Component {
     }
     render() {
 
+        // listowanie tablic
         return this.props.tables.map((table) => (
             <TableItem
                 key={this.getKey()}

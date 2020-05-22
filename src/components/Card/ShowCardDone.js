@@ -11,16 +11,16 @@ export default class ShowCardDone extends Component {
         this.keyCount = 0;
         this.getKey = this.getKey.bind(this);
     }
-
+    // dodawanie randomowego klicza do listy (oszukiwanie reacta i usuwanie warningów)
     getKey() {
         return this.keyCount++;
     }
 
     render() {
 
+        // listowanie kart wykonanych
         return this.props.cards.filter(card => card.state > 2).map(card => (
             <CardItemDone
-
                 key={this.getKey()}
                 // key={this.props.card}
                 markcomplete={this.props.markcomplete}

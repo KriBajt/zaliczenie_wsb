@@ -27,6 +27,7 @@ class RegisterPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // funkcja odpowiadająca za zmiany w inputach
     handleChange(event) {
         const { name, value } = event.target;
         const { user } = this.state;
@@ -38,6 +39,7 @@ class RegisterPage extends React.Component {
         });
     }
 
+    // funkcja do potwierdzania i wysyłania formularza
     handleSubmit(event) {
         event.preventDefault();
 
@@ -54,6 +56,7 @@ class RegisterPage extends React.Component {
         const { user, submitted } = this.state;
         return (
 
+            // formularz rejestacyjny
             <form name="form" onSubmit={this.handleSubmit}>
 
                 <div className={'authBox'}>

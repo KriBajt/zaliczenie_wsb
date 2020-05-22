@@ -21,12 +21,14 @@ export default class login extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    // funkcja odpowiadająca za zmiany w inputach
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
+    // funkcja odpowiadająca za wysyłanie formularza logowania
     handleSubmit(event) {
 
         const {
@@ -34,7 +36,7 @@ export default class login extends Component {
             Password
         } = this.state
 
-
+        // połączenie z bazą
         axios.post("https://ninjaorganizer.azurewebsites.net/users/authenticate", {
             Username: Username,
             Password: Password,
@@ -55,6 +57,7 @@ export default class login extends Component {
 
     render() {
         return (
+            // renderowanie formularza
             <form onSubmit={this.handleSubmit}>
                 <div className={'authBox'} >
                     <div className={'leftBox'}>
@@ -77,8 +80,6 @@ export default class login extends Component {
                             </div>
                             <div className={'contentBox'}>
                                 <div className={'checkboxBox'}>
-                                    {/* <input type={'checkbox'} className={'checkbox'} /> */}
-                                    {/* <label className={'checkboxLabel'}>Pamiętaj</label> */}
                                 </div>
                                 <div className={'text1'}>Zapomniałeś hasło?</div>
                             </div>
@@ -90,7 +91,6 @@ export default class login extends Component {
                                 <div className={'text2 or'}> LUB </div>
                             </div>
                             <div className={'socialMediaBox'}>
-                                {/* <div><i className="fa fa-spinner fa-spin">no spinner but why</i></div> */}
                                 <div className={'icAuth'}><FaFacebookSquare /></div>
                                 <div className={'icAuth'}><AiFillGoogleCircle /></div>
                                 <div className={'icAuth'}><FaTwitterSquare /></div>

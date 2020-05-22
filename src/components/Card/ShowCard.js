@@ -26,7 +26,6 @@ export default class ShowCard extends Component {
                 card={card}
                 user={this.props.user}
                 tables={this.props.tableID}
-
             />
         ));
     }

@@ -101,23 +101,9 @@ class HomePage extends React.Component {
 
     };
 
-    setUpdate = (title, id) => {
-        const token = this.props.user.token;
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
 
-        const userID = this.props.user.id;
 
-        axios.put(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config)
-            .then(response => {
-                // console.log(response);
-            })
-            .catch(error => {
-                // console.log(error);
-            });
-    }
-
+    // funkcja do wyświetlania  opisu descriprion w tableitem
     markcomplete = id => {
         this.setState({
             tables: this.state.tables.map(table => {
@@ -129,15 +115,17 @@ class HomePage extends React.Component {
         });
     };
 
-    handleDeleteUser(id) {
-        return (e) => this.props.dispatch(userActions.delete(id));
-    }
+
+    // handleDeleteUser(id) {
+    //     return (e) => this.props.dispatch(userActions.delete(id));
+    // }
 
     render() {
         const { user } = this.props;
 
         return (
             <>
+                {/* menu główne do dodawania tablic */}
                 <Menu
                     tables={this.state.tables}
                     markcomplete={this.markcomplete}
@@ -156,6 +144,8 @@ class HomePage extends React.Component {
                 <div className="tablica ">
                     <div className="cardCustom">
                         <div className="col-12 cardCustom">
+
+                            {/* pokaż wszystkie tablice na stronie głównej  */}
                             <ShowTable
                                 tables={this.state.tables}
                                 markcomplete={this.markcomplete}

@@ -21,11 +21,13 @@ export default class TableForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // zmiany w inputach
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    // wysyłanie formularza
     handleSubmit(e) {
         const token = this.props.user.token;
         const userID = this.props.user.id;
@@ -37,7 +39,7 @@ export default class TableForm extends Component {
             title: this.state.title,
             description: this.state.description
         };
-
+        // połączenie z serwerem
         axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/`, bodyParameters, config)
             .then(response => {
                 let tables = response.data;
@@ -46,14 +48,11 @@ export default class TableForm extends Component {
             })
             .catch(error => {
             })
-
     }
 
-
-
     render() {
-
         return (
+            // Formularz dodaania tablic
             <div className="formContainer">
                 <form onSubmit={this.handleSubmit}  >
                     <div className="formItem">
@@ -68,20 +67,19 @@ export default class TableForm extends Component {
                         </Button>
                     </div>
                 </form>
-
-            </div >
+            </div>
         )
     }
 }
 
-function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return {
-        user,
-        users,
-    };
-}
+// function mapStateToProps(state) {
+//     const { users, authentication } = state;
+//     const { user } = authentication;
+//     return {
+//         user,
+//         users,
+//     };
+// }
 
-const connectedTableForm = connect(mapStateToProps)(TableForm);
-export { connectedTableForm as TableForm };
+// const connectedTableForm = connect(mapStateToProps)(TableForm);
+// export { connectedTableForm as TableForm };

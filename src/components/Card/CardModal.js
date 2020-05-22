@@ -23,14 +23,10 @@ export default class CardModal extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
-
-
     }
 
     componentDidMount() {
-
         var tableID = this.props.table;
-
         const token = this.props.user.token;
         const config = {
             headers: { Authorization: `Bearer ${token}` }
@@ -44,11 +40,10 @@ export default class CardModal extends Component {
             this.setState({
                 cards: res.data
             })
-
         )
-
     }
 
+    // odczyt z inptów formularza prioritet i status
     onChange(e) {
         this.setState({
             priority: e.target.name.priority,
@@ -56,6 +51,7 @@ export default class CardModal extends Component {
         })
     }
 
+    // wysyłanie formularza na serwer po edycji zadania
     handleSubmit = (e) => {
         var tableID = this.props.table;
         const userID = this.props.user.id;
@@ -77,16 +73,11 @@ export default class CardModal extends Component {
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
-
             })
             .catch(error => {
                 console.log(this.props)
-
             })
-
-
     }
-
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -95,9 +86,9 @@ export default class CardModal extends Component {
 
     render() {
         const { title, content, state, priority } = this.state
-
         return (
 
+            // formularz edycji zadań
             <Modal
                 {...this.props}
                 size="lg"
@@ -111,12 +102,8 @@ export default class CardModal extends Component {
                 </Modal.Header>
                 <form onSubmit={this.handleSubmit} >
                     <div className="cardModalEdit ">
-
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
-
-                        {/* <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan (1 -> do zrobienia , 2 -> w procesie 3 -> wykonane)" />
-                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (1 -> niski, 2 -> średni, 3-> wysoki)" /> */}
                         <div className="formItem selectBoxCusModal">
                             <select name="state" value={state} onChange={this.handleChange} >
                                 <option>Status..</option>
@@ -125,7 +112,6 @@ export default class CardModal extends Component {
                                 <option value="3">Zakończone</option>
                             </select>
                         </div>
-
                         <div className="formItem mr-2 selectpicker selectBoxCusModal ">
                             <select name="priority" value={priority} onChange={this.handleChange} >
                                 <option>Prioritet..</option>
@@ -134,23 +120,7 @@ export default class CardModal extends Component {
                                 <option value="3">Wysoki</option>
                             </select>
                         </div>
-
-                        {/* <select name="state" type="number" value={state} onChange={this.handleChange} className="selectBoxCus-2 col-4">
-                            <option>Status...</option>
-                            <option value="0">Niski</option>
-                            <option value="1">Średni</option>
-                            <option value="2">Wysoki</option>
-                        </select>
-
-                        <select name="priority" type="number" onChange={this.handleChange} className="selectBoxCus-2 col-4">
-                            <option>Prioritet..</option>
-                            <option value="0">Niski</option>
-                            <option value="1">Średni</option>
-                            <option value="2">Wysoki</option>
-                        </select> */}
                     </div>
-
-
                     <Modal.Footer>
                         <Button type="submit" className="ml-2" onClick={this.props.onHide}>
                             <IoIosSave />
@@ -162,14 +132,3 @@ export default class CardModal extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return {
-        user,
-        users,
-    };
-}
-
-const connectedCardModal = connect(mapStateToProps)(CardModal);
-export { connectedCardModal as CardModal };
