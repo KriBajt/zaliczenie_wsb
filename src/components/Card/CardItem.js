@@ -32,7 +32,6 @@ export default class CardItem extends Component {
                     <div className="card-header" >
                         <h5 className="card-title" onChange={this.props.markcomplete.bind(this, id)} key={title}>{title}</h5>
 
-
                     </div>
                     <div className="card-body">
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>{content}</p>

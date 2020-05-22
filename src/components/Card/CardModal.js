@@ -109,8 +109,8 @@ export default class CardModal extends Component {
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
 
-                        <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan ( 0, 1, 2)" />
-                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (0, 1, 2)" />
+                        <input type="number" name="state" value={state} onChange={this.handleChange} placeholder="Wybierz stan (1 -> do zrobienia , 2 -> w procesie 3 -> wykonane)" />
+                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Wybierz prioritet (1 -> niski, 2 -> średni, 3-> wysoki)" />
 
                         {/* <select name="state" type="number" value={state} onChange={this.handleChange} className="selectBoxCus-2 col-4">
                             <option>Status...</option>

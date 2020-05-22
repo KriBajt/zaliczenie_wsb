@@ -17,7 +17,7 @@ export default class ShowCard extends Component {
 
     render() {
 
-        return this.props.cards.filter(card => card.state < 2).map(card => (
+        return this.props.cards.filter(card => card.state < 3).map(card => (
             <CardItem
                 key={this.getKey()}
                 markcomplete={this.props.markcomplete}

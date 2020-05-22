@@ -12,8 +12,8 @@ export default class CardForm extends Component {
             // id: null,
             title: '',
             content: '',
-            priority: '',
-            state: '',
+            priority: 1,
+            state: 1,
             cards: [],
         }
 
@@ -83,9 +83,9 @@ export default class CardForm extends Component {
                         <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control selectBoxCus">
 
                             <option>Prioritet..</option>
-                            <option value="0">Niski</option>
-                            <option value="1">Średni</option>
-                            <option value="2">Wysoki</option>
+                            <option value="1">Niski</option>
+                            <option value="2">Średni</option>
+                            <option value="3">Wysoki</option>
                         </select>
                     </div>
                     <div>
