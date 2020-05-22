@@ -32,10 +32,19 @@ class App extends React.Component {
                 <Switch>
                     <Router history={history} >
                         <div>
+                            {/* ruting  do strony głównej */}
                             <PrivateRoute exact path="/" component={HomePage} />
+                            {/* ruting  do strony z zadaniami */}
+
                             <Route path="/taskboards" component={CardBoard} user={this.user} tableID={this.tableID} history={this.props.history} />
+                            {/* ruting  do  logowania */}
+
                             <Route path="/login" component={LoginPage} />
+                            {/* ruting  do rejestracji */}
+
                             <Route path="/register" component={RegisterPage} />
+
+                            {/* ruting  do strony o użytkowniku*/}
                             <Route path="/userpage" component={UserPage} user={this.user} tableID={this.tableID} />
 
                         </div>

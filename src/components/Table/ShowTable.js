@@ -34,14 +34,3 @@ export default class ShowTable extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
-    return {
-        loggingIn
-    };
-}
-
-const connectedShowTable = connect(mapStateToProps)(ShowTable);
-export { connectedShowTable as ShowTable };
-
-

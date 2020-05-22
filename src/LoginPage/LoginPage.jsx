@@ -30,7 +30,7 @@ class LoginPage extends React.Component {
         const { name, value } = e.target;
         this.setState({ [name]: value });
     }
-
+    // potwierdzenie
     handleSubmit(e) {
         e.preventDefault();
 

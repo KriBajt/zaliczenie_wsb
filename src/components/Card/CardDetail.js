@@ -6,7 +6,23 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CardDetail.css';
 
 
-//  Komponent miał pokazywać sszczegóły kart ale ( nie udało się dokończyć )
+
+
+
+
+
+
+
+//  Komponent miał pokazywać sszczegóły kart ale nie udało się dokończyć...
+
+
+
+
+
+
+
+
+
 export default class CardDetail extends Component {
     constructor(props) {
         super(props);

@@ -11,7 +11,8 @@ export default class ShowCardDone extends Component {
         this.keyCount = 0;
         this.getKey = this.getKey.bind(this);
     }
-    // dodawanie randomowego klicza do listy (oszukiwanie reacta i usuwanie warningów)
+    // dodawanie randomowego klicza do listy (oszukiwanie reacta i usuwanie ostrzeżeń)
+
     getKey() {
         return this.keyCount++;
     }
@@ -32,15 +33,3 @@ export default class ShowCardDone extends Component {
         ));
     }
 }
-
-
-
-function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
-    return {
-        loggingIn
-    };
-}
-
-const connectedShowCardDone = connect(mapStateToProps)(ShowCardDone);
-export { connectedShowCardDone as ShowCardDone };
