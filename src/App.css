@@ -572,7 +572,6 @@ contentTrelloBox {
   /* background-color: rgb(255, 255, 255); */
   background-color: transparent;
 
-  width: 97vw;
   padding-top: 20px;
   margin: 0 auto;
   /* -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -617,6 +616,10 @@ hr {
   width: 100px;
 }
 
+.selectBoxCus.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
 
 
 
@@ -646,3 +649,13 @@ hr {
   text-decoration: none;
   color: #fff;
 }
+
+input:focus {
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+.custom-select {}

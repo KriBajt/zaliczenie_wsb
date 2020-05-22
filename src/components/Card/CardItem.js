@@ -32,7 +32,12 @@ export default class CardItem extends Component {
                 <div className="cardCustomList text-white mb-3">
                     <div className="card-header" >
                         <h5 className="card-title" onChange={this.props.markcomplete.bind(this, id)} key={title}>{title}</h5>
+                        <Nav className="acceptBtnEdit">
 
+                            <button
+                                onClick={() => this.setState({ addModalShow: true })}> ✎
+                            </button>
+                        </Nav>
 
                     </div>
                     <div className="card-body">
@@ -47,9 +52,9 @@ export default class CardItem extends Component {
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Status {state}</p>
                         <Nav className="acceptBtnEdit">
 
-                            <button
+                            {/* <button
                                 onClick={() => this.setState({ addModalShow: true })}> ✎
-                            </button>
+                            </button> */}
 
                             <CardModal
                                 user={this.props.user}
@@ -65,7 +70,7 @@ export default class CardItem extends Component {
                             <button onClick={this.props.setUpdate.bind(this, id)} > ✓ </button>
                         </div>
                         <div className="btnDetails btnDelete">
-                            <BsFillTrashFill onClick={this.props.deleteCard.bind(this, id)} />
+                            <button className="deleteBtn" onClick={this.props.deleteCard.bind(this, id)}> ✗ </button>
                         </div>
 
 

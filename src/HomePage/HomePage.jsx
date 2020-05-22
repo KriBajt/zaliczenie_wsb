@@ -155,16 +155,18 @@ class HomePage extends React.Component {
 
                 <div className="newTaskTitle"><h4>Aktywne tablice</h4></div>
                 <div className="tablica ">
-                    <div className="d-flex justify-content-start flex-wrap cardCustom">
-                        <ShowTable
-                            tables={this.state.tables}
-                            markcomplete={this.markcomplete}
-                            deleteTable={this.deleteTable}
-                            setUpdate={this.setUpdate}
-                            onChange={this.handleChange}
-                            user={user}
-                            table={this.state.table}
-                        />
+                    <div className="cardCustom">
+                        <div className="col-12 cardCustom">
+                            <ShowTable
+                                tables={this.state.tables}
+                                markcomplete={this.markcomplete}
+                                deleteTable={this.deleteTable}
+                                setUpdate={this.setUpdate}
+                                onChange={this.handleChange}
+                                user={user}
+                                table={this.state.table}
+                            />
+                        </div>
                     </div>
                 </div>
 
