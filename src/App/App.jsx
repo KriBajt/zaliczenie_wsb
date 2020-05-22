@@ -33,7 +33,7 @@ class App extends React.Component {
                     <Router history={history} >
                         <div>
                             {/* ruting  do strony głównej */}
-                            <PrivateRoute exact path="/" component={HomePage} />
+                            <Route exact path="/" component={HomePage} />
                             {/* ruting  do strony z zadaniami */}
 
                             <Route path="/taskboards" component={CardBoard} user={this.user} tableID={this.tableID} history={this.props.history} />
