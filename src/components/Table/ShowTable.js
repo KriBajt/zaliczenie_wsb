@@ -17,7 +17,8 @@ export default class ShowTable extends Component {
         return this.keyCount++;
     }
     render() {
-        // console.log(this.props);
+
+        // listowanie tablic
         return this.props.tables.map((table) => (
             <TableItem
                 key={this.getKey()}
@@ -29,19 +30,7 @@ export default class ShowTable extends Component {
                 user={this.props.user}
                 history={this.props.history}
             />
-
         ));
     }
 }
-
-function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
-    return {
-        loggingIn
-    };
-}
-
-const connectedShowTable = connect(mapStateToProps)(ShowTable);
-export { connectedShowTable as ShowTable };
-
 

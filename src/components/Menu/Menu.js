@@ -18,11 +18,15 @@ export default class Menu extends Component {
 
         return (
             <div >
+
+                {/* Menu główne z formularzem dodaawania tablic */}
                 <Navbar className="customNaw " collapseOnSelect expand="lg" variant="dark">
                     <Navbar.Brand href="/" className={'style1'}>NinjaTask<GiNinjaHead /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
+
+                            {/* formularz dodawania  tablic*/}
                             <TableForm
                                 user={this.props.user}
                                 onChange={this.handleChange}
@@ -35,8 +39,8 @@ export default class Menu extends Component {
                                 onClick={() => this.setState({ addModalShow: true })}>Cześć! {this.props.user.firstName}
 
                             </Nav.Link>
+                            {/* komponent informacjie o użytkowniku */}
                             <UserModal
-
                                 user={this.props.user}
                                 show={this.state.addModalShow}
                                 onHide={addModalClose}
@@ -55,14 +59,14 @@ export default class Menu extends Component {
 }
 
 
-function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return {
-        user,
-        users,
-    };
-}
+// function mapStateToProps(state) {
+//     const { users, authentication } = state;
+//     const { user } = authentication;
+//     return {
+//         user,
+//         users,
+//     };
+// }
 
-const connectedMenu = connect(mapStateToProps)(Menu);
-export { connectedMenu as Menu };
+// const connectedMenu = connect(mapStateToProps)(Menu);
+// export { connectedMenu as Menu };

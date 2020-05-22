@@ -10,13 +10,13 @@ export default class ShowCard extends Component {
         this.keyCount = 0;
         this.getKey = this.getKey.bind(this);
     }
-
+    // dodawanie klucza do itemów
     getKey() {
         return this.keyCount++;
     }
 
     render() {
-
+        // listowanie zadań
         return this.props.cards.filter(card => card.state < 3).map(card => (
             <CardItem
                 key={this.getKey()}
@@ -26,31 +26,8 @@ export default class ShowCard extends Component {
                 card={card}
                 user={this.props.user}
                 tables={this.props.tableID}
-
             />
         ));
     }
 }
 
-// //PropTypes
-// ShowCard.propTypes = {
-//     cards: PropTypes.array.isRequired,
-//     // tables: PropTypes.array.isRequired,
-//     // markcomplete: PropTypes.func.isRequired,
-//     deleteCard: PropTypes.func.isRequired,
-//     onChange: PropTypes.func.isRequired,
-//     setUpdate: PropTypes.func.isRequired,
-
-// };
-
-
-
-function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
-    return {
-        loggingIn
-    };
-}
-
-const connectedShowCard = connect(mapStateToProps)(ShowCard);
-export { connectedShowCard as ShowCard };

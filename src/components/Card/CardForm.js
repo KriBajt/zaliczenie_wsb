@@ -79,9 +79,8 @@ export default class CardForm extends Component {
                     <div className="formItem">
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
                     </div>
-                    <div className="formItem mr-2 selectBoxCus selectpicker">
-                        <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control selectBoxCus">
-
+                    <div className="formItem mr-2  selectBoxCus selectpicker">
+                        <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control ">
                             <option>Prioritet..</option>
                             <option value="1">Niski</option>
                             <option value="2">Średni</option>

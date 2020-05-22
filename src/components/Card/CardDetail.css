@@ -23,6 +23,12 @@
     margin: 0 auto;
 }
 
+@media (max-width:468px) {
+    .cardCustomList {
+        font-size: 12px;
+    }
+}
+
 @media (max-width:768px) {
     .formItem input {
         width: 100%;

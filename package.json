@@ -21,6 +21,7 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-bootstrap": "^1.0.0",
     "react-bootstrap-modal": "^4.2.0",
+    "react-confirm-alert": "^2.6.1",
     "react-cookie": "^4.0.3",
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
@@ -57,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-responsive-select": "^5.1.1"
   }
 }

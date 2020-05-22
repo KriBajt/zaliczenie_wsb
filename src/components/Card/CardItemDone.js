@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import './CardDetail.css';
 import { BsFillTrashFill } from 'react-icons/bs';
 
-
-
+// komponent odpowiadający za wyświetlanie karty wykonanej
 
 export default class CardItemDone extends Component {
     render() {
@@ -20,14 +19,10 @@ export default class CardItemDone extends Component {
                     </div>
                     <div className="card-body">
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>{content}</p>
-
-
                     </div>
-
                     <div className="card-footer">
                         <p></p>
                         <div className="btnDetails d-flex ">
-                            {/* <BtnCardDetails /> */}
                         </div>
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Prioritet: {priority}</p>
                         <p className="card-text" onChange={this.props.markcomplete.bind(this, id)}>Status: {state}</p>

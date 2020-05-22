@@ -12,8 +12,9 @@ export default class UserModal extends Component {
         };
     }
 
-
+    // montowanie komponentów
     componentDidMount() {
+
         const token = this.props.user.token;
         const config = {
             headers: { Authorization: `Bearer ${token}` }
@@ -27,16 +28,12 @@ export default class UserModal extends Component {
             this.setState({
                 users: res.data
             })
-
-
         )
     }
 
-
-
     render() {
-        // console.log(this.state.users);
         return (
+            // PopUP do wyświetlania informacji o użytkowniku : liczba kart i liczba tablic
             <Modal
                 {...this.props}
                 size="lg"

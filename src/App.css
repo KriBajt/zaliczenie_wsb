@@ -128,6 +128,79 @@ contentTrelloBox {
 
 }
 
+
+
+@media (max-width:768px) {
+  .custom-ui h1 {
+    font-size: 14px;
+  }
+
+  button.delete-confirm-no {
+    height: 35px;
+    width: 8em;
+    font-size: 14px;
+
+  }
+
+  button.delete-confirm {
+    height: 35px;
+    width: 8em;
+    font-size: 14px;
+
+  }
+}
+
+
+
+.delete-confirm {
+  border-radius: 30px;
+  color: #fff;
+  background-color: #710f35;
+  height: 50px;
+  width: 10em;
+  border: none;
+  outline: none;
+}
+
+.delete-confirm:focus {
+  border: 0;
+  outline: 0;
+}
+
+.delete-confirm-no {
+  margin-left: 0px;
+  margin-right: 10px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #2e2e2e;
+  height: 50px;
+  width: 8em;
+  border: none;
+  outline: none;
+}
+
+.delete-confirm-no:focus {
+  border: 0;
+  outline: 0;
+}
+
+.delete-confirm:hover {
+  transform: scale(1.1);
+  -webkit-box-shadow: 2px 7px 18px 1px rgba(113, 15, 53, 1);
+  -moz-box-shadow: 2px 7px 18px 1px rgba(113, 15, 53, 1);
+  box-shadow: 2px 7px 18px 1px rgba(113, 15, 53, 1);
+}
+
+.delete-confirm-no:hover {
+  transform: scale(1.1);
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 2px 7px 13px 1px rgba(46, 46, 46, 1);
+  -moz-box-shadow: 2px 7px 13px 1px rgba(46, 46, 46, 1);
+  box-shadow: 2px 7px 13px 1px rgba(46, 46, 46, 1);
+}
+
+
 .help-block {
   color: red;
   margin-top: -18px;
@@ -499,7 +572,6 @@ contentTrelloBox {
   /* background-color: rgb(255, 255, 255); */
   background-color: transparent;
 
-  width: 97vw;
   padding-top: 20px;
   margin: 0 auto;
   /* -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -523,6 +595,21 @@ hr {
 
 }
 
+.form-control {
+  border-radius: 30px;
+  border: 0;
+  outline: 0;
+}
+
+.form-control:focus {
+  border-radius: 30px 30px 0 0;
+}
+
+.form-control option {
+  border-radius: 30px 30px 0 0;
+  transition: .5s;
+}
+
 .selectBoxCus {
   border-radius: 30px !important;
   border: 0;
@@ -530,6 +617,8 @@ hr {
   outline: none !important;
   height: 35px;
 }
+
+
 
 .selectBoxCus-2 {
   border-radius: 30px !important;
@@ -572,4 +661,66 @@ hr {
 .retunButton a:hover {
   text-decoration: none;
   color: #fff;
+}
+
+.cardModalEdit input {
+  color: green;
+}
+
+input:focus {
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+select:focus {
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+select:hover {
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+select.form-control:focus {
+  border: 0 !important;
+  outline: 0 !important
+}
+
+select:focus {
+  border: 0 !important;
+  outline: 0 !important;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+}
+
+.selectBoxCusModal select {
+  margin-bottom: 10px;
+  border-radius: 20px;
+  width: 100%;
+  height: 35px;
+  border: 0;
+  outline: 0;
+  text-indent: 10px;
+  color: green;
+}
+
+.selectBoxCusModal select:focus {
+  border-radius: 20px 20px 0px 0;
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  -moz-box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+  box-shadow: 0px 0px 27px 8px rgba(173, 145, 151, 1);
+
 }

@@ -7,6 +7,8 @@ import Footer from '../components/Footer/Footer';
 import ShowTable from '../components/Table/ShowTable';
 import '../App.css';
 import axios from "axios";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 class HomePage extends React.Component {
 
@@ -14,12 +16,54 @@ class HomePage extends React.Component {
         super(props);
         this.state = {
             tables: [],
-
+        };
+        const options = {
+            title: 'Title',
+            message: 'Message',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => alert('Tak')
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Nie')
+                }
+            ],
+            childrenElement: () => <div />,
+            customUI: ({ onClose }) => <div>Custom UI</div>,
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            willUnmount: () => { },
+            afterClose: () => { },
+            onClickOutside: () => { },
+            onKeypressEscape: () => { }
         };
     }
 
+    deleteTable = id => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+                return (
+                    <div className='custom-ui'>
+                        <h1>Czy na pewno chcesz usunąć tablice?</h1>
+                        <button className="delete-confirm-no" onClick={onClose}>Nie</button>
+                        <button className="delete-confirm"
+                            onClick={() => {
+                                this.deleteTableConfirmed(id);
+                                onClose();
+                            }}
+                        >
+                            O tak, usuń to !
+                        </button>
+                    </div>
+                );
+            }
+        });
+    }
 
     componentDidMount() {
+
         this.props.dispatch(userActions.getAll());
 
         const token = this.props.user.token;
@@ -40,7 +84,7 @@ class HomePage extends React.Component {
 
 
     // Usuwanie karty
-    deleteTable = id => {
+    deleteTableConfirmed = id => {
         this.props.dispatch(userActions.getAll());
         const token = this.props.user.token;
         const config = {
@@ -57,23 +101,9 @@ class HomePage extends React.Component {
 
     };
 
-    setUpdate = (title, id) => {
-        const token = this.props.user.token;
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
 
-        const userID = this.props.user.id;
 
-        axios.put(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config)
-            .then(response => {
-                // console.log(response);
-            })
-            .catch(error => {
-                // console.log(error);
-            });
-    }
-
+    // funkcja do wyświetlania  opisu descriprion w tableitem
     markcomplete = id => {
         this.setState({
             tables: this.state.tables.map(table => {
@@ -85,15 +115,14 @@ class HomePage extends React.Component {
         });
     };
 
-    handleDeleteUser(id) {
-        return (e) => this.props.dispatch(userActions.delete(id));
-    }
+
 
     render() {
         const { user } = this.props;
 
         return (
             <>
+                {/* menu główne do dodawania tablic */}
                 <Menu
                     tables={this.state.tables}
                     markcomplete={this.markcomplete}
@@ -110,16 +139,20 @@ class HomePage extends React.Component {
 
                 <div className="newTaskTitle"><h4>Aktywne tablice</h4></div>
                 <div className="tablica ">
-                    <div className="d-flex justify-content-start flex-wrap cardCustom">
-                        <ShowTable
-                            tables={this.state.tables}
-                            markcomplete={this.markcomplete}
-                            deleteTable={this.deleteTable}
-                            setUpdate={this.setUpdate}
-                            onChange={this.handleChange}
-                            user={user}
-                            table={this.state.table}
-                        />
+                    <div className="cardCustom">
+                        <div className="col-12 cardCustom">
+
+                            {/* pokaż wszystkie tablice na stronie głównej  */}
+                            <ShowTable
+                                tables={this.state.tables}
+                                markcomplete={this.markcomplete}
+                                deleteTable={this.deleteTable}
+                                setUpdate={this.setUpdate}
+                                onChange={this.handleChange}
+                                user={user}
+                                table={this.state.table}
+                            />
+                        </div>
                     </div>
                 </div>
 
