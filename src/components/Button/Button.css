@@ -26,14 +26,20 @@
 .btnDetails svg {
     color: rgb(219, 219, 219);
     font-weight: 400;
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom: 10px;
 
 }
 
-.btnDetails svg:hover {
-    color: aquamarine !important;
+@media (max-width:768px) {
+
+    .btnDetails svg {
+        display: flex;
+        align-items: center;
+    }
 }
+
+.btnDetails svg:hover {}
 
 .btn-primary {
     background-color: rgb(255, 255, 255) !important;
@@ -46,12 +52,70 @@
     padding-top: 0 !important;
     padding-left: 10px !important;
     color: black !important;
+}
+
+.acceptBtn button {
+    background-color: rgb(3, 92, 7) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 15px !important;
+    padding-top: 0 !important;
+    color: black !important;
+    margin-left: 5px;
+}
+
+.acceptBtn button:hover {
+    background-color: rgb(8, 167, 61) !important;
+    color: white !important;
+    outline: none !important;
+    border: none !important;
 
 }
 
-.btn-primary:hover {
-    background-color: rgb(8, 167, 61) !important;
+.acceptBtn button:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+.acceptBtnEdit button {
+    background-color: rgb(7, 96, 212) !important;
+
+    border: none !important;
+    border-radius: 10px !important;
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 15px !important;
+    padding-top: 0 !important;
+    color: black !important;
+}
+
+.acceptBtnEdit button:hover {
+    background-color: rgb(31, 117, 230) !important;
     color: white !important;
+    outline: none !important;
+    border: none !important;
+
+}
+
+.acceptBtnEdit button:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(7, 96, 212) !important;
+
+    color: white !important;
+    outline: none !important;
+    border: none !important;
+
+}
+
+.btn-primary:focus {
+    outline: none !important;
+    border: none !important;
 }
 
 .btnDanger {

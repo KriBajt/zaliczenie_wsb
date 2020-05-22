@@ -9,7 +9,6 @@ import { HomePage } from '../HomePage'
 import { CardBoard } from '../CardBoard'
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
-import CardLists from '../components/CardLists';
 import UserPage from '../components/UserPage/UserModal'
 
 class App extends React.Component {
@@ -18,13 +17,13 @@ class App extends React.Component {
 
         const { dispatch } = this.props;
         history.listen((location, action) => {
-            // clear alert on location change
             dispatch(alertActions.clear());
         });
     }
 
     render() {
         const { alert } = this.props;
+
         return (
             <>
                 {alert.message &&
@@ -33,10 +32,8 @@ class App extends React.Component {
                 <Switch>
                     <Router history={history} >
                         <div>
-                            {/* {console.log(this.props)} */}
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/cards" component={CardBoard} user={this.user} tableID={this.tableID} />
-                            {/* <Route path="/cardlists" component={CardLists} user={this.user} table={this.table} /> */}
+                            <Route path="/taskboards" component={CardBoard} user={this.user} tableID={this.tableID} history={this.props.history} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
                             <Route path="/userpage" component={UserPage} user={this.user} tableID={this.tableID} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { ButtonToolbar } from 'react-bootstrap';
 import CardDetail from '../Card/CardDetail'
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import './Button.css';
@@ -10,10 +10,29 @@ export default class BtnCardDetails extends Component {
         this.state = { deps: [], addModalShow: false }
     }
 
+    componentDidMount() {
+        // console.log(this.props)
+
+        fetch("https://ninjaorganizer.azurewebsites.net/users/1/taskboards/1/cards/")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        cards: result
+                    });
+                },
+
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
 
     render() {
-        const { deps } = this.state;
-        let addModalClose = () => this.setState({ addModalShow: false });
         return (
             <div>
                 <ButtonToolbar>
@@ -21,9 +40,15 @@ export default class BtnCardDetails extends Component {
                         <IoMdInformationCircleOutline onClick={() => this.setState({ addModalShow: true })} />
                     </div>
                     <CardDetail
-                        show={this.state.addModalShow}
-                        onHide={addModalClose} />
+                        key={this.props.card}
+                        markcomplete={this.props.markcomplete}
+                        deleteCard={this.props.deleteCard}
+                        setUpdate={this.props.setUpdate}
+                        card={this.props.card.id}
+                        user={this.props.user}
+                        id={this.props.id}
 
+                    />
                 </ButtonToolbar>
 
             </div>

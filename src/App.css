@@ -120,18 +120,18 @@ contentTrelloBox {
 }
 
 
-
-/* end style do kart  */
-
-
-/* style do strony rejestracji */
 .authBox {
   width: 700px;
+  height: 100%;
   overflow: hidden;
-  margin: 200px auto;
+  margin: 100px auto;
 
+}
 
-
+.help-block {
+  color: red;
+  margin-top: -18px;
+  margin-left: 40px;
 }
 
 .leftBox {
@@ -521,4 +521,55 @@ contentTrelloBox {
 hr {
   border: 1px solid rgba(255, 255, 255, .2);
 
+}
+
+.selectBoxCus {
+  border-radius: 30px !important;
+  border: 0;
+  font-size: 14px;
+  outline: none !important;
+  height: 35px;
+}
+
+.selectBoxCus-2 {
+  border-radius: 30px !important;
+  border: 0;
+  font-size: 14px;
+  outline: none !important;
+  height: 35px;
+  margin-left: 10px;
+}
+
+.selectBoxCus option {
+  width: 100px;
+}
+
+
+
+
+.selectBoxCus:hover {
+  outline: none !important;
+
+}
+
+.selectBoxCustS:focus {
+  outline: none;
+}
+
+
+.retunButton {
+  width: 100%;
+  text-align: right;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.retunButton a {
+  text-decoration: none;
+}
+
+.retunButton a:hover {
+  text-decoration: none;
+  color: #fff;
 }

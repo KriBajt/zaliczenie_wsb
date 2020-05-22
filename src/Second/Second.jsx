@@ -35,7 +35,7 @@
 
 //         const { id } = this.state;
 //         axios
-//             .get(`http://localhost:1028/users/1005/taskboards/`)
+//             .get(`https://ninjaorganizer.azurewebsites.net/users/1005/taskboards/`)
 //             .then(res =>
 //                 this.setState({
 //                     tables: res.data
@@ -47,7 +47,7 @@
 
 //     // Usuwanie karty
 //     deleteTable = id => {
-//         axios.delete(`http://localhost:1028/users/1005/taskboards/${id}`).then(res =>
+//         axios.delete(`https://ninjaorganizer.azurewebsites.net/users/1005/taskboards/${id}`).then(res =>
 //             this.setState({
 //                 tables: [...this.state.tables.filter(table => table.id !== id)]
 //             })
@@ -55,7 +55,7 @@
 //     };
 
 //     setUpdate = (title, id) => {
-//         axios.put(`http://localhost:1028/users/1005/taskboards/${id}`, {
+//         axios.put(`https://ninjaorganizer.azurewebsites.net/users/1005/taskboards/${id}`, {
 //             Title: 'dupa',
 //         }).then(response => {
 //             console.log(response);
@@ -66,7 +66,7 @@
 //     }
 
 //     //toggle complete
-//     markComplete = id => {
+//     markcomplete = id => {
 //         this.setState({
 //             tables: this.state.tables.map(table => {
 //                 if (table.id === id) {
@@ -98,7 +98,7 @@
 //                         <div className="container cardCustom">
 //                             <ShowTable
 //                                 tables={this.state.tables}
-//                                 markComplete={this.markComplete}
+//                                 markcomplete={this.markcomplete}
 //                                 deleteTable={this.deleteTable}
 //                                 setUpdate={this.setUpdate}
 //                                 onChange={this.handleChange}
@@ -112,7 +112,7 @@
 //                 <div className="container cardCustom">
 //                     <ShowTable
 //                         tables={this.state.tables}
-//                         markComplete={this.markComplete}
+//                         markcomplete={this.markcomplete}
 //                         deleteTable={this.deleteTable}
 //                         setUpdate={this.setUpdate}
 //                         onChange={this.handleChange}

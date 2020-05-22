@@ -2,17 +2,11 @@
 
 
 @media (max-width:1600px) {
-    .cardCustomList {
-        width: 200px !important;
-        font-size: 12px;
-    }
 
     .card-title {
-        font-size: 12px;
+        font-size: 16px;
+
     }
-
-
-
 }
 
 
@@ -29,6 +23,47 @@
     margin: 0 auto;
 }
 
+@media (max-width:768px) {
+    .formItem input {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: center;
+    }
+
+    #ikona-ninja {
+        display: none;
+    }
+
+    #login-name {
+        display: none;
+    }
+
+    .cardCustomList {
+        width: 100% !important;
+
+    }
+}
+
+@media (max-width:800px) {
+    .cardCustomList {
+        width: 100% !important;
+
+    }
+
+    .cardCustom div {
+        display: flex;
+        width: 100% !important;
+
+    }
+
+}
+
+
+
+
 .formItem {
     margin: 10px;
     border-radius: 10px;
@@ -42,6 +77,27 @@
 }
 
 .formItem input:hover {
+    outline: none;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+.cardModalEdit {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.cardModalEdit input {
+    height: 35px;
+    border-radius: 30px;
+    border: none;
+    text-indent: 10px;
+    width: 98%;
+    margin: 10px;
+}
+
+.cardModalEdit input:hover {
     outline: none;
     -webkit-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
@@ -68,13 +124,16 @@
     box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
+.arch {
+    background: transparent;
+}
 
 .cardDetailNav {
     display: flex;
     background-color: #ffff;
 
-
 }
+
 
 .cardDetailNav p {
     padding-left: 10px;
@@ -121,6 +180,10 @@
 
 
 
+.btnDelete svg {
+    padding-top: 2px;
+}
+
 .btnDelete svg:hover {
     color: red !important;
 }
@@ -138,4 +201,15 @@
 .card-footer a:hover {
     color: #fff;
     text-decoration: none;
+}
+
+@media (max-width:768px) {
+    .formItem {
+        width: 100%;
+    }
+
+    .card-footer {
+        display: flex;
+        align-items: center;
+    }
 }

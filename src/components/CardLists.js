@@ -36,7 +36,7 @@
 //         // const userID = this.props.user.id;
 //         // console.log(this.props);
 //         axios.get(
-//             `http://localhost:1028/users/1005/taskboards/1148/cards/`,
+//             `https://ninjaorganizer.azurewebsites.net/users/1005/taskboards/1148/cards/`,
 //             // config
 //         ).then(res =>
 //             this.setState({
@@ -47,7 +47,7 @@
 
 
 //     //toggle complete
-//     markComplete = id => {
+//     markcomplete = id => {
 //         this.setState({
 //             cards: this.state.cards.map(card => {
 //                 if (card.id === id) {
@@ -60,7 +60,7 @@
 
 //     // // Usuwanie karty
 //     // deleteCard = id => {
-//     //     axios.delete(`http://localhost:1028/users/1/taskboards/1/cards/${id}`).then(res =>
+//     //     axios.delete(`https://ninjaorganizer.azurewebsites.net/users/1/taskboards/1/cards/${id}`).then(res =>
 //     //         this.setState({
 //     //             cards: [...this.state.cards.filter(card => card.id !== id)]
 //     //         })
@@ -74,7 +74,7 @@
 //             headers: { Authorization: `Bearer ${token}` }
 //         };
 //         const userID = this.props.user.id;
-//         axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
+//         axios.delete(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config).then(res =>
 //             this.setState({
 //                 cards: [...this.state.cards.filter(card => card.id !== id)]
 //             })
@@ -92,7 +92,7 @@
 //                 <div className="container cardCustom">
 //                     <ShowCard
 //                         cards={this.state.cards}
-//                         markComplete={this.markComplete}
+//                         markcomplete={this.markcomplete}
 //                         deleteCard={this.deleteCard}
 //                     />
 //                 </div>

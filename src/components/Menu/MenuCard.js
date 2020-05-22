@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
-import Link from 'react-bootstrap/NavLink';
 import { GiNinjaHead } from 'react-icons/gi';
 import './Menu.css';
 import CardForm from '../Card/CardForm';
-import { userActions } from '../../actions/user.actions';
-import { connect } from 'react-redux';
-// import ShowTable from '../components/Table/ShowTable';
 import UserModal from '../UserPage/UserModal'
 
 export default class Menu extends Component {
@@ -40,12 +35,15 @@ export default class Menu extends Component {
                                 key={this.props.card}
                                 tables={this.props.user.taskboards}
                                 history={this.props.history}
+                                table={this.props.table}
                             />
 
                         </Nav>
                         <Nav>
 
                             <Nav.Link
+                                id="login-name"
+
                                 onClick={() => this.setState({ addModalShow: true })}>Cześć! {this.props.user.firstName}
 
                             </Nav.Link>
@@ -55,7 +53,7 @@ export default class Menu extends Component {
                                 onHide={addModalClose}
                             />
 
-                            <Nav.Link href="#deets"><GiNinjaHead /></Nav.Link>
+                            <Nav.Link href="#deets" id="ikona-ninja"><GiNinjaHead /></Nav.Link>
                             <Nav.Link eventKey={2} href="/login">
                                 Wyloguj
                     </Nav.Link>

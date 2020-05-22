@@ -15,7 +15,7 @@ export default class TableDetail extends Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:1028/users/1/taskboards/")
+        fetch("https://ninjaorganizer.azurewebsites.net/users/1/taskboards/")
             .then(res => res.json())
             .then(
                 (result) => {

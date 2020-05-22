@@ -35,7 +35,7 @@ export default class login extends Component {
         } = this.state
 
 
-        axios.post("http://localhost:1028/users/authenticate", {
+        axios.post("https://ninjaorganizer.azurewebsites.net/users/authenticate", {
             Username: Username,
             Password: Password,
 

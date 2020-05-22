@@ -5,9 +5,6 @@ import '../App.css';
 import { FaFacebookSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { GiNinjaHead } from 'react-icons/gi';
-
-import axios from 'axios';
-
 import { userActions } from '../actions';
 
 class RegisterPage extends React.Component {
@@ -20,7 +17,7 @@ class RegisterPage extends React.Component {
                 lastName: '',
                 username: '',
                 numberOfTaskboards: '',
-                password: ''
+                password: '',
             },
             submitted: false
         };
@@ -52,7 +49,7 @@ class RegisterPage extends React.Component {
     }
 
     render() {
-        const { registering } = this.props;
+        // const { registering } = this.props;
         const { user, submitted } = this.state;
         return (
 
@@ -98,9 +95,9 @@ class RegisterPage extends React.Component {
 
                             <div className="form-group">
                                 <button className="btnAuth">Zarejestruj się</button>
-                                {registering &&
+                                {/* {registering &&
                                     <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                                }
+                                } */}
                                 <Link to="/login" className="btn btn-link ">Anuluj</Link>
                             </div>
 

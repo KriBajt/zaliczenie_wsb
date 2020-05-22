@@ -1,13 +1,8 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
-import SchowCard from './ShowCard';
-import PropTypes from 'prop-types';
-import { userActions } from '../../actions/user.actions'
+import { IoIosSave } from 'react-icons/io';
 import { connect } from 'react-redux';
-import ShowTable from '../Card/ShowCard'
-import { withRouter } from 'react-router'
 
 export default class CardForm extends Component {
     constructor(props) {
@@ -17,32 +12,28 @@ export default class CardForm extends Component {
             // id: null,
             title: '',
             content: '',
-            priority: '',
+            priority: 1,
+            state: 1,
             cards: [],
-
-
         }
+
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        //     this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleChange = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ [e.target.name]: e.target.value });
-    // }
+    onChange(e) {
+        this.setState({
+            priority: e.target.value
+        })
+    }
+
 
     handleChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
-        // const token = this.props.user.token;
-        // console.log(token);
-
-        const pathID = this.props.history.location.pathname;
-
-
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
 
         const pathID = this.props.history.location.pathname;
         var str = pathID;
@@ -59,41 +50,46 @@ export default class CardForm extends Component {
         const bodyParameters = {
             title: this.state.title,
             content: this.state.content,
-            priority: this.state.priority
+            priority: this.state.priority,
+            state: this.state.state
         };
 
-        axios.post(`http://localhost:1028/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
+        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
             .then(response => {
+
                 let cards = response.data;
                 this.setState({ cards: cards });
-                //   this.setState({user:user});
-                e.preventDefault()
-
             })
             .catch(error => {
+                console.log(error)
             })
 
     }
 
 
     render() {
-        const { id, title, content, priority, state, cards } = this.state
+        const { title, content } = this.state
 
         return (
             <div className="formContainer">
-
-                <form onSubmit={this.handleSubmit} >
-                    <div className="formItem">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="formItem ">
                         <input type="title" name="title" value={title} onChange={this.handleChange} placeholder="Wpisz tytuł zadania" />
                     </div>
                     <div className="formItem">
                         <input type="content" name="content" value={content} onChange={this.handleChange} placeholder="Wpisz treść zadania" />
                     </div>
-                    <div className="formItem">
-                        <input type="number" name="priority" value={priority} onChange={this.handleChange} placeholder="Prioritet" />
+                    <div className="formItem mr-2 selectBoxCus selectpicker">
+                        <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control selectBoxCus">
+
+                            <option>Prioritet..</option>
+                            <option value="1">Niski</option>
+                            <option value="2">Średni</option>
+                            <option value="3">Wysoki</option>
+                        </select>
                     </div>
                     <div>
-                        <Button type="submit" className="ml-0">
+                        <Button type="submit" className="ml-2" onClick={this.props.onHide}>
                             <IoIosSave />
                         </Button>
                     </div>
@@ -101,11 +97,6 @@ export default class CardForm extends Component {
             </div >
         )
     }
-}
-
-// PropTypes
-CardForm.propTypes = {
-    cards: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

@@ -1,3 +1,3 @@
 export const config = {
-    apiUrl: 'http://localhost:1028'
+    apiUrl: 'https://ninjaorganizer.azurewebsites.net'
 };

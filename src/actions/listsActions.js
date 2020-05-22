@@ -38,7 +38,7 @@ export function getData() {
         // set state to "loading"
         dispatch(getDataRequested());
 
-        fetch('http://localhost:1028/users/1/taskboards/1/cards/')
+        fetch('https://ninjaorganizer.azurewebsites.net/users/1/taskboards/1/cards/')
             .then(response => response.json())
             .then(data => {
                 dispatch(getDataDone(data));

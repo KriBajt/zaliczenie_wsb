@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { Modal, Row, Col, Form } from 'react-bootstrap';
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Modal, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CardDetail.css';
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
 export default class CardDetail extends Component {
     constructor(props) {
@@ -15,7 +14,9 @@ export default class CardDetail extends Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:1028/users/1/taskboards/1/cards/")
+        // console.log(this.props)
+
+        fetch("https://ninjaorganizer.azurewebsites.net/users/1/taskboards/1/cards/")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -144,7 +145,6 @@ export default class CardDetail extends Component {
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="primary" type="submit" className="ml-0">
-                                <IoIosSave />
                             </Button>
                         </Modal.Footer>
                     </Modal>

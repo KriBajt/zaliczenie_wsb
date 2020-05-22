@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { userActions } from '../../actions'
-import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import axios from "axios";
 
 export default class UserModal extends Component {
@@ -23,7 +21,7 @@ export default class UserModal extends Component {
         const userID = this.props.user.id;
 
         axios.get(
-            `http://localhost:1028/users/${userID}/`,
+            `https://ninjaorganizer.azurewebsites.net/users/${userID}/`,
             config
         ).then(res =>
             this.setState({
@@ -37,7 +35,7 @@ export default class UserModal extends Component {
 
 
     render() {
-        console.log(this.state.users);
+        // console.log(this.state.users);
         return (
             <Modal
                 {...this.props}

@@ -1,26 +1,12 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions';
-
-import TrelloList from '../components/TrelloList';
-import TrelloActionButton from "../components/Button/TrelloActionButton";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { sort } from "../actions";
-import { GiNinjaHead } from 'react-icons/gi';
 import Menu from '../components/Menu/Menu';
 import Footer from '../components/Footer/Footer';
-import BtnCardDetails from '../components/Button/BtnCardList'
-import CardDetail from '../components/Table/TableDetail'
 import ShowTable from '../components/Table/ShowTable';
-// coś modal psuje
-import Modal from '../components/Modal/Modal';
 import '../App.css';
-
-import TableForm from '../components/Table/TableForm';
 import axios from "axios";
-import { Button } from 'react-bootstrap';
-import { IoIosCloseCircle, IoIosSave } from 'react-icons/io';
 
 class HomePage extends React.Component {
 
@@ -43,7 +29,7 @@ class HomePage extends React.Component {
         const userID = this.props.user.id;
 
         axios.get(
-            `http://localhost:1028/users/${userID}/taskboards/`,
+            `https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/`,
             config
         ).then(res =>
             this.setState({
@@ -63,7 +49,7 @@ class HomePage extends React.Component {
 
         const userID = this.props.user.id;
 
-        axios.delete(`http://localhost:1028/users/${userID}/taskboards/${id}`, config).then(res =>
+        axios.delete(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config).then(res =>
             this.setState({
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
@@ -79,7 +65,7 @@ class HomePage extends React.Component {
 
         const userID = this.props.user.id;
 
-        axios.put(`http://localhost:1028/users/${userID}/taskboards/${id}`, config)
+        axios.put(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config)
             .then(response => {
                 // console.log(response);
             })
@@ -88,28 +74,7 @@ class HomePage extends React.Component {
             });
     }
 
-    // onSubmit = (id, token) => {
-    //     this.props.dispatch(userActions.getAll());
-    //     const config = {
-    //         headers: { Authorization: `Bearer ${token}` }
-    //     };
-
-    //     axios.post(`http://localhost:1028/users/${id}/taskboards/`, config, this.state)
-    //         .then(response => {
-    //             let tables = response.data;
-    //             this.setState({ tables: tables });
-    //             //   this.setState({user:user});
-    //             console.log(response);
-    //         })
-    //         .catch(error => {
-    //             console.log('erere')
-    //         })
-    // }
-
-
-
-    //toggle complete
-    markComplete = id => {
+    markcomplete = id => {
         this.setState({
             tables: this.state.tables.map(table => {
                 if (table.id === id) {
@@ -125,11 +90,18 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const { user, users, title } = this.props;
+        const { user } = this.props;
 
         return (
             <>
-                <Menu user={user} />
+                <Menu
+                    tables={this.state.tables}
+                    markcomplete={this.markcomplete}
+                    deleteTable={this.deleteTable}
+                    setUpdate={this.setUpdate}
+                    onChange={this.handleChange}
+                    user={user} />
+
                 <section className="sectionText">
                     <div className="textNewBoard">
                         {/* <h4>Stwórz swoją pierwszą tablicę !</h4> */}
@@ -141,20 +113,16 @@ class HomePage extends React.Component {
                     <div className="d-flex justify-content-start flex-wrap cardCustom">
                         <ShowTable
                             tables={this.state.tables}
-                            markComplete={this.markComplete}
+                            markcomplete={this.markcomplete}
                             deleteTable={this.deleteTable}
                             setUpdate={this.setUpdate}
                             onChange={this.handleChange}
                             user={user}
+                            table={this.state.table}
                         />
                     </div>
                 </div>
 
-
-
-                {/* <div className="col-2 hello">
-                    <p>Cześć!<br></br> {user.firstName} {title}  </p>
-                </div> */}
                 <Footer />
 
             </>

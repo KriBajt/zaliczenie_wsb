@@ -1,44 +1,47 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import './CardDetail.css';
-import BtnCardDetails from '../Button/BtnCardDetails';
-import { BsFillTrashFill } from 'react-icons/bs';
-import axios from "axios";
 import CardItem from './CardItem';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { userActions } from '../../actions/user.actions';
 
 export default class ShowCard extends Component {
+    constructor(props) {
+        super(props);
 
-    // const fetchItems = async ()=>{
-    //     const data =  await fetch()
-    // }
+        this.keyCount = 0;
+        this.getKey = this.getKey.bind(this);
+    }
+
+    getKey() {
+        return this.keyCount++;
+    }
+
     render() {
 
-        return this.props.cards.map(card => (
+        return this.props.cards.filter(card => card.state < 3).map(card => (
             <CardItem
-                key={this.props.card}
-                markComplete={this.props.markComplete}
+                key={this.getKey()}
+                markcomplete={this.props.markcomplete}
                 deleteCard={this.props.deleteCard}
                 setUpdate={this.props.setUpdate}
                 card={card}
                 user={this.props.user}
+                tables={this.props.tableID}
 
             />
         ));
     }
 }
 
-//PropTypes
+// //PropTypes
+// ShowCard.propTypes = {
+//     cards: PropTypes.array.isRequired,
+//     // tables: PropTypes.array.isRequired,
+//     // markcomplete: PropTypes.func.isRequired,
+//     deleteCard: PropTypes.func.isRequired,
+//     onChange: PropTypes.func.isRequired,
+//     setUpdate: PropTypes.func.isRequired,
 
-ShowCard.propTypes = {
-    cards: PropTypes.array.isRequired,
-    markComplete: PropTypes.func.isRequired,
-    deleteCard: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    setUpdate: PropTypes.func.isRequired,
-
-};
+// };
 
 
 
