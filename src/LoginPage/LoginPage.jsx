@@ -82,7 +82,7 @@ class LoginPage extends React.Component {
                                 <div className={'checkboxBox'}>
 
                                 </div>
-                                <div className={'text1'}>Zapomniałeś hasło?</div>
+                                {/* <div className={'text1'}>Zapomniałeś hasło?</div> */}
                             </div>
 
 

@@ -59,10 +59,19 @@
 
     }
 
-    .cardCustom div {
+    .cardCustom {
         display: flex;
-        width: 100% !important;
+        flex-direction: column;
+        width: 99%;
 
+    }
+
+    .cardCustom div {
+        max-width: 100%;
+    }
+
+    .cardCustomList {
+        width: 750px !important;
     }
 
 }
@@ -120,7 +129,9 @@
     height: 100%;
 }
 
-.cardCustomList {
+
+
+/* .cardCustomList {
     width: 350px;
     margin: 10px;
     border-radius: 10px;
@@ -129,6 +140,14 @@
     -moz-box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 3px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
+
+*/
+/* @media(max-width:350px) {
+    .cardCustomList div {
+        width: 300px;
+    }
+
+} */
 
 .arch {
     background: transparent;
