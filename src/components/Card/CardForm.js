@@ -54,7 +54,7 @@ export default class CardForm extends Component {
             state: this.state.state
         };
 
-        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config)
+        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/`, bodyParameters, config, { timeout: 2 })
             .then(response => {
 
                 let cards = response.data;
