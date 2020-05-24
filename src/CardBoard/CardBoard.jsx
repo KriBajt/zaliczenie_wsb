@@ -141,12 +141,15 @@ class CardBoard extends React.Component {
         var n = str.lastIndexOf('/');
         var tableID = str.substring(n + 1);
 
-        axios.patch(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config).then(res =>
+        axios.patch(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${id}`, bodyParameters, config, { timeout: 50 }).then(res =>
             this.setState({
                 cards: [...this.state.cards.filter(card => card.id !== id)]
             })
         );
-        window.location.reload(false);
+        // window.location.reload(false);
+        setTimeout(function () { window.location.reload(true); }, 500);
+
+
     };
 
     markcomplete = id => {

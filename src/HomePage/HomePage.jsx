@@ -60,10 +60,10 @@ class HomePage extends React.Component {
                 );
             }
         });
+
     }
 
     componentDidMount() {
-
         this.props.dispatch(userActions.getAll());
 
         const token = this.props.user.token;
@@ -93,11 +93,12 @@ class HomePage extends React.Component {
 
         const userID = this.props.user.id;
 
-        axios.delete(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config).then(res =>
+        axios.delete(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${id}`, config, { timeout: 50 }).then(res =>
             this.setState({
                 tables: [...this.state.tables.filter(table => table.id !== id)]
             })
         );
+        setTimeout(function () { window.location.reload(true); }, 500);
 
     };
 

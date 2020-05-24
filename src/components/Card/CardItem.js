@@ -22,7 +22,7 @@ export default class CardItem extends Component {
 
         let addModalClose = () => {
             this.setState({ addModalShow: false });
-            window.location.reload(false);
+            // window.location.reload(false);
         }
 
         return (

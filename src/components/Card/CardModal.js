@@ -35,7 +35,7 @@ export default class CardModal extends Component {
 
         axios.get(
             `https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards`,
-            config
+            config, { timeout: 2 }
         ).then(res =>
             this.setState({
                 cards: res.data
@@ -69,7 +69,7 @@ export default class CardModal extends Component {
 
         const cardID = this.props.id;
 
-        axios.patch(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${cardID}`, bodyParameters, config)
+        axios.patch(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/${tableID}/cards/${cardID}`, bodyParameters, config, { timeout: 2 })
             .then(response => {
                 let cards = response.data;
                 this.setState({ cards: cards });
@@ -77,6 +77,10 @@ export default class CardModal extends Component {
             .catch(error => {
                 console.log(this.props)
             })
+
+        e.preventDefault()
+        setTimeout(function () { window.location.reload(true); }, 600);
+
     }
 
     handleChange = (e) => {

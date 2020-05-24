@@ -40,15 +40,19 @@ export default class TableForm extends Component {
             description: this.state.description
         };
         // połączenie z serwerem
-        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/`, bodyParameters, config)
+        axios.post(`https://ninjaorganizer.azurewebsites.net/users/${userID}/taskboards/`, bodyParameters, config, { timeout: 50 })
             .then(response => {
                 let tables = response.data;
                 this.setState({ tables: tables });
-                e.preventDefault()
             })
             .catch(error => {
             })
+        e.preventDefault()
+        setTimeout(function () { window.location.reload(true); }, 500);
+
+
     }
+
 
     render() {
         return (
